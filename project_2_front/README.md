@@ -2,26 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
-## Development server
+An angular front end containing 6 components: registration, login, restaurantSelection, orders, drivers, and delivery
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The registration component allows users to register as a user or a driver, there will also be functionality
+for registering as a restaurant.
 
-## Code scaffolding
+Login will handle logins for users, drivers, and restaurants and route them accordingly.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+restaurantSelection will allow a user (and maybe a driver I'm not sure how we're doing driver selection) to select a restaurant
+to order their food from.
 
-## Build
+orders will contain the functionality to allow users to place an order for food.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+drivers will be the component for determining who the driver is delivering the food.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+delivery will handle a drivers active deliveries, they will be able to complete deliveries and see what
+deliveries they have yet to make.
