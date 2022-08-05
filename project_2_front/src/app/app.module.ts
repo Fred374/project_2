@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ChooserestaurantComponent } from './chooserestaurant/chooserestaurant.component';
 import { MoodforwhatComponent } from './moodforwhat/moodforwhat.component';
+import { RestaurantOrdersComponent } from './restaurant-orders/restaurant-orders.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OrdersComponent,
     ChooserestaurantComponent,
-    MoodforwhatComponent
+    MoodforwhatComponent,
+    RestaurantOrdersComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
