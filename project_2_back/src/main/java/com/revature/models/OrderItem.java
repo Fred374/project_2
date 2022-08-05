@@ -1,10 +1,14 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
@@ -17,8 +21,9 @@ public class OrderItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderItemId;
 	
-	@Column
-	private int orderItemFoodId;
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "food_item_id")
+	private FoodItem orderItemFoodIdFk;
 	
 	@Column
 	private int orderItemNum;
@@ -26,35 +31,37 @@ public class OrderItem {
 	@Column
 	private double orderItemTotalCost;
 	
-	@Column
-	private int orderIdFk;
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "order_id")
+	private Order orderFk;
 
 	public OrderItem() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderItem(int orderItemId, int orderItemFoodId, int orderItemNum, double orderItemTotalCost, int orderIdFk) {
+	public OrderItem(int orderItemId, FoodItem orderItemFoodIdFk, int orderItemNum, double orderItemTotalCost,
+			Order orderFk) {
 		super();
 		this.orderItemId = orderItemId;
-		this.orderItemFoodId = orderItemFoodId;
+		this.orderItemFoodIdFk = orderItemFoodIdFk;
 		this.orderItemNum = orderItemNum;
 		this.orderItemTotalCost = orderItemTotalCost;
-		this.orderIdFk = orderIdFk;
+		this.orderFk = orderFk;
 	}
 
-	public OrderItem(int orderItemFoodId, int orderItemNum, double orderItemTotalCost, int orderIdFk) {
+	public OrderItem(FoodItem orderItemFoodIdFk, int orderItemNum, double orderItemTotalCost, Order orderFk) {
 		super();
-		this.orderItemFoodId = orderItemFoodId;
+		this.orderItemFoodIdFk = orderItemFoodIdFk;
 		this.orderItemNum = orderItemNum;
 		this.orderItemTotalCost = orderItemTotalCost;
-		this.orderIdFk = orderIdFk;
+		this.orderFk = orderFk;
 	}
 
 	@Override
 	public String toString() {
-		return "OrderItem [orderItemId=" + orderItemId + ", orderItemFoodId=" + orderItemFoodId + ", orderItemNum="
-				+ orderItemNum + ", orderItemTotalCost=" + orderItemTotalCost + ", orderIdFk=" + orderIdFk + "]";
+		return "OrderItem [orderItemId=" + orderItemId + ", orderItemFoodIdFk=" + orderItemFoodIdFk + ", orderItemNum="
+				+ orderItemNum + ", orderItemTotalCost=" + orderItemTotalCost + ", orderFk=" + orderFk + "]";
 	}
 
 	public int getOrderItemId() {
@@ -65,12 +72,12 @@ public class OrderItem {
 		this.orderItemId = orderItemId;
 	}
 
-	public int getOrderItemFoodId() {
-		return orderItemFoodId;
+	public FoodItem getOrderItemFoodIdFk() {
+		return orderItemFoodIdFk;
 	}
 
-	public void setOrderItemFoodId(int orderItemFoodId) {
-		this.orderItemFoodId = orderItemFoodId;
+	public void setOrderItemFoodIdFk(FoodItem orderItemFoodIdFk) {
+		this.orderItemFoodIdFk = orderItemFoodIdFk;
 	}
 
 	public int getOrderItemNum() {
@@ -89,12 +96,12 @@ public class OrderItem {
 		this.orderItemTotalCost = orderItemTotalCost;
 	}
 
-	public int getOrderIdFk() {
-		return orderIdFk;
+	public Order getOrderFk() {
+		return orderFk;
 	}
 
-	public void setOrderIdFk(int orderIdFk) {
-		this.orderIdFk = orderIdFk;
+	public void setOrderFk(Order orderFk) {
+		this.orderFk = orderFk;
 	}
 
 }

@@ -1,10 +1,14 @@
 package com.revature.models;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
@@ -21,35 +25,48 @@ public class Order {
 	private double orderCost;
 	
 	@Column
-	private int orderUserId;
+	private int orderUserIdFk;
 	
 	@Column
-	private int orderRestaurantId;
+	private int orderRestaurantIdFk;
+	
+	@Column
+	private int orderStatus;
+	
+	@OneToMany(mappedBy="orderFk", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	private List<OrderItem> orderItems;
 
 	public Order() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(int orderId, double orderCost, int orderUserId, int orderRestaurantId) {
+	public Order(int orderId, double orderCost, int orderUserIdFk, int orderRestaurantIdFk, int orderStatus,
+			List<OrderItem> orderItems) {
 		super();
 		this.orderId = orderId;
 		this.orderCost = orderCost;
-		this.orderUserId = orderUserId;
-		this.orderRestaurantId = orderRestaurantId;
+		this.orderUserIdFk = orderUserIdFk;
+		this.orderRestaurantIdFk = orderRestaurantIdFk;
+		this.orderStatus = orderStatus;
+		this.orderItems = orderItems;
 	}
 
-	public Order(double orderCost, int orderUserId, int orderRestaurantId) {
+	public Order(double orderCost, int orderUserIdFk, int orderRestaurantIdFk, int orderStatus,
+			List<OrderItem> orderItems) {
 		super();
 		this.orderCost = orderCost;
-		this.orderUserId = orderUserId;
-		this.orderRestaurantId = orderRestaurantId;
+		this.orderUserIdFk = orderUserIdFk;
+		this.orderRestaurantIdFk = orderRestaurantIdFk;
+		this.orderStatus = orderStatus;
+		this.orderItems = orderItems;
 	}
 
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", orderCost=" + orderCost + ", orderUserId=" + orderUserId
-				+ ", orderRestaurantId=" + orderRestaurantId + "]";
+		return "Order [orderId=" + orderId + ", orderCost=" + orderCost + ", orderUserIdFk=" + orderUserIdFk
+				+ ", orderRestaurantIdFk=" + orderRestaurantIdFk + ", orderStatus=" + orderStatus + ", orderItems="
+				+ orderItems + "]";
 	}
 
 	public int getOrderId() {
@@ -68,20 +85,36 @@ public class Order {
 		this.orderCost = orderCost;
 	}
 
-	public int getOrderUserId() {
-		return orderUserId;
+	public int getOrderUserIdFk() {
+		return orderUserIdFk;
 	}
 
-	public void setOrderUserId(int orderUserId) {
-		this.orderUserId = orderUserId;
+	public void setOrderUserIdFk(int orderUserIdFk) {
+		this.orderUserIdFk = orderUserIdFk;
 	}
 
-	public int getOrderRestaurantId() {
-		return orderRestaurantId;
+	public int getOrderRestaurantIdFk() {
+		return orderRestaurantIdFk;
 	}
 
-	public void setOrderRestaurantId(int orderRestaurantId) {
-		this.orderRestaurantId = orderRestaurantId;
+	public void setOrderRestaurantIdFk(int orderRestaurantIdFk) {
+		this.orderRestaurantIdFk = orderRestaurantIdFk;
+	}
+
+	public int getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(int orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	public List<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(List<OrderItem> orderItems) {
+		this.orderItems = orderItems;
 	}
 
 }
