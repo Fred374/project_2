@@ -10,7 +10,7 @@ import com.revature.daos.UsersDAO;
 import com.revature.models.Users;
 
 @RestController
-@RequestMapping("value=/user")
+@RequestMapping(value="/user")
 public class UsersController {
 
 	private UsersDAO uDAO;
@@ -22,7 +22,7 @@ public class UsersController {
 		this.uDAO = uDAO;
 	}
 	
-	@PostMapping
+	@PostMapping(value = "/register")
 	// Request Body 'automatically' converts from JSON
 	// All we need to learn is how to route the users input to here... simple enough to start
 	// public ResponseEntity registerUser(@RequestBody Users u) {
