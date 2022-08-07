@@ -10,61 +10,61 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "user_roles")
 @Component
 public class UserRole {
 	
 	/* Defining fields/DB columns -------------------------------------------------------------------------- */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int roleId;
+	private int userRoleId;
 	
 	@Column(
 			nullable = false,
 			columnDefinition = "TEXT",
 			unique = true
 	)
-	private String roleName;
+	private String userRoleName;
 
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public UserRole() {
 		super();
 	}
 
-	public UserRole(int roleId, String roleName) {
+	public UserRole(int userRoleId, String userRoleName) {
 		super();
-		this.roleId = roleId;
-		this.roleName = roleName;
+		this.userRoleId = userRoleId;
+		this.userRoleName = userRoleName;
 	}
 
 	// do we need it? maybe not but...
 	// what if there was a user subscription for discounts
-	public UserRole(String roleName) {
+	public UserRole(String userRoleName) {
 		super();
-		this.roleName = roleName;
+		this.userRoleName = userRoleName;
 	}
 	
 	/* toString -------------------------------------------------------------------------------------------- */
 	@Override
 	public String toString() {
-		return "UserRole [roleId=" + roleId + ", roleName=" + roleName + "]";
+		return "UserRole [userRoleId=" + userRoleId + ", userRoleName=" + userRoleName + "]";
 	}
 	
 	/* Getters & Setters ----------------------------------------------------------------------------------- */
-	public int getRoleId() {
-		return roleId;
+	public int getUserRoleId() {
+		return userRoleId;
 	}
 
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+	public void setUserRoleId(int userRoleId) {
+		this.userRoleId = userRoleId;
 	}
 
-	public String getRoleName() {
-		return roleName;
+	public String getUserRoleName() {
+		return userRoleName;
 	}
 
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setUserRoleName(String userRoleName) {
+		this.userRoleName = userRoleName;
 	}
 
 	
