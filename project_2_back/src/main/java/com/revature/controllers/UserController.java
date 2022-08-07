@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.revature.daos.UsersDAO;
+import com.revature.daos.UserDAO;
 import com.revature.models.User;
 
 @RestController
 @RequestMapping(value="/user")
-public class UsersController {
+public class UserController {
 
-	private UsersDAO uDAO;
+	private UserDAO uDAO;
 
 	// generated using fields
 	@Autowired
-	public UsersController(UsersDAO uDAO) {
+	public UserController(UserDAO uDAO) {
 		super();
 		this.uDAO = uDAO;
 	}
