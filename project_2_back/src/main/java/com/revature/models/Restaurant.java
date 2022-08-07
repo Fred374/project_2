@@ -12,32 +12,46 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "restaurants")
 @Component
-public class Restaurants {
-
+public class Restaurant {
+	
+	/* Defining fields/DB columns -------------------------------------------------------------------------- */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int restaurantId;
 	
-	@Column
+	@Column(
+			nullable = false,
+			columnDefinition = "TEXT"
+	)
 	private String restaurantName;
 	
-	@Column
+	@Column(
+			nullable = false,
+			columnDefinition = "TEXT",
+			unique = true
+	)
 	private String restaurantUsername;
 	
-	@Column
+	@Column(
+			nullable = false,
+			columnDefinition = "TEXT"
+	)
 	private String restaurantPassword;
 	
-	@Column
+	@Column(
+			nullable = false,
+			columnDefinition = "TEXT",
+			unique = true
+	)
 	private String restaurantEmail;
 
-	
-	public Restaurants() {
+	/* Constructors ---------------------------------------------------------------------------------------- */
+	public Restaurant() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	//all-args
-	public Restaurants(int restaurantId, String restaurantName, String restaurantUsername, String restaurantPassword,
+	public Restaurant(int restaurantId, String restaurantName, String restaurantUsername, String restaurantPassword,
 			String restaurantEmail) {
 		super();
 		this.restaurantId = restaurantId;
@@ -45,10 +59,10 @@ public class Restaurants {
 		this.restaurantUsername = restaurantUsername;
 		this.restaurantPassword = restaurantPassword;
 		this.restaurantEmail = restaurantEmail;
-	} // 
+	}
 
 	// all except id (in-case of creating a new Restaurant)
-	public Restaurants(String restaurantName, String restaurantUsername, String restaurantPassword,
+	public Restaurant(String restaurantName, String restaurantUsername, String restaurantPassword,
 			String restaurantEmail) {
 		super();
 		this.restaurantName = restaurantName;
@@ -57,14 +71,26 @@ public class Restaurants {
 		this.restaurantEmail = restaurantEmail;
 	}
 	
-	// all except id and password (for accessing restaurant data later)
-	public Restaurants(String restaurantName, String restaurantUsername, String restaurantEmail) {
+	// all except password (for accessing restaurant data later)
+	public Restaurant(int restaurantId, String restaurantName, String restaurantUsername, String restaurantEmail) {
 		super();
+		this.restaurantId = restaurantId;
 		this.restaurantName = restaurantName;
 		this.restaurantUsername = restaurantUsername;
 		this.restaurantEmail = restaurantEmail;
 	}
+	
+	/* toString -------------------------------------------------------------------------------------------- */
+	@Override
+	public String toString() {
+		return "Restaurants [restaurantId=" + restaurantId + ", restaurantName=" + restaurantName
+				+ ", restaurantUsername=" + restaurantUsername + ", restaurantPassword=" + restaurantPassword
+				+ ", restaurantEmail=" + restaurantEmail + "]";
+	}
 
+
+
+	/* Getters & Setters ----------------------------------------------------------------------------------- */
 	public int getRestaurantId() {
 		return restaurantId;
 	}
@@ -103,13 +129,6 @@ public class Restaurants {
 
 	public void setRestaurantEmail(String restaurantEmail) {
 		this.restaurantEmail = restaurantEmail;
-	}
-
-	@Override
-	public String toString() {
-		return "Restaurants [restaurantId=" + restaurantId + ", restaurantName=" + restaurantName
-				+ ", restaurantUsername=" + restaurantUsername + ", restaurantPassword=" + restaurantPassword
-				+ ", restaurantEmail=" + restaurantEmail + "]";
 	}
 
 }

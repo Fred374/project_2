@@ -8,7 +8,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
@@ -17,58 +20,66 @@ import org.springframework.stereotype.Component;
 @Component
 public class Order {
 	
+	/* Defining fields/DB columns -------------------------------------------------------------------------- */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 	
-	@Column
+	@Column(
+			nullable = false		
+	)
 	private double orderCost;
 	
-	@Column
-	private int orderUserIdFk;
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "user_id_fk")
+	private User userIdFk;
 	
-	@Column
-	private int orderRestaurantIdFk;
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "restaurant_id_fk")
+	private Restaurant restaurantIdFk;
 	
-	@Column
-	private int orderStatus;
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "order_status_id_fk")
+	private OrderStatus orderStatusIdFk;
 	
-	@OneToMany(mappedBy="orderFk", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="orderIdFk", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<OrderItem> orderItems;
 
+	
+	/* Constructors ---------------------------------------------------------------------------------------- */
 	public Order() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Order(int orderId, double orderCost, int orderUserIdFk, int orderRestaurantIdFk, int orderStatus,
+	public Order(double orderCost, User userIdFk, Restaurant restaurantIdFk, OrderStatus orderStatusIdFk,
+			List<OrderItem> orderItems) {
+		super();
+		this.orderCost = orderCost;
+		this.userIdFk = userIdFk;
+		this.restaurantIdFk = restaurantIdFk;
+		this.orderStatusIdFk = orderStatusIdFk;
+		this.orderItems = orderItems;
+	}
+
+	public Order(int orderId, double orderCost, User userIdFk, Restaurant restaurantIdFk, OrderStatus orderStatusIdFk,
 			List<OrderItem> orderItems) {
 		super();
 		this.orderId = orderId;
 		this.orderCost = orderCost;
-		this.orderUserIdFk = orderUserIdFk;
-		this.orderRestaurantIdFk = orderRestaurantIdFk;
-		this.orderStatus = orderStatus;
+		this.userIdFk = userIdFk;
+		this.restaurantIdFk = restaurantIdFk;
+		this.orderStatusIdFk = orderStatusIdFk;
 		this.orderItems = orderItems;
 	}
 
-	public Order(double orderCost, int orderUserIdFk, int orderRestaurantIdFk, int orderStatus,
-			List<OrderItem> orderItems) {
-		super();
-		this.orderCost = orderCost;
-		this.orderUserIdFk = orderUserIdFk;
-		this.orderRestaurantIdFk = orderRestaurantIdFk;
-		this.orderStatus = orderStatus;
-		this.orderItems = orderItems;
-	}
-
+	/* toString -------------------------------------------------------------------------------------------- */
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", orderCost=" + orderCost + ", orderUserIdFk=" + orderUserIdFk
-				+ ", orderRestaurantIdFk=" + orderRestaurantIdFk + ", orderStatus=" + orderStatus + ", orderItems="
-				+ orderItems + "]";
+		return "Order [orderId=" + orderId + ", orderCost=" + orderCost + ", userIdFk=" + userIdFk + ", restaurantIdFk="
+				+ restaurantIdFk + ", orderStatusIdFk=" + orderStatusIdFk + ", orderItems=" + orderItems + "]";
 	}
 
+	/* Getters & Setters ----------------------------------------------------------------------------------- */
 	public int getOrderId() {
 		return orderId;
 	}
@@ -85,28 +96,28 @@ public class Order {
 		this.orderCost = orderCost;
 	}
 
-	public int getOrderUserIdFk() {
-		return orderUserIdFk;
+	public User getUserIdFk() {
+		return userIdFk;
 	}
 
-	public void setOrderUserIdFk(int orderUserIdFk) {
-		this.orderUserIdFk = orderUserIdFk;
+	public void setUserIdFk(User userIdFk) {
+		this.userIdFk = userIdFk;
 	}
 
-	public int getOrderRestaurantIdFk() {
-		return orderRestaurantIdFk;
+	public Restaurant getRestaurantIdFk() {
+		return restaurantIdFk;
 	}
 
-	public void setOrderRestaurantIdFk(int orderRestaurantIdFk) {
-		this.orderRestaurantIdFk = orderRestaurantIdFk;
+	public void setRestaurantIdFk(Restaurant restaurantIdFk) {
+		this.restaurantIdFk = restaurantIdFk;
 	}
 
-	public int getOrderStatus() {
-		return orderStatus;
+	public OrderStatus getOrderStatusIdFk() {
+		return orderStatusIdFk;
 	}
 
-	public void setOrderStatus(int orderStatus) {
-		this.orderStatus = orderStatus;
+	public void setOrderStatusIdFk(OrderStatus orderStatusIdFk) {
+		this.orderStatusIdFk = orderStatusIdFk;
 	}
 
 	public List<OrderItem> getOrderItems() {
@@ -115,6 +126,6 @@ public class Order {
 
 	public void setOrderItems(List<OrderItem> orderItems) {
 		this.orderItems = orderItems;
-	}
+	}	
 
 }

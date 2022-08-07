@@ -1,10 +1,14 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
@@ -13,75 +17,87 @@ import org.springframework.stereotype.Component;
 @Component
 public class FoodItem {
 	
+	/* Defining fields/DB columns -------------------------------------------------------------------------- */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int FoodItemId;
+	private int foodItemId;
 	
-	@Column
-	private String FoodItemName;
+	@Column(
+			nullable = false,
+			columnDefinition = "TEXT"		
+	)
+	private String foodItemName;
 	
-	@Column
-	private double FoodItemCost;
+	@Column(
+			nullable = false		
+	)
+	private double foodItemCost;
 	
-	@Column
-	private int FoodItemRestaurantIdFk;
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "restaurant_id_fk")
+	private Restaurant restaurantIdFk;
 
+	/* Constructors ---------------------------------------------------------------------------------------- */
 	public FoodItem() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public FoodItem(int foodItemId, String foodItemName, double foodItemCost, int foodItemRestaurantIdFk) {
+	public FoodItem(String foodItemName, double foodItemCost, Restaurant restaurantIdFk) {
 		super();
-		FoodItemId = foodItemId;
-		FoodItemName = foodItemName;
-		FoodItemCost = foodItemCost;
-		FoodItemRestaurantIdFk = foodItemRestaurantIdFk;
+		this.foodItemName = foodItemName;
+		this.foodItemCost = foodItemCost;
+		this.restaurantIdFk = restaurantIdFk;
 	}
 
-	public FoodItem(String foodItemName, double foodItemCost, int foodItemRestaurantIdFk) {
+	public FoodItem(int foodItemId, String foodItemName, double foodItemCost, Restaurant restaurantIdFk) {
 		super();
-		FoodItemName = foodItemName;
-		FoodItemCost = foodItemCost;
-		FoodItemRestaurantIdFk = foodItemRestaurantIdFk;
+		this.foodItemId = foodItemId;
+		this.foodItemName = foodItemName;
+		this.foodItemCost = foodItemCost;
+		this.restaurantIdFk = restaurantIdFk;
 	}
 
+	/* toString -------------------------------------------------------------------------------------------- */
 	@Override
 	public String toString() {
-		return "FoodItem [FoodItemId=" + FoodItemId + ", FoodItemName=" + FoodItemName + ", FoodItemCost="
-				+ FoodItemCost + ", FoodItemRestaurantIdFk=" + FoodItemRestaurantIdFk + "]";
+		return "FoodItem [foodItemId=" + foodItemId + ", foodItemName=" + foodItemName + ", foodItemCost="
+				+ foodItemCost + ", restaurantIdFk=" + restaurantIdFk + "]";
 	}
 
+	/* Getters & Setters ----------------------------------------------------------------------------------- */
 	public int getFoodItemId() {
-		return FoodItemId;
+		return foodItemId;
 	}
 
-	public void setFoodItemId(int foodItemId) {
-		FoodItemId = foodItemId;
-	}
 
 	public String getFoodItemName() {
-		return FoodItemName;
+		return foodItemName;
 	}
 
 	public void setFoodItemName(String foodItemName) {
-		FoodItemName = foodItemName;
+		this.foodItemName = foodItemName;
 	}
 
 	public double getFoodItemCost() {
-		return FoodItemCost;
+		return foodItemCost;
 	}
 
 	public void setFoodItemCost(double foodItemCost) {
-		FoodItemCost = foodItemCost;
+		this.foodItemCost = foodItemCost;
 	}
 
-	public int getFoodItemRestaurantIdFk() {
-		return FoodItemRestaurantIdFk;
+	public Restaurant getRestaurantIdFk() {
+		return restaurantIdFk;
 	}
 
-	public void setFoodItemRestaurantIdFk(int foodItemRestaurantIdFk) {
-		FoodItemRestaurantIdFk = foodItemRestaurantIdFk;
+	public void setRestaurantIdFk(Restaurant restaurantIdFk) {
+		this.restaurantIdFk = restaurantIdFk;
 	}
 
+	public void setFoodItemId(int foodItemId) {
+		this.foodItemId = foodItemId;
+	}
+
+	
 }

@@ -17,14 +17,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderItem {
 	
+	/* Defining fields/DB Columns -------------------------------------------------------------------------- */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderItemId;
-	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "food_item_id")
-	private FoodItem orderItemFoodIdFk;
-	
+		
 	@Column
 	private int orderItemNum;
 	
@@ -32,76 +29,95 @@ public class OrderItem {
 	private double orderItemTotalCost;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "order_id")
-	private Order orderFk;
+	@JoinColumn(name = "food_item_id_fk")
+	private FoodItem orderItemFoodIdFk;
 
+	
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "order_id_fk")
+	private Order orderIdFk;
+
+
+	/* Constructors ---------------------------------------------------------------------------------------- */
 	public OrderItem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public OrderItem(int orderItemId, FoodItem orderItemFoodIdFk, int orderItemNum, double orderItemTotalCost,
-			Order orderFk) {
+
+	public OrderItem(int orderItemNum, double orderItemTotalCost, FoodItem orderItemFoodIdFk, Order orderIdFk) {
+		super();
+		this.orderItemNum = orderItemNum;
+		this.orderItemTotalCost = orderItemTotalCost;
+		this.orderItemFoodIdFk = orderItemFoodIdFk;
+		this.orderIdFk = orderIdFk;
+	}
+
+
+	public OrderItem(int orderItemId, int orderItemNum, double orderItemTotalCost, FoodItem orderItemFoodIdFk,
+			Order orderIdFk) {
 		super();
 		this.orderItemId = orderItemId;
-		this.orderItemFoodIdFk = orderItemFoodIdFk;
 		this.orderItemNum = orderItemNum;
 		this.orderItemTotalCost = orderItemTotalCost;
-		this.orderFk = orderFk;
-	}
-
-	public OrderItem(FoodItem orderItemFoodIdFk, int orderItemNum, double orderItemTotalCost, Order orderFk) {
-		super();
 		this.orderItemFoodIdFk = orderItemFoodIdFk;
-		this.orderItemNum = orderItemNum;
-		this.orderItemTotalCost = orderItemTotalCost;
-		this.orderFk = orderFk;
+		this.orderIdFk = orderIdFk;
 	}
 
+	/* toString -------------------------------------------------------------------------------------------- */
 	@Override
 	public String toString() {
-		return "OrderItem [orderItemId=" + orderItemId + ", orderItemFoodIdFk=" + orderItemFoodIdFk + ", orderItemNum="
-				+ orderItemNum + ", orderItemTotalCost=" + orderItemTotalCost + ", orderFk=" + orderFk + "]";
+		return "OrderItem [orderItemId=" + orderItemId + ", orderItemNum=" + orderItemNum + ", orderItemTotalCost="
+				+ orderItemTotalCost + ", orderItemFoodIdFk=" + orderItemFoodIdFk + ", orderIdFk=" + orderIdFk + "]";
 	}
 
+	/* Getters & Setters ----------------------------------------------------------------------------------- */
 	public int getOrderItemId() {
 		return orderItemId;
 	}
+
 
 	public void setOrderItemId(int orderItemId) {
 		this.orderItemId = orderItemId;
 	}
 
-	public FoodItem getOrderItemFoodIdFk() {
-		return orderItemFoodIdFk;
-	}
-
-	public void setOrderItemFoodIdFk(FoodItem orderItemFoodIdFk) {
-		this.orderItemFoodIdFk = orderItemFoodIdFk;
-	}
 
 	public int getOrderItemNum() {
 		return orderItemNum;
 	}
 
+
 	public void setOrderItemNum(int orderItemNum) {
 		this.orderItemNum = orderItemNum;
 	}
+
 
 	public double getOrderItemTotalCost() {
 		return orderItemTotalCost;
 	}
 
+
 	public void setOrderItemTotalCost(double orderItemTotalCost) {
 		this.orderItemTotalCost = orderItemTotalCost;
 	}
 
-	public Order getOrderFk() {
-		return orderFk;
+
+	public FoodItem getOrderItemFoodIdFk() {
+		return orderItemFoodIdFk;
 	}
 
-	public void setOrderFk(Order orderFk) {
-		this.orderFk = orderFk;
+
+	public void setOrderItemFoodIdFk(FoodItem orderItemFoodIdFk) {
+		this.orderItemFoodIdFk = orderItemFoodIdFk;
 	}
 
+
+	public Order getOrderIdFk() {
+		return orderIdFk;
+	}
+
+
+	public void setOrderIdFk(Order orderIdFk) {
+		this.orderIdFk = orderIdFk;
+	}
+	
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.revature.daos.UsersDAO;
-import com.revature.models.Users;
+import com.revature.models.User;
 
 @RestController
 @RequestMapping(value="/user")
@@ -26,7 +26,7 @@ public class UsersController {
 	// Request Body 'automatically' converts from JSON
 	// All we need to learn is how to route the users input to here... simple enough to start
 	// public ResponseEntity registerUser(@RequestBody Users u) {
-	public ResponseEntity<Users> registerUser(@RequestBody Users u) {
+	public ResponseEntity<User> registerUser(@RequestBody User u) {
 
 		// test both of the options above
 		
@@ -40,7 +40,7 @@ public class UsersController {
 		
 		// so before we save the information we need to evaluate aspects
 		// of the User object u for password confirmation first
-		Users newUser = uDAO.save(u);
+		User newUser = uDAO.save(u);
 		
 		// or here?
 		if(newUser == null) {
