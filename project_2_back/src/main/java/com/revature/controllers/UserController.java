@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.revature.daos.UserDAO;
+import com.revature.daos.UserRoleDAO;
 import com.revature.models.User;
 import com.revature.models.UserRole;
 
@@ -20,12 +22,14 @@ import com.revature.models.UserRole;
 public class UserController {
 
 	private UserDAO uDAO;
+	private UserRoleDAO urDAO;
 
 	// generated using fields
 	@Autowired
-	public UserController(UserDAO uDAO) {
+	public UserController(UserDAO uDAO, UserRoleDAO urDAO) {
 		super();
 		this.uDAO = uDAO;
+		this.urDAO = urDAO;
 	}
 	
 	// Getting all Users
@@ -49,11 +53,11 @@ public class UserController {
 	}
 	
 	// Adding (registering) new user
-	@PostMapping(value = "/register")
+	@PostMapping(value = "/register/{roleId}")
 	// Request Body 'automatically' converts from JSON
 	// All we need to learn is how to route the users input to here... simple enough to start
 	// public ResponseEntity registerUser(@RequestBody Users u) {
-	public ResponseEntity<User> registerUser(@RequestBody User u) {
+	public ResponseEntity<User> registerUser(@RequestBody User passedUser, @PathVariable int roleId) {
 
 		// test both of the options above
 		
@@ -67,14 +71,28 @@ public class UserController {
 		
 		// so before we save the information we need to evaluate aspects
 		// of the User object u for password confirmation first
-		User newUser = uDAO.save(u);
-		
+
 		// or here?
-		if(newUser == null) {
-			return ResponseEntity.badRequest().build();
+		
+		// Trying to get user role with path variable
+		Optional<UserRole> userRoleOptional = urDAO.findById(roleId);
+
+		if(userRoleOptional.isPresent()) {
+			
+			// Getting user role and adding it to the passed user object 
+			UserRole userRoleId = userRoleOptional.get();
+			passedUser.setUserRoleId(userRoleId);
+		
+			// Saving the new user to DB
+			User newUser = uDAO.save(passedUser);
+			
+			if(newUser != null) {
+				return ResponseEntity.accepted().body(newUser);
+			}
 		}
 		
-		return ResponseEntity.accepted().body(newUser);
+		return ResponseEntity.badRequest().build();
+		
 		// how do we limit this information to not show password? and then what 
 	}
 	 

@@ -3,7 +3,6 @@ package com.revature.models;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -55,49 +54,40 @@ public class User {
 	)
 	private String userEmail;
 	
-	// noticed I might've done something extra below
-	
-	// @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	// @JoinColumn(name = "roleId") // or role_id
-	// private Roles userRoleIdFk;
-	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "user_role_id_fk", referencedColumnName="userRoleId") //referencedColumName needs to match field name in the referenced table's model
-	private UserRole userRoleIdFk;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "userRoleId", referencedColumnName="userRoleId") //referencedColumName needs to match field name in the referenced table's model
+	private UserRole userRoleId;
 
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	
-	// all except id for creating users
+
+	// Minus id and userRoleId for passing JSON from front end (userRoleId is passed as a path parameter)
+	public User(String userUsername, String userPassword, String userFirstName, String userLastName, String userEmail) {
+		super();
+		this.userUsername = userUsername;
+		this.userPassword = userPassword;
+		this.userFirstName = userFirstName;
+		this.userLastName = userLastName;
+		this.userEmail = userEmail;
+	}
+
+	// Minus id for saving to DB (after controller adds the userRoleId, which is actually a UserRole obj.)
 	public User(String userUsername, String userPassword, String userFirstName, String userLastName, String userEmail,
-			UserRole userRoleIdFk) {
+			UserRole userRoleId) {
 		super();
 		this.userUsername = userUsername;
 		this.userPassword = userPassword;
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
 		this.userEmail = userEmail;
-		this.userRoleIdFk = userRoleIdFk;
+		this.userRoleId = userRoleId;
 	}
 
-	// all except id and password (for accessing user object post login)
-	public User(int userId, String userUsername, String userFirstName, String userLastName, String userEmail,
-			UserRole userRoleIdFk) {
-		super();
-		this.userId = userId;
-		this.userUsername = userUsername;
-		this.userFirstName = userFirstName;
-		this.userLastName = userLastName;
-		this.userEmail = userEmail;
-		this.userRoleIdFk = userRoleIdFk;
-	}
-
-	//all args
+	// Minus userRoleId For getting User (userRoleId not needed as JPA does its own thing)
 	public User(int userId, String userUsername, String userPassword, String userFirstName, String userLastName,
-			String userEmail, UserRole userRoleIdFk) {
+			String userEmail, UserRole userRoleId) {
 		super();
 		this.userId = userId;
 		this.userUsername = userUsername;
@@ -105,7 +95,6 @@ public class User {
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
 		this.userEmail = userEmail;
-		this.userRoleIdFk = userRoleIdFk;
 	}
 
 	/* toString -------------------------------------------------------------------------------------------- */
@@ -113,10 +102,11 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", userUsername=" + userUsername + ", userPassword=" + userPassword
 				+ ", userFirstName=" + userFirstName + ", userLastName=" + userLastName + ", userEmail=" + userEmail
-				+ ", userRoleIdFk=" + userRoleIdFk + "]";
+				+ ", userRole=" + userRoleId + "]";
 	}
 
 	/* Getters & Setters ----------------------------------------------------------------------------------- */
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -165,12 +155,12 @@ public class User {
 		this.userEmail = userEmail;
 	}
 
-	public UserRole getUserRoleIdFk() {
-		return userRoleIdFk;
+	public UserRole getUserRoleId() {
+		return userRoleId;
 	}
 
-	public void setUserRoleIdFk(UserRole userRoleIdFk) {
-		this.userRoleIdFk = userRoleIdFk;
+	public void setUserRoleId(UserRole userRoleId) {
+		this.userRoleId = userRoleId;
 	}
 
 }
