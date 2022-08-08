@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderItem } from 'src/app/models/order-item';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-orders',
@@ -7,6 +8,8 @@ import { OrderItem } from 'src/app/models/order-item';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+
+  resId = 4966752;
 
   public orderItem: OrderItem = {
     orderItemId: 0,
@@ -20,9 +23,18 @@ export class OrdersComponent implements OnInit {
     orderItemTotalCost: 0
   };
 
-  constructor() { }
+  constructor(private os: OrdersService) { }
+
+  getFoods() {
+    this.os.getFood(this.resId).subscribe(
+      (data:any) => {
+        console.log(data.body);
+      }
+    )
+  }
 
   ngOnInit(): void {
+    this.getFoods();
   }
 
 }
