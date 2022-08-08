@@ -11,24 +11,15 @@ export class OrdersComponent implements OnInit {
 
   resId = 4966752;
 
-  public orderItem: OrderItem = {
-    orderItemId: 0,
-    orderItemFood: {
-      foodItemId: 0,
-      foodItemCost: 0,
-      foodItemName: "",
-      foodItemRestaurantId: 0
-    },
-    orderItemNum: 0,
-    orderItemTotalCost: 0
-  };
+  public orderItem: OrderItem[] = [];
 
   constructor(private os: OrdersService) { }
 
   getFoods() {
     this.os.getFood(this.resId).subscribe(
       (data:any) => {
-        console.log(data.body);
+        this.orderItem = data.body;
+        console.log(this.orderItem);
       }
     )
   }
