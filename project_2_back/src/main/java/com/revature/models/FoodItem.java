@@ -1,14 +1,10 @@
 package com.revature.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
@@ -33,9 +29,7 @@ public class FoodItem {
 	)
 	private double foodItemCost;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "restaurant_id_fk", referencedColumnName="restaurantId")
-	private Restaurant restaurantIdFk;
+	private int restaurantIdFk;
 
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public FoodItem() {
@@ -43,14 +37,14 @@ public class FoodItem {
 		// TODO Auto-generated constructor stub
 	}
 
-	public FoodItem(String foodItemName, double foodItemCost, Restaurant restaurantIdFk) {
+	public FoodItem(String foodItemName, double foodItemCost, int restaurantIdFk) {
 		super();
 		this.foodItemName = foodItemName;
 		this.foodItemCost = foodItemCost;
 		this.restaurantIdFk = restaurantIdFk;
 	}
 
-	public FoodItem(int foodItemId, String foodItemName, double foodItemCost, Restaurant restaurantIdFk) {
+	public FoodItem(int foodItemId, String foodItemName, double foodItemCost, int restaurantIdFk) {
 		super();
 		this.foodItemId = foodItemId;
 		this.foodItemName = foodItemName;
@@ -87,11 +81,11 @@ public class FoodItem {
 		this.foodItemCost = foodItemCost;
 	}
 
-	public Restaurant getRestaurantIdFk() {
+	public int getRestaurantIdFk() {
 		return restaurantIdFk;
 	}
 
-	public void setRestaurantIdFk(Restaurant restaurantIdFk) {
+	public void setRestaurantIdFk(int restaurantIdFk) {
 		this.restaurantIdFk = restaurantIdFk;
 	}
 

@@ -34,9 +34,7 @@ public class Order {
 	@JoinColumn(name = "user_id_fk", referencedColumnName="userId")
 	private User userIdFk;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "restaurant_id_fk", referencedColumnName="restaurantId")
-	private Restaurant restaurantIdFk;
+	private int restaurantIdFk;
 	
 	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name = "order_status_id_fk", referencedColumnName="orderStatusId")
@@ -51,7 +49,7 @@ public class Order {
 		super();
 	}
 
-	public Order(double orderCost, User userIdFk, Restaurant restaurantIdFk, OrderStatus orderStatusIdFk,
+	public Order(double orderCost, User userIdFk, int restaurantIdFk, OrderStatus orderStatusIdFk,
 			List<OrderItem> orderItems) {
 		super();
 		this.orderCost = orderCost;
@@ -61,7 +59,7 @@ public class Order {
 		this.orderItems = orderItems;
 	}
 
-	public Order(int orderId, double orderCost, User userIdFk, Restaurant restaurantIdFk, OrderStatus orderStatusIdFk,
+	public Order(int orderId, double orderCost, User userIdFk, int restaurantIdFk, OrderStatus orderStatusIdFk,
 			List<OrderItem> orderItems) {
 		super();
 		this.orderId = orderId;
@@ -104,11 +102,11 @@ public class Order {
 		this.userIdFk = userIdFk;
 	}
 
-	public Restaurant getRestaurantIdFk() {
+	public int getRestaurantIdFk() {
 		return restaurantIdFk;
 	}
 
-	public void setRestaurantIdFk(Restaurant restaurantIdFk) {
+	public void setRestaurantIdFk(int restaurantIdFk) {
 		this.restaurantIdFk = restaurantIdFk;
 	}
 
