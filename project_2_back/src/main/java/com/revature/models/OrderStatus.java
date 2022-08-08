@@ -22,8 +22,7 @@ public class OrderStatus {
 	@Column(
 			nullable = false,
 			columnDefinition = "TEXT",
-			unique = true
-	)
+			unique = true)
 	private String orderStatusName;
 
 	

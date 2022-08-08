@@ -22,41 +22,26 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // makes id serial
 	private int userId;
 	
-	@Column(
-			nullable = false,
-			columnDefinition = "TEXT",
-			unique = true
-	)
+	@Column(nullable = false,columnDefinition = "TEXT", unique = true)
 	private String userUsername;
 	
-	@Column(
-			nullable = false,
-			columnDefinition = "TEXT"
-	)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String userPassword;
 	
-	@Column(
-			nullable = false,
-			columnDefinition = "TEXT"			
-	)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String userFirstName;
 	
-	@Column(
-			nullable = false,
-			columnDefinition = "TEXT"			
-	)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String userLastName;
 	
-	@Column(
-			nullable = false,
-			columnDefinition = "TEXT",
-			unique = true
-	)
+	@Column(nullable = false, columnDefinition = "TEXT", unique = true)
 	private String userEmail;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "userRoleId", referencedColumnName="userRoleId") //referencedColumName needs to match field name in the referenced table's model
+	@JoinColumn(name = "userRoleId") //referencedColumName needs to match field name in the referenced table's model
 	private UserRole userRoleId;
+	
+//	@OneToMany()
 
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public User() {

@@ -25,22 +25,20 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 	
-	@Column(
-			nullable = false		
-	)
+	@Column(nullable = false)
 	private double orderCost;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "user_id_fk", referencedColumnName="userId")
-	private User userIdFk;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "userId")
+	private User userId;
 	
 	private int restaurantIdFk;
 	
-	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "order_status_id_fk", referencedColumnName="orderStatusId")
 	private OrderStatus orderStatusIdFk;
 	
-	@OneToMany(mappedBy="orderIdFk", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="orderIdFk", cascade=CascadeType.ALL)
 	private List<OrderItem> orderItems;
 
 	
