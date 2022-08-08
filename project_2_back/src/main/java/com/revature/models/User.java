@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "users")
@@ -37,11 +42,15 @@ public class User {
 	@Column(nullable = false, columnDefinition = "TEXT", unique = true)
 	private String userEmail;
 	
+	// Referencing columns in other tables
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "userRoleId") //referencedColumName needs to match field name in the referenced table's model
 	private UserRole userRoleId;
 	
-//	@OneToMany()
+	// Other tables referencing Users
+	@JsonIgnore
+	@OneToMany(mappedBy = "userId")
+	private List<Order> orders;
 
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public User() {

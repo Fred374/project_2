@@ -28,14 +28,15 @@ public class OrderItem {
 	@Column
 	private double orderItemTotalCost;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "food_item_id_fk", referencedColumnName="foodItemId")
-	private FoodItem orderItemFoodIdFk;
+	// Referencing other tables
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "foodItemId")
+	private FoodItem foodItemId;
 
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "order_id_fk", referencedColumnName="orderId")
-	private Order orderIdFk;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "orderId")
+	private Order orderId;
 
 
 	/* Constructors ---------------------------------------------------------------------------------------- */
@@ -44,30 +45,30 @@ public class OrderItem {
 	}
 
 
-	public OrderItem(int orderItemNum, double orderItemTotalCost, FoodItem orderItemFoodIdFk, Order orderIdFk) {
+	public OrderItem(int orderItemNum, double orderItemTotalCost, FoodItem foodItemId, Order orderId) {
 		super();
 		this.orderItemNum = orderItemNum;
 		this.orderItemTotalCost = orderItemTotalCost;
-		this.orderItemFoodIdFk = orderItemFoodIdFk;
-		this.orderIdFk = orderIdFk;
+		this.foodItemId = foodItemId;
+		this.orderId = orderId;
 	}
 
 
-	public OrderItem(int orderItemId, int orderItemNum, double orderItemTotalCost, FoodItem orderItemFoodIdFk,
-			Order orderIdFk) {
+	public OrderItem(int orderItemId, int orderItemNum, double orderItemTotalCost, FoodItem foodItemId,
+			Order orderId) {
 		super();
 		this.orderItemId = orderItemId;
 		this.orderItemNum = orderItemNum;
 		this.orderItemTotalCost = orderItemTotalCost;
-		this.orderItemFoodIdFk = orderItemFoodIdFk;
-		this.orderIdFk = orderIdFk;
+		this.foodItemId = foodItemId;
+		this.orderId = orderId;
 	}
 
 	/* toString -------------------------------------------------------------------------------------------- */
 	@Override
 	public String toString() {
 		return "OrderItem [orderItemId=" + orderItemId + ", orderItemNum=" + orderItemNum + ", orderItemTotalCost="
-				+ orderItemTotalCost + ", orderItemFoodIdFk=" + orderItemFoodIdFk + ", orderIdFk=" + orderIdFk + "]";
+				+ orderItemTotalCost + ", foodItemId=" + foodItemId + ", orderId=" + orderId + "]";
 	}
 
 	/* Getters & Setters ----------------------------------------------------------------------------------- */
@@ -101,23 +102,23 @@ public class OrderItem {
 	}
 
 
-	public FoodItem getOrderItemFoodIdFk() {
-		return orderItemFoodIdFk;
+	public FoodItem getFoodItemId() {
+		return foodItemId;
 	}
 
 
-	public void setOrderItemFoodIdFk(FoodItem orderItemFoodIdFk) {
-		this.orderItemFoodIdFk = orderItemFoodIdFk;
+	public void setFoodItemId(FoodItem foodItemId) {
+		this.foodItemId = foodItemId;
 	}
 
 
-	public Order getOrderIdFk() {
-		return orderIdFk;
+	public Order getOrderId() {
+		return orderId;
 	}
 
 
-	public void setOrderIdFk(Order orderIdFk) {
-		this.orderIdFk = orderIdFk;
+	public void setOrderId(Order orderId) {
+		this.orderId = orderId;
 	}
 	
 }

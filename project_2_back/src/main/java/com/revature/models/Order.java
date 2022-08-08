@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "orders")
 @Component
@@ -28,51 +30,53 @@ public class Order {
 	@Column(nullable = false)
 	private double orderCost;
 	
+	// Referencing columns of other tables
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "userId")
 	private User userId;
 	
-	private int restaurantIdFk;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "orderStatusId")
+	private OrderStatus orderStatusId;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "order_status_id_fk", referencedColumnName="orderStatusId")
-	private OrderStatus orderStatusIdFk;
+	private int restaurantIdFk; // Goes to external API
 	
-	@OneToMany(mappedBy="orderIdFk", cascade=CascadeType.ALL)
+	// Other tables referencing orders
+	@JsonIgnore
+	@OneToMany(mappedBy="orderId")
 	private List<OrderItem> orderItems;
-
 	
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public Order() {
 		super();
 	}
 
-	public Order(double orderCost, User userIdFk, int restaurantIdFk, OrderStatus orderStatusIdFk,
+	public Order(double orderCost, User userId, int restaurantIdFk, OrderStatus orderStatusId,
 			List<OrderItem> orderItems) {
 		super();
 		this.orderCost = orderCost;
-		this.userIdFk = userIdFk;
+		this.userId = userId;
 		this.restaurantIdFk = restaurantIdFk;
-		this.orderStatusIdFk = orderStatusIdFk;
+		this.orderStatusId = orderStatusId;
 		this.orderItems = orderItems;
 	}
 
-	public Order(int orderId, double orderCost, User userIdFk, int restaurantIdFk, OrderStatus orderStatusIdFk,
+	public Order(int orderId, double orderCost, User userId, int restaurantIdFk, OrderStatus orderStatusId,
 			List<OrderItem> orderItems) {
 		super();
 		this.orderId = orderId;
 		this.orderCost = orderCost;
-		this.userIdFk = userIdFk;
+		this.userId = userId;
 		this.restaurantIdFk = restaurantIdFk;
-		this.orderStatusIdFk = orderStatusIdFk;
+		this.orderStatusId = orderStatusId;
 		this.orderItems = orderItems;
 	}
 
 	/* toString -------------------------------------------------------------------------------------------- */
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", orderCost=" + orderCost + ", userIdFk=" + userIdFk + ", restaurantIdFk="
-				+ restaurantIdFk + ", orderStatusIdFk=" + orderStatusIdFk + ", orderItems=" + orderItems + "]";
+		return "Order [orderId=" + orderId + ", orderCost=" + orderCost + ", userId=" + userId + ", restaurantIdFk="
+				+ restaurantIdFk + ", orderStatusId=" + orderStatusId + ", orderItems=" + orderItems + "]";
 	}
 
 	/* Getters & Setters ----------------------------------------------------------------------------------- */
@@ -92,12 +96,12 @@ public class Order {
 		this.orderCost = orderCost;
 	}
 
-	public User getUserIdFk() {
-		return userIdFk;
+	public User getUserId() {
+		return userId;
 	}
 
-	public void setUserIdFk(User userIdFk) {
-		this.userIdFk = userIdFk;
+	public void setUserId(User userId) {
+		this.userId = userId;
 	}
 
 	public int getRestaurantIdFk() {
@@ -108,12 +112,12 @@ public class Order {
 		this.restaurantIdFk = restaurantIdFk;
 	}
 
-	public OrderStatus getOrderStatusIdFk() {
-		return orderStatusIdFk;
+	public OrderStatus getOrderStatusId() {
+		return orderStatusId;
 	}
 
-	public void setOrderStatusIdFk(OrderStatus orderStatusIdFk) {
-		this.orderStatusIdFk = orderStatusIdFk;
+	public void setOrderStatusId(OrderStatus orderStatusId) {
+		this.orderStatusId = orderStatusId;
 	}
 
 	public List<OrderItem> getOrderItems() {

@@ -24,11 +24,7 @@ public class UserRole {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userRoleId;
 	
-	@Column(
-			nullable = false,
-			columnDefinition = "TEXT",
-			unique = true
-	)
+	@Column(nullable = false, columnDefinition = "TEXT", unique = true)
 	private String userRoleName;
 
 	@JsonIgnore // This makes it so that this field is ignored when returning Json in a response
@@ -76,13 +72,13 @@ public class UserRole {
 		this.userRoleName = userRoleName;
 	}
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+//	public List<User> getUsers() {
+//		return users;
+//	}
+//
+//	public void setUsers(List<User> users) {
+//		this.users = users;
+//	}
 	
 	// do we need it? maybe not but...
 	// what if there was a user subscription for discounts

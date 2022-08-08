@@ -1,12 +1,17 @@
 package com.revature.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="food_items")
@@ -18,23 +23,22 @@ public class FoodItem {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int foodItemId;
 	
-	@Column(
-			nullable = false,
-			columnDefinition = "TEXT"		
-	)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String foodItemName;
 	
-	@Column(
-			nullable = false		
-	)
+	@Column(nullable = false)
 	private double foodItemCost;
 	
 	private int restaurantIdFk;
+	
+	// Other tables referencing food_items
+	@JsonIgnore
+	@OneToMany(mappedBy = "foodItemId")
+	private List<OrderItem> orderItem;
 
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public FoodItem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public FoodItem(String foodItemName, double foodItemCost, int restaurantIdFk) {
