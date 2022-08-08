@@ -22,6 +22,7 @@ public class UserController {
 		this.uDAO = uDAO;
 	}
 	
+	// Registering new user
 	@PostMapping(value = "/register")
 	// Request Body 'automatically' converts from JSON
 	// All we need to learn is how to route the users input to here... simple enough to start
@@ -50,10 +51,7 @@ public class UserController {
 		return ResponseEntity.accepted().body(newUser);
 		// how do we limit this information to not show password? and then what 
 	}
-	 
 	
+	// 
 	 
-	 
-		
-	
 }

@@ -16,7 +16,7 @@ import com.revature.daos.UserRoleDAO;
 import com.revature.models.UserRole;
 
 @RestController
-@RequestMapping(value="/user_role")
+@RequestMapping(value="/user-role")
 public class UserRoleController {
 	
 	private UserRoleDAO urDAO;
@@ -27,15 +27,17 @@ public class UserRoleController {
 		this.urDAO = urDAO;
 	}
 	
+	// Getting all UserRoles
 	@GetMapping
 	public ResponseEntity<List<UserRole>> getAllUserRoles() {
 		return ResponseEntity.ok(urDAO.findAll());
 	}
 	
+	// Getting UserRole by ID
 	@GetMapping(value="/{id}")
 	public ResponseEntity<UserRole> findUserRoleById(@PathVariable int id) {
 		
-		Optional<UserRole> userRoleOptional = urDAO.findById(null);
+		Optional<UserRole> userRoleOptional = urDAO.findById(id);
 		
 		if (userRoleOptional.isPresent()) {
 			UserRole userRole = userRoleOptional.get();
