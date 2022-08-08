@@ -15,7 +15,6 @@
     <table class="table table-dark">
         <thead>
             <tr>
-                <th>Order Item Id</th>
                 <th>Order Item Name</th>
                 <th>Order Item Number</th>
                 <th>Order Item Cost</th>
@@ -24,12 +23,11 @@
         </thead>
 
         <tbody>
-            <tr>
-                <!--<td>{{orderItem.orderItemId}}</td>
-                <td>{{orderItem.orderItemFood.foodItemName}}</td>
-                <td>{{orderItem.orderItemNum}}</td>
-                <td>{{orderItem.orderItemFood.foodItemCost}}</td>
-                <td>{{orderItem.orderItemTotalCost}}</td>-->
+            <tr *ngFor="let orderitem of orderItem">
+                <td>{{orderitem.orderItemFood.foodItemName}}</td>
+                <td>{{orderitem.orderItemNum}}</td>
+                <td>{{orderitem.orderItemFood.foodItemCost}}</td>
+                <td>{{orderitem.orderItemTotalCost}}</td>-->
             </tr>
         </tbody>
     </table>
