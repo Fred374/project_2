@@ -39,7 +39,7 @@ public class FoodItemController {
 	
 	// Getting FoodItem by Restaurant ID
 	@GetMapping(value="/{resId}")
-	public ResponseEntity<List<FoodItem>> getFood(@PathVariable int resId) {
+	public ResponseEntity<List<FoodItem>> getFood(@PathVariable Integer resId) {
 		return ResponseEntity.ok(fDAO.findByRestaurantIdFk(resId).get());
 	}
 	

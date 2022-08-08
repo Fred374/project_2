@@ -10,5 +10,5 @@ import com.revature.models.FoodItem;
 @Repository
 public interface FoodItemDAO extends JpaRepository<FoodItem,Integer> {
 
-	public Optional<List<FoodItem>> findByRestaurantIdFk(int resId);
+	public Optional<List<FoodItem>> findByRestaurantIdFk(Integer resId);
 }
