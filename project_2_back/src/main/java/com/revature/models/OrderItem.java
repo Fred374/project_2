@@ -29,12 +29,12 @@ public class OrderItem {
 	private double orderItemTotalCost;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "food_item_id_fk")
+	@JoinColumn(name = "food_item_id_fk", referencedColumnName="foodItemId")
 	private FoodItem orderItemFoodIdFk;
 
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "order_id_fk")
+	@JoinColumn(name = "order_id_fk", referencedColumnName="orderId")
 	private Order orderIdFk;
 
 

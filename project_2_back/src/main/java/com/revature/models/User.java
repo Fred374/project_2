@@ -62,7 +62,7 @@ public class User {
 	// private Roles userRoleIdFk;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "user_role_id_fk")
+	@JoinColumn(name = "user_role_id_fk", referencedColumnName="userRoleId") //referencedColumName needs to match field name in the referenced table's model
 	private UserRole userRoleIdFk;
 
 	/* Constructors ---------------------------------------------------------------------------------------- */

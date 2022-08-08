@@ -31,15 +31,15 @@ public class Order {
 	private double orderCost;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "user_id_fk")
+	@JoinColumn(name = "user_id_fk", referencedColumnName="userId")
 	private User userIdFk;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "restaurant_id_fk")
+	@JoinColumn(name = "restaurant_id_fk", referencedColumnName="restaurantId")
 	private Restaurant restaurantIdFk;
 	
 	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "order_status_id_fk")
+	@JoinColumn(name = "order_status_id_fk", referencedColumnName="orderStatusId")
 	private OrderStatus orderStatusIdFk;
 	
 	@OneToMany(mappedBy="orderIdFk", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
