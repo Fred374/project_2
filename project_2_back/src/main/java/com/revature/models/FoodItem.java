@@ -34,13 +34,14 @@ public class FoodItem {
 	// Other tables referencing food_items
 	@JsonIgnore
 	@OneToMany(mappedBy = "foodItemId")
-	private List<OrderItem> orderItem;
+	private List<OrderItem> orderItems;
 
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public FoodItem() {
 		super();
 	}
 
+	// For passing JSON from front end AND saving to DB
 	public FoodItem(String foodItemName, double foodItemCost, int restaurantIdFk) {
 		super();
 		this.foodItemName = foodItemName;
@@ -48,6 +49,7 @@ public class FoodItem {
 		this.restaurantIdFk = restaurantIdFk;
 	}
 
+	// For getting FoodItem
 	public FoodItem(int foodItemId, String foodItemName, double foodItemCost, int restaurantIdFk) {
 		super();
 		this.foodItemId = foodItemId;
@@ -60,14 +62,13 @@ public class FoodItem {
 	@Override
 	public String toString() {
 		return "FoodItem [foodItemId=" + foodItemId + ", foodItemName=" + foodItemName + ", foodItemCost="
-				+ foodItemCost + ", restaurantIdFk=" + restaurantIdFk + "]";
+				+ foodItemCost + ", restaurantIdFk=" + restaurantIdFk + ", orderItems=" + orderItems + "]";
 	}
-
+	
 	/* Getters & Setters ----------------------------------------------------------------------------------- */
 	public int getFoodItemId() {
 		return foodItemId;
 	}
-
 
 	public String getFoodItemName() {
 		return foodItemName;
