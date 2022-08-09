@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdersService } from '../services/orders.service';
 
 @Component({
   selector: 'app-restaurant-orders',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantOrdersComponent implements OnInit {
 
-  constructor() { }
+  testArr = ["One", "Two", "Three", "Four", "Five"]
+
+  constructor(private orderService:OrdersService) { }
 
   ngOnInit(): void {
   }
