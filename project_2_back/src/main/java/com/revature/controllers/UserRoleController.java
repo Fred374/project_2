@@ -17,7 +17,6 @@ import com.revature.daos.UserRoleDAO;
 import com.revature.models.UserRole;
 
 @RestController
-@CrossOrigin
 @RequestMapping(value="/user-role")
 public class UserRoleController {
 	

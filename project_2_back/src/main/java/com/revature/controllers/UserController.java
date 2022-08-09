@@ -18,7 +18,6 @@ import com.revature.models.User;
 import com.revature.models.UserRole;
 
 @RestController
-@CrossOrigin
 @RequestMapping(value="/user")
 public class UserController {
 

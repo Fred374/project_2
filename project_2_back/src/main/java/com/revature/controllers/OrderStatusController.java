@@ -17,7 +17,6 @@ import com.revature.daos.OrderStatusDAO;
 import com.revature.models.OrderStatus;
 
 @RestController
-@CrossOrigin
 @RequestMapping(value="/order-status")
 public class OrderStatusController {
 	

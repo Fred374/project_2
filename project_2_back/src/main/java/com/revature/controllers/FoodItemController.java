@@ -18,7 +18,6 @@ import com.revature.models.FoodItem;
 import com.revature.models.UserRole;
 
 @RestController
-@CrossOrigin
 @RequestMapping(value="/food-item")
 @ResponseBody
 public class FoodItemController {
