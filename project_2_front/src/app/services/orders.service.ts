@@ -19,9 +19,9 @@ export class OrdersService {
   constructor(private http: HttpClient) { }
 
   getFood(resId: number): Observable<HttpResponse<FoodItem[]>> {
-    //console.log(this.http.get("http://localhost:4009/food/food_item/" + resId, this.httpOptions) as Observable<HttpResponse<FoodItem[]>>);
+    //console.log(this.http.get("http://localhost:4009/food/food-item/" + resId, this.httpOptions) as Observable<HttpResponse<FoodItem[]>>);
     
-    return this.http.get("http://localhost:4009/food/food_item/" + resId, {observe: "response"}) as Observable<HttpResponse<FoodItem[]>>;
+    return this.http.get("http://localhost:4009/food/food-item/" + resId, {observe: "response"}) as Observable<HttpResponse<FoodItem[]>>;
   }
 
   getOrdersForRestaurant(resId: number): Observable<HttpResponse<Order[]>> {
