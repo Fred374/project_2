@@ -27,7 +27,7 @@ export class OrdersService {
   getOrdersForRestaurant(resId: number): Observable<HttpResponse<Order[]>> {
 
     let orders = this.http.get("localhost:4009/food/order/for-restaurant/" + resId, {observe: "response"}) as Observable<HttpResponse<Order[]>>;
-    console.log(orders)
+    // console.log(orders)
     return orders;
   }
 

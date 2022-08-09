@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from '../models/order';
 import { OrdersService } from '../services/orders.service';
 
 @Component({
@@ -9,10 +10,19 @@ import { OrdersService } from '../services/orders.service';
 export class RestaurantOrdersComponent implements OnInit {
 
   testArr = ["One", "Two", "Three", "Four", "Five"]
+  orders : Order[] = [];
 
   constructor(private orderService:OrdersService) { }
 
+  getOrdersForRestaurant() {
+    this.orderService.getOrdersForRestaurant(4966752).subscribe(data => this.orders = data.body?.forEach.arguments)
+    console.log("code ran")
+  }
+
   ngOnInit(): void {
+
+    this.getOrdersForRestaurant();
+    console.log(this.orders)
   }
 
 }
