@@ -42,9 +42,9 @@ public class OrderController {
 	}
 	
 	// Getting Order by ID
-	@GetMapping(value="/{id}")
-	public ResponseEntity<Order> findOrderById(@PathVariable int id) {
-		Optional<Order> orderOptional = oDAO.findById(id);
+	@GetMapping(value="/{orderId}")
+	public ResponseEntity<Order> findOrderById(@PathVariable int orderId) {
+		Optional<Order> orderOptional = oDAO.findById(orderId);
 		
 		if (orderOptional.isPresent()) {
 			Order order = orderOptional.get();
@@ -56,7 +56,7 @@ public class OrderController {
 	}
 	
 	// Getting Order by Restaurant ID
-	@GetMapping(value="/{id}")
+	@GetMapping(value="/for-restaurant/{resId}")
 	public ResponseEntity<List<Order>> findOrdersByRestaurantId(@PathVariable int resId) {
 		Optional<List<Order>> ordersOptional = oDAO.findByRestaurantIdFk(resId);
 		
