@@ -43,12 +43,26 @@ public class OrderController {
 	
 	// Getting Order by ID
 	@GetMapping(value="/{id}")
-	public ResponseEntity<Order> findOrderRoleById(@PathVariable int id) {
+	public ResponseEntity<Order> findOrderById(@PathVariable int id) {
 		Optional<Order> orderOptional = oDAO.findById(id);
 		
 		if (orderOptional.isPresent()) {
 			Order order = orderOptional.get();
 			return ResponseEntity.ok(order);
+		}
+		
+		// If optional is not present then return no content status code and empty response body
+		return ResponseEntity.noContent().build();
+	}
+	
+	// Getting Order by Restaurant ID
+	@GetMapping(value="/{id}")
+	public ResponseEntity<List<Order>> findOrdersByRestaurantId(@PathVariable int resId) {
+		Optional<List<Order>> ordersOptional = oDAO.findByRestaurantIdFk(resId);
+		
+		if (ordersOptional.isPresent()) {
+			List<Order> orders = ordersOptional.get();
+			return ResponseEntity.ok(orders);
 		}
 		
 		// If optional is not present then return no content status code and empty response body
