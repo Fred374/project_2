@@ -4,7 +4,7 @@ export class FoodItem {
         public foodItemId: number,
         public foodItemCost: number,
         public foodItemName: String,
-        public foodItemRestaurantId: Number
+        public restaurantIdFk: Number
     ) { }
 
 }
