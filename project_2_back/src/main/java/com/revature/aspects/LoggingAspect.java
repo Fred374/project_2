@@ -15,7 +15,7 @@ public class LoggingAspect {
 		private static Logger log = LogManager.getLogger();
 		
 		
-		@Before("within(com.revature.models.*)")
+		@Before("within(com.revature.controllers.*)")
 		public void logModelMethods(JoinPoint jp) {
 			
 			

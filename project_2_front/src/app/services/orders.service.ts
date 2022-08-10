@@ -8,11 +8,18 @@ import { Order } from '../models/order';
   providedIn: 'root'
 })
 export class OrdersService {
+  
+
+  order: Order = {
+    orderCost: 0,
+    restaurantIdFk: 0,
+    orderItems: [],
+  };
 
   httpOptions = {
-    
-    headers: new HttpHeaders({ 
-      'Access-Control-Allow-Origin':'*'
+
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*'
     })
   };
 
@@ -20,15 +27,20 @@ export class OrdersService {
 
   getFood(resId: number): Observable<HttpResponse<FoodItem[]>> {
     //console.log(this.http.get("http://localhost:4009/food/food-item/" + resId, this.httpOptions) as Observable<HttpResponse<FoodItem[]>>);
-    
-    return this.http.get("http://localhost:4009/food/food-item/" + resId, {observe: "response"}) as Observable<HttpResponse<FoodItem[]>>;
+
+    return this.http.get("http://localhost:4009/food/food-item/" + resId, { observe: "response" }) as Observable<HttpResponse<FoodItem[]>>;
   }
 
   getOrdersForRestaurant(resId: number): Observable<HttpResponse<Order[]>> {
 
-    let orders = this.http.get("http://localhost:4009/food/order/for-restaurant/" + resId, {observe: "response"}) as Observable<HttpResponse<Order[]>>;
+    let orders = this.http.get("http://localhost:4009/food/order/for-restaurant/" + resId, { observe: "response" }) as Observable<HttpResponse<Order[]>>;
     // console.log(orders)
     return orders;
+  }
+
+  public sendOrder(order: Order): Observable<Order> {
+    let standinValue = 1; // standinValue for user
+    return this.http.post<Order>("http://localhost:4009/food/order/" + standinValue + "/1", order, this.httpOptions);
   }
 
 }
