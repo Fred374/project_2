@@ -4,10 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +21,7 @@ import com.revature.models.Order;
 import com.revature.models.OrderStatus;
 import com.revature.models.User;
 import com.revature.models.UserRole;
+import com.revature.models.OrderItem;
 
 @RestController
 @RequestMapping(value = "/order")
@@ -26,12 +31,14 @@ public class OrderController {
 	private OrderItemDAO oiDAO;
 	private UserDAO uDAO;
 	private OrderStatusDAO osDAO;
+	private FoodItemDAO fDAO;
 	
 	@Autowired
-	public OrderController(OrderDAO oDAO, OrderItemDAO oiDAO, UserDAO uDAO, OrderStatusDAO osDAO) {
+	public OrderController(OrderDAO oDAO, OrderItemDAO oiDAO, FoodItemDAO fDAO, UserDAO uDAO, OrderStatusDAO osDAO) {
 		super();
 		this.oDAO = oDAO;
 		this.oiDAO = oiDAO;
+		this.fDAO = fDAO;
 		this.uDAO = uDAO;
 		this.osDAO = osDAO;
 	}
@@ -71,46 +78,67 @@ public class OrderController {
 	}
 	
 	// Adding new Order
-		@PostMapping(value = "/{userId}")
-		public ResponseEntity<Order> registerUser(@RequestBody Order passedOrder, @PathVariable int userId) {
-			
-			// Trying to get user role with path variable and order status of 'Placed'
-			Optional<User> userOptional = uDAO.findById(userId);
-			Optional<OrderStatus> orderStatusOptional = osDAO.findById(1);
+	@PostMapping(value = "/{userId}")
+	public ResponseEntity<Order> registerUser(@RequestBody Order passedOrder, @PathVariable int userId) {
+		
+		// Trying to get user role with path variable and order status of 'Placed'
+		Optional<User> userOptional = uDAO.findById(userId);
+		Optional<OrderStatus> orderStatusOptional = osDAO.findById(1);
 
-			if(userOptional.isPresent() && orderStatusOptional.isPresent()) {
-				
-				// Getting user and adding it to the passed user object 
-				User user = userOptional.get();
-				passedOrder.setUserId(user);
-				
-				// Setting status to placed
-				OrderStatus orderStatus = orderStatusOptional.get();
-				passedOrder.setOrderStatusId(orderStatus);
+		if(userOptional.isPresent() && orderStatusOptional.isPresent()) {
+		
+			// Getting user and adding it to the passed user object 
+			User user = userOptional.get();
+			passedOrder.setUserId(user);
 			
-				// Saving the new user to DB
-				Order newOrder = oDAO.save(passedOrder);
-				
-				if(newOrder != null) {
-					return ResponseEntity.accepted().body(newOrder);
+			// Setting status to placed
+			OrderStatus orderStatus = orderStatusOptional.get();
+			passedOrder.setOrderStatusId(orderStatus);
+			
+			// Saving the new user to DB
+			Order newOrder = oDAO.save(passedOrder);
+			
+			if(newOrder != null) {
+				return ResponseEntity.accepted().body(newOrder);
 				}
 			}
-			
-			return ResponseEntity.badRequest().build();
-			
-			// how do we limit this information to not show password? and then what 
-		}
+		
+		return ResponseEntity.badRequest().build();
+		
+		// how do we limit this information to not show password? and then what
+		
+	}
 	
-//	@PostMapping
-//	public ResponseEntity<Order> sendOrder(@RequestBody Order o) {
-//		Order order = oDAO.save(o);
-//		if (order == null) {
-//			for (int i = 0; i < o.getOrderItems().size(); i++) {
-//				oiDAO.save(o.getOrderItems().get(i));
-//			}
-//			return ResponseEntity.unprocessableEntity().build();
-//		}
-//		return ResponseEntity.accepted().body(order);
-//	}
-
+	@PostMapping(value="/{uId}/{osId}")
+	public ResponseEntity<Order> sendOrder(@RequestBody Order o, @PathVariable int uId, @PathVariable int osId) {
+		List<OrderItem> oiList = o.getOrderItems();
+		for (int i = 0; i < oiList.size(); i++) {
+			oiList.get(i).setFoodItemId(fDAO.findById(oiList.get(i).getFoodItemId().getFoodItemId()).get());
+			//oiList.get(i).setOrderId(o);
+		}
+		o.setUserId(uDAO.findById(uId).get());
+		o.setOrderStatusId(osDAO.findById(osId).get());
+		Order order = oDAO.save(o);
+		if (order == null) {
+			return ResponseEntity.unprocessableEntity().build();
+		} else {
+			return ResponseEntity.accepted().body(order);
+		}
+	}
+	
+	@GetMapping(value="/order")
+	public ResponseEntity<Order> getOrder(@RequestBody int orderId) {
+		Order o = oDAO.findById(orderId).get();
+		if (o == null) {
+			return ResponseEntity.unprocessableEntity().build();
+		} else {
+			List<OrderItem> oiList = new ArrayList<>();
+			for (int i = 0; i < o.getOrderItems().size(); i++) {
+				oiList.set(i, oiDAO.findById(o.getOrderItems().get(i).getOrderItemId()).get());
+			}
+			o.setOrderItems(oiList);
+			return ResponseEntity.accepted().body(o);
+		}
+	}
+	
 }

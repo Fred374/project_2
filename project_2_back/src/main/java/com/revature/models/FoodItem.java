@@ -58,6 +58,11 @@ public class FoodItem {
 		this.restaurantIdFk = restaurantIdFk;
 	}
 
+	public FoodItem(int foodItemId) {
+		super();
+		this.foodItemId = foodItemId;
+	}
+
 	/* toString -------------------------------------------------------------------------------------------- */
 	@Override
 	public String toString() {

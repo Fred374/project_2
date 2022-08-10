@@ -25,9 +25,9 @@
         <tbody>
             <tr *ngFor="let orderitem of orderItem">
                 <td>{{orderitem.orderItemFood.foodItemName}}</td>
-                <td>{{orderitem.orderItemNum}}</td>
-                <td>{{orderitem.orderItemFood.foodItemCost}}</td>
-                <td>{{orderitem.orderItemTotalCost}}</td>-->
+                <td><input type="number" [(ngModel)]="orderitem.orderItemNum"/></td>
+                <td>${{orderitem.orderItemFood.foodItemCost}}</td>
+                <td [(ngModel)]="orderitem.orderItemTotalCost">${{orderitem.orderItemFood.foodItemCost * orderitem.orderItemNum}}</td>-->
             </tr>
         </tbody>
     </table>
