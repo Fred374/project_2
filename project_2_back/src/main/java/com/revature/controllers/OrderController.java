@@ -114,7 +114,7 @@ public class OrderController {
 		List<OrderItem> oiList = o.getOrderItems();
 		for (int i = 0; i < oiList.size(); i++) {
 			oiList.get(i).setFoodItemId(fDAO.findById(oiList.get(i).getFoodItemId().getFoodItemId()).get());
-			oiList.get(i).setOrderId(o);
+			//oiList.get(i).setOrderId(o);
 		}
 		o.setUserId(uDAO.findById(uId).get());
 		o.setOrderStatusId(osDAO.findById(osId).get());
