@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantmenuComponent } from './components/orders/restaurantmenu/restaurantmenu.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RestaurantmenuComponent } from './components/orders/restaurantmenu/rest
     MoodforwhatComponent,
     RestaurantOrdersComponent,
     NavbarComponent,
-    RestaurantmenuComponent
+    RestaurantmenuComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
