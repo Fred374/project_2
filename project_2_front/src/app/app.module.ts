@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantmenuComponent } from './components/orders/restaurantmenu/restaurantmenu.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { OrdersTableComponent } from './restaurant-orders/components/orders-table/orders-table.component';
+import { RestSideNavComponent } from './restaurant-orders/components/rest-side-nav/rest-side-nav.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { RegistrationComponent } from './components/registration/registration.co
     RestaurantOrdersComponent,
     NavbarComponent,
     RestaurantmenuComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    OrdersTableComponent,
+    RestSideNavComponent
   ],
   imports: [
     BrowserModule,
