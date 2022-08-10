@@ -4,7 +4,7 @@ import { OrdersPt2Component } from './components/orders-pt2/orders-pt2.component
 import { ChooserestaurantComponent } from './components/orders/chooserestaurant/chooserestaurant.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { MoodforwhatComponent } from './moodforwhat/moodforwhat.component';
+import { MoodforwhatComponent } from './components/moodforwhat/moodforwhat.component';
 import { RestaurantOrdersComponent } from './restaurant-orders/restaurant-orders.component';
 
 const routes: Routes = [
