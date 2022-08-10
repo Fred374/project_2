@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.sql.Timestamp;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -44,6 +47,10 @@ public class Order {
 	// Other tables referencing orders
 	@OneToMany(targetEntity=OrderItem.class, cascade=CascadeType.ALL)
 	private List<OrderItem> orderItems;
+	
+	@Column
+	@UpdateTimestamp
+	private Timestamp orderTimestamp;
 	
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public Order() {
@@ -79,8 +86,9 @@ public class Order {
 	/* toString -------------------------------------------------------------------------------------------- */
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", orderCost=" + orderCost + ", userId=" + userId + ", restaurantIdFk="
-				+ restaurantIdFk + ", orderStatusId=" + orderStatusId + ", orderItems=" + orderItems + "]";
+		return "Order [orderId=" + orderId + ", orderCost=" + orderCost + ", userId=" + userId + ", orderStatusId="
+				+ orderStatusId + ", restaurantIdFk=" + restaurantIdFk + ", orderItems=" + orderItems
+				+ ", orderTimestamp=" + orderTimestamp + "]";
 	}
 
 	/* Getters & Setters ----------------------------------------------------------------------------------- */
@@ -130,6 +138,14 @@ public class Order {
 
 	public void setOrderItems(List<OrderItem> orderItems) {
 		this.orderItems = orderItems;
-	}	
+	}
+
+	public Timestamp getOrderTimestamp() {
+		return orderTimestamp;
+	}
+
+	public void setOrderTimestamp(Timestamp orderTimestamp) {
+		this.orderTimestamp = orderTimestamp;
+	}
 
 }
