@@ -1,16 +1,10 @@
-<div id="requestsDiv">
-    <div class="row">
-      <div class="col">
-        <table class="table table-hover" id="reimbsTable">
-          <thead>
-          </thead>
-          <tbody>
-            <tr *ngFor="let o of orders">
-                <!--<td>{{o.userId.userFirstName}}</td>-->
-            </tr>
-          </tbody>
-          <!-- tbody is inserted in portal.js loadReimbs() function -->
-        </table>
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <app-rest-side-nav></app-rest-side-nav>
+    </div>
+    <div class="col-10">
+      <app-orders-table [orders]="orders"></app-orders-table>
     </div>
   </div>
+</div>

@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantmenuComponent } from './components/orders/restaurantmenu/restaurantmenu.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { OrdersTableComponent } from './restaurant-orders/components/orders-table/orders-table.component';
+import { RestSideNavComponent } from './restaurant-orders/components/rest-side-nav/rest-side-nav.component';
 import { OrdersPt2Component } from './components/orders-pt2/orders-pt2.component';
 
 @NgModule({
@@ -24,6 +26,8 @@ import { OrdersPt2Component } from './components/orders-pt2/orders-pt2.component
     NavbarComponent,
     RestaurantmenuComponent,
     RegistrationComponent,
+    OrdersTableComponent,
+    RestSideNavComponent,
     OrdersPt2Component
   ],
   imports: [
