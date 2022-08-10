@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantmenuComponent } from './components/orders/restaurantmenu/restaurantmenu.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { OrdersPt2Component } from './components/orders-pt2/orders-pt2.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     RestaurantOrdersComponent,
     NavbarComponent,
     RestaurantmenuComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    OrdersPt2Component
   ],
   imports: [
     BrowserModule,

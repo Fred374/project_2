@@ -9,10 +9,16 @@ import { Order } from '../models/order';
 })
 export class OrdersService {
 
+  order: Order = {
+    orderCost: 0,
+    restaurantIdFk: 0,
+    orderItems: [],
+  };
+
   httpOptions = {
-    
-    headers: new HttpHeaders({ 
-      'Access-Control-Allow-Origin':'*'
+
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*'
     })
   };
 
@@ -20,13 +26,13 @@ export class OrdersService {
 
   getFood(resId: number): Observable<HttpResponse<FoodItem[]>> {
     //console.log(this.http.get("http://localhost:4009/food/food-item/" + resId, this.httpOptions) as Observable<HttpResponse<FoodItem[]>>);
-    
-    return this.http.get("http://localhost:4009/food/food-item/" + resId, {observe: "response"}) as Observable<HttpResponse<FoodItem[]>>;
+
+    return this.http.get("http://localhost:4009/food/food-item/" + resId, { observe: "response" }) as Observable<HttpResponse<FoodItem[]>>;
   }
 
   getOrdersForRestaurant(resId: number): Observable<HttpResponse<Order[]>> {
 
-    let orders = this.http.get("http://localhost:4009/food/order/for-restaurant/" + resId, {observe: "response"}) as Observable<HttpResponse<Order[]>>;
+    let orders = this.http.get("http://localhost:4009/food/order/for-restaurant/" + resId, { observe: "response" }) as Observable<HttpResponse<Order[]>>;
     // console.log(orders)
     return orders;
   }
