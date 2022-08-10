@@ -5,22 +5,16 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.revature.daos.*;
 import com.revature.models.Order;
-import com.revature.models.OrderStatus;
-import com.revature.models.User;
-import com.revature.models.UserRole;
 import com.revature.models.OrderItem;
 
 @RestController
@@ -77,38 +71,7 @@ public class OrderController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	// Adding new Order
-	@PostMapping(value = "/{userId}")
-	public ResponseEntity<Order> registerUser(@RequestBody Order passedOrder, @PathVariable int userId) {
-		
-		// Trying to get user role with path variable and order status of 'Placed'
-		Optional<User> userOptional = uDAO.findById(userId);
-		Optional<OrderStatus> orderStatusOptional = osDAO.findById(1);
-
-		if(userOptional.isPresent() && orderStatusOptional.isPresent()) {
-		
-			// Getting user and adding it to the passed user object 
-			User user = userOptional.get();
-			passedOrder.setUserId(user);
-			
-			// Setting status to placed
-			OrderStatus orderStatus = orderStatusOptional.get();
-			passedOrder.setOrderStatusId(orderStatus);
-			
-			// Saving the new user to DB
-			Order newOrder = oDAO.save(passedOrder);
-			
-			if(newOrder != null) {
-				return ResponseEntity.accepted().body(newOrder);
-				}
-			}
-		
-		return ResponseEntity.badRequest().build();
-		
-		// how do we limit this information to not show password? and then what
-		
-	}
-	
+	// Adding new order
 	@PostMapping(value="/{uId}/{osId}")
 	public ResponseEntity<Order> sendOrder(@RequestBody Order o, @PathVariable int uId, @PathVariable int osId) {
 		List<OrderItem> oiList = o.getOrderItems();
@@ -140,5 +103,37 @@ public class OrderController {
 			return ResponseEntity.accepted().body(o);
 		}
 	}
+	
+	// Adding new Order - RETIRED, probably won't need it
+//	@PostMapping(value = "/{userId}")
+//	public ResponseEntity<Order> registerUser(@RequestBody Order passedOrder, @PathVariable int userId) {
+//		
+//		// Trying to get user role with path variable and order status of 'Placed'
+//		Optional<User> userOptional = uDAO.findById(userId);
+//		Optional<OrderStatus> orderStatusOptional = osDAO.findById(1);
+//
+//		if(userOptional.isPresent() && orderStatusOptional.isPresent()) {
+//		
+//			// Getting user and adding it to the passed user object 
+//			User user = userOptional.get();
+//			passedOrder.setUserId(user);
+//			
+//			// Setting status to placed
+//			OrderStatus orderStatus = orderStatusOptional.get();
+//			passedOrder.setOrderStatusId(orderStatus);
+//			
+//			// Saving the new user to DB
+//			Order newOrder = oDAO.save(passedOrder);
+//			
+//			if(newOrder != null) {
+//				return ResponseEntity.accepted().body(newOrder);
+//				}
+//			}
+//		
+//		return ResponseEntity.badRequest().build();
+//		
+//		// how do we limit this information to not show password? and then what
+//		
+//	}
 	
 }
