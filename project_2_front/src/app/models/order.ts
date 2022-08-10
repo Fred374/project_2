@@ -3,11 +3,11 @@ import { User } from "./user";
 
 export class Order {
     constructor(
-        public order_id: number,
-        public order_cost: number,
-        public user_id: User,
-        public order_status_id: OrderStatus,
-        public restaurant_id_fk: number
+        public orderId: number,
+        public orderCost: number,
+        public userId: User,
+        public orderStatusId: OrderStatus,
+        public restaurantIdFk: number
         // Probably need ot add list of OrderItems
     ) { }
 }

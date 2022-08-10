@@ -15,7 +15,7 @@ export class RestaurantOrdersComponent implements OnInit {
   constructor(private orderService:OrdersService) { }
 
   getOrdersForRestaurant() {
-    this.orderService.getOrdersForRestaurant(4966752).subscribe(data => this.orders = data.body?.forEach.arguments)
+    this.orderService.getOrdersForRestaurant(4966752).subscribe(data => this.orders = data.body as Order[])
     console.log("code ran")
   }
 
