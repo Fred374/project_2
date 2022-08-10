@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { FoodItem } from 'src/app/models/food-item';
+import { Order } from 'src/app/models/order';
 import { OrderItem } from 'src/app/models/order-item';
 import { OrdersService } from 'src/app/services/orders.service';
 
@@ -15,7 +17,7 @@ export class OrdersComponent implements OnInit {
   public orderItem: OrderItem[] = [];
   public foodItem: FoodItem[] = []
 
-  constructor(private os: OrdersService) { }
+  constructor(private os: OrdersService, private router:Router) { }
 
   getFoods() {
     this.os.getFood(this.resId).subscribe(
@@ -24,7 +26,7 @@ export class OrdersComponent implements OnInit {
         for(let i = 0; i<this.foodItem.length; i++) {
           let order: OrderItem = {
             orderItemId : 0,
-            orderItemFood : this.foodItem[i],
+            foodItemId : this.foodItem[i],
             orderItemNum : 0,
             orderItemTotalCost : 0
           }
@@ -32,6 +34,30 @@ export class OrdersComponent implements OnInit {
         }
       }
     )
+  }
+
+  btn() {
+    let orderCost = 0;
+    for(let i = 0; i<this.orderItem.length; i++) {
+      this.orderItem[i].orderItemTotalCost = this.orderItem[i].orderItemNum * this.orderItem[i].foodItemId.foodItemCost;
+      orderCost += this.orderItem[i].orderItemTotalCost;
+    }
+    //console.log(this.orderItem);
+    let order : Order = {
+      orderCost: orderCost,
+      restaurantIdFk: this.resId,
+      orderItems: this.orderItem
+    }
+    //console.log(order);
+    this.os.sendOrder(order).subscribe(
+      (data:any) => {
+        this.orderItem = data.body;
+        alert("Your food has been ordered.");
+      }, () => {
+        alert("An error occured.");
+      }
+    );
+    this.router.navigate([''])
   }
 
   ngOnInit(): void {

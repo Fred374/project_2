@@ -4,7 +4,7 @@ export class OrderItem {
 
     constructor(
         public orderItemId: number,
-        public orderItemFood: FoodItem,
+        public foodItemId: FoodItem,
         public orderItemNum: number,
         public orderItemTotalCost: number
     ) { }

@@ -8,8 +8,7 @@ import { OrdersService } from '../services/orders.service';
   styleUrls: ['./restaurant-orders.component.css']
 })
 export class RestaurantOrdersComponent implements OnInit {
-
-  testArr = ["One", "Two", "Three", "Four", "Five"]
+  
   orders : Order[] = [];
 
   constructor(private orderService:OrdersService) { }
