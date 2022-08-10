@@ -1,0 +1,10 @@
+ <div id="ordersTableDiv d-flex">
+    <div class="row d-flex order-records-div" *ngFor="let o of orders">
+        <div class="row">
+          <div class="col">{{o.orderId}}</div>
+          <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
+          <div class="col"></div>
+          <div class="col">{{o.orderTimestamp | date : 'shortTime'}}</div>
+        </div>
+    </div>
+  </div>
