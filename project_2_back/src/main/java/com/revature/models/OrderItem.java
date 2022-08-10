@@ -44,25 +44,22 @@ public class OrderItem {
 		super();
 	}
 
-
-	public OrderItem(int orderItemNum, double orderItemTotalCost, FoodItem foodItemId, Order orderId) {
+	
+	// For passing as JSON body from fornt-end
+	// orderId and foodItemId are passed via path variables, orderItemTotalCost is calculated in Controller
+	public OrderItem(int orderItemNum) {
 		super();
 		this.orderItemNum = orderItemNum;
-		this.orderItemTotalCost = orderItemTotalCost;
-		this.foodItemId = foodItemId;
-		this.orderId = orderId;
 	}
 
-
-	public OrderItem(int orderItemId, int orderItemNum, double orderItemTotalCost, FoodItem foodItemId,
-			Order orderId) {
+	// For getting OrderItem
+	public OrderItem(int orderItemId, int orderItemNum, double orderItemTotalCost) {
 		super();
 		this.orderItemId = orderItemId;
 		this.orderItemNum = orderItemNum;
 		this.orderItemTotalCost = orderItemTotalCost;
-		this.foodItemId = foodItemId;
-		this.orderId = orderId;
 	}
+
 
 	/* toString -------------------------------------------------------------------------------------------- */
 	@Override

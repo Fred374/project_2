@@ -12,9 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@CrossOrigin
 @Entity
 @Table(name = "orders")
 @Component
@@ -48,25 +50,30 @@ public class Order {
 		super();
 	}
 
-	public Order(double orderCost, User userId, int restaurantIdFk, OrderStatus orderStatusId,
-			List<OrderItem> orderItems) {
+	// For passing JSON from front end, (userId is passed as a path parameter, orderStatus is set to "Placed" automatically in Controller)
+	public Order(double orderCost, int restaurantIdFk) {
+		super();
+		this.orderCost = orderCost;
+		this.restaurantIdFk = restaurantIdFk;
+	}
+	
+	// For posting to DB
+	public Order(double orderCost, User userId, OrderStatus orderStatusId, int restaurantIdFk) {
 		super();
 		this.orderCost = orderCost;
 		this.userId = userId;
-		this.restaurantIdFk = restaurantIdFk;
 		this.orderStatusId = orderStatusId;
-		this.orderItems = orderItems;
+		this.restaurantIdFk = restaurantIdFk;
 	}
-
-	public Order(int orderId, double orderCost, User userId, int restaurantIdFk, OrderStatus orderStatusId,
-			List<OrderItem> orderItems) {
+	
+	// For getting Order
+	public Order(int orderId, double orderCost, User userId, OrderStatus orderStatusId, int restaurantIdFk) {
 		super();
 		this.orderId = orderId;
 		this.orderCost = orderCost;
 		this.userId = userId;
-		this.restaurantIdFk = restaurantIdFk;
 		this.orderStatusId = orderStatusId;
-		this.orderItems = orderItems;
+		this.restaurantIdFk = restaurantIdFk;
 	}
 
 	/* toString -------------------------------------------------------------------------------------------- */
