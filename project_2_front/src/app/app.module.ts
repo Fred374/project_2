@@ -14,6 +14,7 @@ import { RestaurantmenuComponent } from './components/restaurantmenu/restaurantm
 import { RegistrationComponent } from './components/registration/registration.component';
 import { OrdersTableComponent } from './restaurant-orders/components/orders-table/orders-table.component';
 import { RestSideNavComponent } from './restaurant-orders/components/rest-side-nav/rest-side-nav.component';
+import { OrdersPt2Component } from './components/orders-pt2/orders-pt2.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RestSideNavComponent } from './restaurant-orders/components/rest-side-n
     RestaurantmenuComponent,
     RegistrationComponent,
     OrdersTableComponent,
-    RestSideNavComponent
+    RestSideNavComponent,
+    OrdersPt2Component
   ],
   imports: [
     BrowserModule,
