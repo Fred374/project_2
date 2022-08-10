@@ -39,11 +39,11 @@ export class OrdersComponent implements OnInit {
   btn() {
     let orderCost = 0;
     for (let i = 0; i < this.orderItem.length; i++) {
-      if(this.orderItem[i].orderItemNum > 0) {
+      if (this.orderItem[i].orderItemNum > 0) {
         this.orderItem[i].orderItemTotalCost = this.orderItem[i].orderItemNum * this.orderItem[i].foodItemId.foodItemCost;
         orderCost += this.orderItem[i].orderItemTotalCost;
       } else {
-        this.orderItem.splice(i,1);
+        this.orderItem.splice(i, 1);
         i--;
       }
     }

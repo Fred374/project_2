@@ -8,10 +8,9 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class OrdersPt2Component implements OnInit {
 
-  constructor(public os: OrdersService) {}
+  constructor(public os: OrdersService) { }
 
   ngOnInit(): void {
-    console.log(this.os.order);
   }
 
 }
