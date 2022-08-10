@@ -31,4 +31,9 @@ export class OrdersService {
     return orders;
   }
 
+  public sendOrder(order: Order): Observable<Order> {
+    let standinValue = 1; // standinValue for user
+    return this.http.post<Order>("http://localhost:4009/food/order/" + standinValue + "/1", order, this.httpOptions);
+  }
+
 }
