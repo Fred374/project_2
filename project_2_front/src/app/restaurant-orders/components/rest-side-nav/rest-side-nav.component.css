@@ -1,0 +1,9 @@
+.rest-side-nav-div {
+    margin-left: -2rem;
+}
+
+.rest-side-nav-div div {
+    background-color: gray;
+    height: 25vh;
+    width: 200px;
+}
