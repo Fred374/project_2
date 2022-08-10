@@ -5,7 +5,7 @@ import { ChooserestaurantComponent } from './components/chooserestaurant/chooser
 import { OrdersComponent } from './components/orders/orders.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MoodforwhatComponent } from './components/moodforwhat/moodforwhat.component';
-import { RestaurantOrdersComponent } from './restaurant-orders/restaurant-orders.component';
+import { RestaurantOrdersComponent } from './components/restaurant-orders/restaurant-orders.component';
 
 const routes: Routes = [
   {path: "orders", component: OrdersComponent},
