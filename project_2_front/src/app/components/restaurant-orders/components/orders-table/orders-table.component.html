@@ -1,5 +1,6 @@
  <div id="ordersTableDiv d-flex">
-    <div class="row d-flex order-records-div" *ngFor="let o of orders">
+  <h1>{{selectedViewOption}}</h1>
+    <div class="row d-flex order-records-div" *ngFor="let o of filteredOrders">
         <div class="row">
           <div class="col">{{o.orderId}}</div>
           <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>

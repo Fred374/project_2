@@ -8,20 +8,27 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./restaurant-orders.component.css']
 })
 export class RestaurantOrdersComponent implements OnInit {
-  
+
   orders : Order[] = [];
+  selectedViewOption : number = 1;
+  
 
   constructor(private orderService:OrdersService) { }
+
+  ngOnInit(): void {
+
+    this.getOrdersForRestaurant();
+    console.log(this.orders)
+  }
 
   getOrdersForRestaurant() {
     this.orderService.getOrdersForRestaurant(4966752).subscribe(data => this.orders = data.body as Order[])
     console.log("code ran")
   }
 
-  ngOnInit(): void {
-
-    this.getOrdersForRestaurant();
-    console.log(this.orders)
+  changeViewOption(newViewOption : number) {
+    this.selectedViewOption = newViewOption;
+    console.log(newViewOption)
   }
 
 }

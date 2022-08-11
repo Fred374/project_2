@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-rest-side-nav',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestSideNavComponent implements OnInit {
 
+  // Emmiter to send the the selected view option to parent which will in turn send it to OrdersTable
+  @Output() newViewOptionEvent = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sideButtonPressed(buttonOption:number) {
+    this.newViewOptionEvent.emit(buttonOption);
   }
 
 }
