@@ -15,6 +15,9 @@ export class OrdersTableComponent implements OnInit {
   filteredOrders : Order[] = this.orders;
   selectedOrder? : Order;
 
+  // UI variables
+  changeStatusButtonLabel = "Mark Ready"
+
   // Getting selected view option (changed in RestSideNav component) from RestaurantOrders
   @Input() selectedViewOption : number = 1;
 
@@ -26,7 +29,8 @@ export class OrdersTableComponent implements OnInit {
 
   ngOnChanges() {
     // When selectedViewOption is changed calling the following
-    this.filterOrders()
+    this.filterOrders();
+    this.setUpUI();
   }
 
   filterOrders() {
@@ -43,16 +47,31 @@ export class OrdersTableComponent implements OnInit {
     this.filteredOrders = newFilteredOrders
   }
 
+  setUpUI() {
+
+    if (this.selectedViewOption == 1) {
+      this.changeStatusButtonLabel = "Ready"
+    } else {
+      this.changeStatusButtonLabel = "Not Ready"
+    }
+
+  }
+
   updateOrderStatus() {
 
-    let orderStatus = new OrderStatus(2,"Ready");
+    let orderStatus: OrderStatus;
+
+    if (this.selectedViewOption == 1) {
+      orderStatus = new OrderStatus(2,"Ready");
+    } else {
+      orderStatus = new OrderStatus(1,"Placed");
+    }
 
     this.selectedOrder!.orderStatusId = orderStatus;
 
     this.orderService.updateOrder(this.selectedOrder!).subscribe(data => {
       this.filterOrders()
     })
-
 
   }
 
