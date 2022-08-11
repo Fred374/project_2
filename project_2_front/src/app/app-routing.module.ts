@@ -6,6 +6,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MoodforwhatComponent } from './components/moodforwhat/moodforwhat.component';
 import { RestaurantOrdersComponent } from './components/restaurant-orders/restaurant-orders.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {path: "orders", component: OrdersComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: "restaurant/orders", component: RestaurantOrdersComponent},
   {path: "chooseRestaurant", component: ChooserestaurantComponent},
   {path: "registration", component: RegistrationComponent},
-  {path: "ordersPt2", component: OrdersPt2Component}
+  {path: "ordersPt2", component: OrdersPt2Component},
+  {path:"login", component: LoginComponent}
 ];
 
 @NgModule({

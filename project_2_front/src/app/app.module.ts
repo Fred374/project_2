@@ -15,7 +15,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { OrdersTableComponent } from './components/restaurant-orders/components/orders-table/orders-table.component';
 import { RestSideNavComponent } from './components/restaurant-orders/components/rest-side-nav/rest-side-nav.component';
 import { OrdersPt2Component } from './components/orders-pt2/orders-pt2.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
