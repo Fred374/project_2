@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Order } from 'src/app/models/order';
+import { OrderStatus } from 'src/app/models/order-status';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-orders-table',
@@ -16,7 +18,7 @@ export class OrdersTableComponent implements OnInit {
   // Getting selected view option (changed in RestSideNav component) from RestaurantOrders
   @Input() selectedViewOption : number = 1;
 
-  constructor() { }
+  constructor(private orderService: OrdersService) { }
 
   ngOnInit(): void {
 
@@ -39,6 +41,19 @@ export class OrdersTableComponent implements OnInit {
     }
 
     this.filteredOrders = newFilteredOrders
+  }
+
+  updateOrderStatus() {
+
+    let orderStatus = new OrderStatus(2,"Ready");
+
+    this.selectedOrder!.orderStatusId = orderStatus;
+
+    this.orderService.updateOrder(this.selectedOrder!).subscribe(data => {
+      this.filterOrders()
+    })
+
+
   }
 
 }

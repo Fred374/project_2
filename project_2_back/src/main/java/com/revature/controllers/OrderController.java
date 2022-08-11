@@ -10,12 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.revature.daos.*;
 import com.revature.models.Order;
 import com.revature.models.OrderItem;
+import com.revature.models.OrderStatus;
 
 @RestController
 @RequestMapping(value = "/order")
@@ -102,6 +104,24 @@ public class OrderController {
 			o.setOrderItems(oiList);
 			return ResponseEntity.accepted().body(o);
 		}
+	}
+	
+	// Changing order status
+	@PutMapping(value="/update")
+	public ResponseEntity<Order> updateVehicle(@RequestBody Order passedOrder) {
+		
+		Optional<Order> orderToBeUpdatedOptional = oDAO.findById(passedOrder.getOrderId());
+		
+		if (orderToBeUpdatedOptional.isPresent()) {
+			
+			Order updatedOrder = oDAO.save(passedOrder);
+			
+			if(updatedOrder != null) {
+				return ResponseEntity.accepted().body(updatedOrder);
+			}
+		}
+		
+		return ResponseEntity.badRequest().build(); 		
 	}
 	
 	// Adding new Order - RETIRED, probably won't need it

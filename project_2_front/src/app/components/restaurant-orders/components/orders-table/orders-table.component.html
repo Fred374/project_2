@@ -34,15 +34,15 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateOrderStatus()">Ready for Pickup</button>
         </div>
       </div>
     </div>
   </div>
 
   <!--  -->
-  <div class="row d-flex order-records-div" *ngFor="let o of filteredOrders">
-    <div class="row" (click)="selectedOrder = o" data-bs-toggle="modal" data-bs-target="#orderDetailModal">
+  <div class="row d-flex order-records-div" data-bs-toggle="modal" data-bs-target="#orderDetailModal" (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
+    <div class="row">
       <div class="col">{{o.orderId}}</div>
       <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
       <div class="col"></div>
