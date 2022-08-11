@@ -16,16 +16,17 @@
         <thead>
             <tr>
                 <th>Order Id</th>
-                <th>Order Item Cost</th>
+                <th>Customer</th>
+                <th>Order Cost</th>
             </tr>
         </thead>
 
         <tbody>
             <tr *ngFor="let orderitem of orders">
-                <td>{{orderitem.orderItemId}}</td>
+                <td>{{orderitem.orderId}}</td>
+                <td>{{orderitem?.userId?.userFirstName}} {{orderitem?.userId?.userLastName}}</td>
                 <td>${{orderitem.orderCost}}</td>-->
             </tr>
         </tbody>
-        <button class="btn btn-dark my-2" (click)="btn()">Order</button>
     </table>
 </body>
