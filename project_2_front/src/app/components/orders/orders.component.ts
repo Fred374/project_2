@@ -39,8 +39,13 @@ export class OrdersComponent implements OnInit {
   btn() {
     let orderCost = 0;
     for (let i = 0; i < this.orderItem.length; i++) {
-      this.orderItem[i].orderItemTotalCost = this.orderItem[i].orderItemNum * this.orderItem[i].foodItemId.foodItemCost;
-      orderCost += this.orderItem[i].orderItemTotalCost;
+      if (this.orderItem[i].orderItemNum > 0) {
+        this.orderItem[i].orderItemTotalCost = this.orderItem[i].orderItemNum * this.orderItem[i].foodItemId.foodItemCost;
+        orderCost += this.orderItem[i].orderItemTotalCost;
+      } else {
+        this.orderItem.splice(i, 1);
+        i--;
+      }
     }
     //console.log(this.orderItem);
     let order: Order = {
@@ -51,9 +56,8 @@ export class OrdersComponent implements OnInit {
     //console.log(order);
     this.os.sendOrder(order).subscribe(
       (data: any) => {
-        this.orderItem = data.body;
-        console.log(order);
-        this.os.order = order;
+        this.os.order = data;
+        //console.log(this.os.order);
         alert("Your food has been ordered.");
         this.router.navigate(['ordersPt2'])
       }, () => {

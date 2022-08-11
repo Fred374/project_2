@@ -1,0 +1,14 @@
+.order-records-div {
+    background-color: gray;
+    max-width: 500px;
+    height: 100px;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+    color: white;
+}
+
+.order-record .row {
+    width: 100%;
+}
