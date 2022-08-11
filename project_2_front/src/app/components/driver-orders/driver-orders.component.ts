@@ -16,6 +16,11 @@ export class DriverOrdersComponent implements OnInit {
     this.os.getFood(1).subscribe(
       (data: any) => {
         this.orders = data.body;
+        this.os.getFood(2).subscribe(
+          (data: any) => {
+            this.orders += data.body;
+          }
+        );
       }
     );
   }
