@@ -1,9 +1,28 @@
-.rest-side-nav-div {
-    margin-left: -2rem;
+#rest-side-nav-div {
+    color: white;
+    height: cacl (100% - var(--topNavbarHeight));
+    /* margin: 1rem 0 1rem 0; */
+    top: var(--topNavbarHeight);
+    bottom: 20px;
 }
 
-.rest-side-nav-div div {
+#rest-side-nav-div div {
+    cursor: pointer;
     background-color: gray;
-    height: 25vh;
-    width: 200px;
+    height: 100px;
+    max-width: 130px;
+    margin: 0 1rem 1rem -70px;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    text-align: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+#rest-side-nav-div div:hover {
+    transform:translate(10px);
+    /* filter: brightness(1.1); */
+}
+
+#rest-side-nav-div i {
+    padding-left: 40px;
 }
