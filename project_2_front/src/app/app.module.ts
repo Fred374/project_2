@@ -17,6 +17,7 @@ import { RestSideNavComponent } from './components/restaurant-orders/components/
 import { OrdersPt2Component } from './components/orders-pt2/orders-pt2.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddFoodComponent } from './components/add-food/add-food.component';
+import { DriverOrdersComponent } from './components/driver-orders/driver-orders.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AddFoodComponent } from './components/add-food/add-food.component';
     RestSideNavComponent,
     OrdersPt2Component,
     LoginComponent,
-    AddFoodComponent
+    AddFoodComponent,
+    DriverOrdersComponent
   ],
   imports: [
     BrowserModule,

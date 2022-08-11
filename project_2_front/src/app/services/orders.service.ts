@@ -47,4 +47,9 @@ export class OrdersService {
     return this.http.post<FoodItem>("http://localhost:4009/food/food-item/", foodItem, this.httpOptions);
   }
 
+  getOrdersByStatus(orderStatus: number): Observable<HttpResponse<Order[]>> {
+    let orders = this.http.get("http://localhost:4009/food/order/ready/" + orderStatus, { observe: "response" }) as Observable<HttpResponse<Order[]>>;
+    return orders;
+  }
+
 }

@@ -40,7 +40,7 @@ export class RegistrationComponent implements OnInit {
       } else if (data.userRoleId?.userRoleId == 2) {
         // if user is a driver send them to ... not sure yet
         // I think the orders table
-        //this.router.navigate(['/']);
+        this.router.navigate(['/driver/orders']);
 
       } else {
         // send the restaurant to view their orders 

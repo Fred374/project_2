@@ -8,6 +8,7 @@ import { MoodforwhatComponent } from './components/moodforwhat/moodforwhat.compo
 import { RestaurantOrdersComponent } from './components/restaurant-orders/restaurant-orders.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddFoodComponent } from './components/add-food/add-food.component';
+import { DriverOrdersComponent } from './components/driver-orders/driver-orders.component';
 
 const routes: Routes = [
   { path: "orders", component: OrdersComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: "registration", component: RegistrationComponent },
   { path: "ordersPt2", component: OrdersPt2Component },
   { path: "login", component: LoginComponent },
-  { path: "restaurant/addFood", component: AddFoodComponent }
+  { path: "restaurant/addFood", component: AddFoodComponent },
+  { path: "driver/orders", component: DriverOrdersComponent }
 ];
 
 @NgModule({
