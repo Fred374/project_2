@@ -12,3 +12,17 @@
 .order-record .row {
     width: 100%;
 }
+
+
+/* Order Details Modal */
+#orderDetailNameLabel {
+    margin-bottom: 1rem;
+}
+
+#orderDetailListHeader {
+    font-weight: 500;
+}
+
+#orderDetailTotal {
+    margin-top: 1rem;
+}

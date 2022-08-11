@@ -1,11 +1,51 @@
- <div id="ordersTableDiv d-flex">
+<div id="ordersTableDiv d-flex">
   <h1>{{selectedViewOption}}</h1>
-    <div class="row d-flex order-records-div" *ngFor="let o of filteredOrders">
-        <div class="row">
-          <div class="col">{{o.orderId}}</div>
-          <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
-          <div class="col"></div>
-          <div class="col">{{o.orderTimestamp | date : 'shortTime'}}</div>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderDetailModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="orderDetailModal" tabindex="-1" aria-labelledby="orderDetailModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderDetailNumberLabel">Order #{{orders[6].orderId}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <div>
+            <h5 class="modal-title" id="orderDetailNameLabel">{{orders[6].userId?.userFirstName}}
+              {{orders[6].userId?.userLastName?.charAt(0)}}.</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex" id="orderDetailListHeader">
+              <span class="me-auto">Item</span><span>Quantity</span>
+            </li>
+            <li class="list-group-item d-flex" *ngFor="let i of orders[6].orderItems">
+              <span class="me-auto">{{i.foodItemId.foodItemName}}</span><span>{{i.orderItemNum}}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="d-flex modal-footer">
+          <h5 class="me-auto">Order Total</h5>
+          <h5>{{orders[6].orderCost | currency}}</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="row d-flex order-records-div" *ngFor="let o of filteredOrders">
+    <div class="row">
+      <div class="col">{{o.orderId}}</div>
+      <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
+      <div class="col"></div>
+      <div class="col">{{o.orderTimestamp | date : 'shortTime'}}</div>
+    </div>
+  </div>
+
+</div>
