@@ -21,6 +21,10 @@
         </thead>
 
         <tbody>
+            <tr *ngFor="let fooditem of foodItemArr">
+                <td>{{fooditem.foodItemName}}</td>
+                <td>${{fooditem.foodItemCost}}</td>
+            </tr>
             <tr>
                 <td><input type="text" [(ngModel)]="foodItem.foodItemName"/></td>
                 <td><input type="number" [(ngModel)]="foodItem.foodItemCost" /></td>
