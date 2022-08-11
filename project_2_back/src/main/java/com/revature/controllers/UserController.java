@@ -55,26 +55,9 @@ public class UserController {
 	// Adding (registering) new user
 	@PostMapping(value = "/register/{roleId}")
 	// Request Body 'automatically' converts from JSON
-	// All we need to learn is how to route the users input to here... simple enough to start
-	// public ResponseEntity registerUser(@RequestBody Users u) {
+
 	public ResponseEntity<User> registerUser(@RequestBody User passedUser, @PathVariable int roleId) {
 
-		// test both of the options above
-		
-		// the save method is inserting the data collected from the request body
-		// will I need control flow to see if the user entered 
-		// correct info here before saving or...  //ADDED by VAHE - maybe we can do it in the front end?
-		// (most likely here. Why?)
-		// newUser is what's being saved User object: u 
-		// u is a User object representing the information the current 
-		// non-user is attempting to register with
-		
-		// so before we save the information we need to evaluate aspects
-		// of the User object u for password confirmation first
-
-		// or here?
-		
-		// Trying to get user role with path variable
 		Optional<UserRole> userRoleOptional = urDAO.findById(roleId);
 
 		if(userRoleOptional.isPresent()) {
@@ -95,5 +78,27 @@ public class UserController {
 		
 		// how do we limit this information to not show password? and then what 
 	}
+	
+	//Method to take in User login credentials
+	@PostMapping(value = "/login") 
+	public ResponseEntity<User> login(@RequestBody User u){
+		
+		//calling the findByUserUsernameAndUserPassword method, using the given User's values
+		Optional<User> optionalUser = uDAO.findByUserUsernameAndUserPassword(u.getUserUsername(), u.getUserPassword());
+		
+		//empty user to get filled with the optional
+		User user;
+		
+		if(optionalUser.isPresent()) { //if login is successful...
+			user = optionalUser.get(); //making a user object from the optional
+			return ResponseEntity.accepted().body(user); //sending the user back into the response
+		
+	}
+	//if login failed...
+	return ResponseEntity.status(403).build();// send a forbidden status code
+	
+}
+	
+	
 	 
 }

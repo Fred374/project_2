@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
@@ -27,6 +27,11 @@ export class UserService {
   // post request to insert a new user into backend
   public createUser(user: User, id:number): Observable<User> {
     return this.http.post<User>(this.baseURL + "/register/" + id, user, this.httpOptions);
+  }
+
+  //post request for login
+  public loginUser(user: User) : Observable<User> {
+    return this.http.post<User>(this.baseURL + "/login", user, this.httpOptions);
   }
 
 }

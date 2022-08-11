@@ -1,0 +1,31 @@
+<header class="m-4">
+    <table class="table table-dark">
+        <thead>
+            <th class="col-sm-9">
+                <h3>Orders</h3>
+            </th>
+            <th class="col-sm-3">
+                <h3>Driver</h3>
+            </th>
+        </thead>
+    </table>
+</header>
+
+<body class="mx-5 my-3">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Order Item Cost</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let orderitem of orders">
+                <td>{{orderitem.orderItemId}}</td>
+                <td>${{orderitem.orderCost}}</td>-->
+            </tr>
+        </tbody>
+        <button class="btn btn-dark my-2" (click)="btn()">Order</button>
+    </table>
+</body>

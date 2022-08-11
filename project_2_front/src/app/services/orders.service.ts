@@ -8,7 +8,7 @@ import { Order } from '../models/order';
   providedIn: 'root'
 })
 export class OrdersService {
-  
+
 
   order: Order = {
     orderCost: 0,
@@ -41,6 +41,15 @@ export class OrdersService {
   public sendOrder(order: Order): Observable<Order> {
     let standinValue = 1; // standinValue for user
     return this.http.post<Order>("http://localhost:4009/food/order/" + standinValue + "/1", order, this.httpOptions);
+  }
+
+  public addFood(foodItem: FoodItem): Observable<FoodItem> {
+    return this.http.post<FoodItem>("http://localhost:4009/food/food-item/", foodItem, this.httpOptions);
+  }
+
+  getOrdersByStatus(orderStatus: number): Observable<HttpResponse<Order[]>> {
+    let orders = this.http.get("http://localhost:4009/food/order/ready/" + orderStatus, { observe: "response" }) as Observable<HttpResponse<Order[]>>;
+    return orders;
   }
 
 }
