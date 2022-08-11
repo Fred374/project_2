@@ -18,6 +18,7 @@
                 <th>Order Id</th>
                 <th>Customer</th>
                 <th>Order Cost</th>
+                <th>Order Status</th>
             </tr>
         </thead>
 
@@ -25,7 +26,8 @@
             <tr *ngFor="let orderitem of orders">
                 <td>{{orderitem.orderId}}</td>
                 <td>{{orderitem?.userId?.userFirstName}} {{orderitem?.userId?.userLastName}}</td>
-                <td>${{orderitem.orderCost}}</td>-->
+                <td>${{orderitem.orderCost}}</td>
+                <td>{{orderitem?.orderStatusId?.orderStatusName}}</td>
             </tr>
         </tbody>
     </table>
