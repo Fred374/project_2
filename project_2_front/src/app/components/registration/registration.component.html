@@ -1,33 +1,41 @@
 <h2>Create an Account</h2>
+<div class="container">
 
-<form>
-    <div class="inputContainer">
+    <div class="row">
 
-        <label for="userTypeId">Will you be a customer or driver?</label><br>
-        <select  name="userTypeId" [(ngModel)]="input" id="userTypeId">
-            <option value="1">Customer</option>
-            <option value="2">Driver</option>
-        </select><br><br>
+        <div class="col-md-4">
 
-        <label for="firstName">Enter your First Name:</label><br>
-        <input type="text" id="firstName" name="firstName" [(ngModel)]="user.userFirstName"><br><br> 
+            <form name="form">
+                <div class="form-group">
+
+                    <label for="userTypeId" class="form-label">Will you be a customer or driver?</label>
+                    <select  name="userTypeId" [(ngModel)]="input" id="userTypeId" class="form-control">
+                        <option value="1">Customer</option>
+                        <option value="2">Driver</option>
+                    </select><br>
+
+                    <label for="firstName" class="form-label">Enter your First Name:</label><br>
+                    <input type="text" id="firstName" name="firstName" [(ngModel)]="user.userFirstName" class="form-control"><br> 
     
-        <label for="lastName">Enter your Last Name:</label><br>
-        <input type="text" id="lastName" name="lastName" [(ngModel)]="user.userLastName"><br><br>
+                    <label for="lastName" class="form-label">Enter your Last Name:</label><br>
+                    <input type="text" id="lastName" name="lastName" [(ngModel)]="user.userLastName" class="form-control"><br>
 
-        <label for="email">Enter your email address:</label><br>
-        <input type="text" id="email" name="email" [(ngModel)]="user.userEmail"><br><br>
+                    <label for="email" class="form-label">Enter your email address:</label><br>
+                    <input type="text" id="email" name="email" [(ngModel)]="user.userEmail" class="form-control"><br>
 
-        <label for="username">Enter a username:</label><br>
-        <input type="text" id="username" name="username" [(ngModel)]="user.userUsername"><br><br> 
+                    <label for="username" class="form-label">Enter a username:</label><br>
+                    <input type="text" id="username" name="username" [(ngModel)]="user.userUsername" class="form-control"><br> 
 
-        <label for="password">Enter a password:</label><br>
-        <input type="text" id="password" name="password" [(ngModel)]="user.userPassword"><br><br>
+                    <label for="password" class="form-label">Enter a password:</label><br>
+                    <input type="text" id="password" name="password" [(ngModel)]="user.userPassword" class="form-control"><br>
 
-        <!-- 
-        <h4>Confirm password:</h4>
-        <input type="text" name="password2" ngModel placeholder="Enter password here">
-        --> 
-        <button type="submit" (click)="createUser()">Submit</button> 
+                    <!-- 
+                    <h4>Confirm password:</h4>
+                    <input type="text" name="password2" ngModel placeholder="Enter password here">
+                    --> 
+                    <button type="submit" (click)="createUser()">Submit</button> 
+                </div>
+            </form>
+        </div>
     </div>
-</form>
+</div>
