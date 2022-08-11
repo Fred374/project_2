@@ -24,18 +24,43 @@ export class RegistrationComponent implements OnInit {
 
   //
   createUser(){
-    this.us.createUser(this.user, this.input).subscribe();
-    console.log(this.user);
-    console.log(this.user.userUsername);
-    console.log(this.user.userPassword);
+    this.us.createUser(this.user, this.input).subscribe(data => {
+      console.log(data);
+      console.log(JSON.stringify(data));
+      console.log(data.userRoleId?.userRoleId);
+      console.log(JSON.stringify(data.userRoleId?.userRoleId));
+      localStorage.setItem('currentUserId', JSON.stringify(data.userId));
+      localStorage.setItem('currentUserRoleId', JSON.stringify(data.userRoleId?.userRoleId));
+  
+      // conditional routing
+      if(data.userRoleId?.userRoleId == 1) {
+      // if user is a customer send them to choose Restaurant
+        this.router.navigate(['/chooseRestaurant']);
+    
+      } else if (data.userRoleId?.userRoleId == 2) {
+        // if user is a driver send them to ... not sure yet
+        // I think the orders table
+        //this.router.navigate(['/']);
+
+      } else {
+        // send the restaurant to view their orders 
+        this.router.navigate(['/restaurant/orders']); 
+    }
+    });
     // the easy thing to do is on successful login
     // simply transport the user to the login page
-    this.router.navigate(['/login']);
+    // localStorage.setItem('currentUserId', JSON.stringify(this.user.userId));
+    // let currentUserRoleId = localStorage.getItem('currentUserRoleId');
+    // let currentUserId = localStorage.getItem('currentUserId');
+
+    
+    // 
+    // localStorage.getItem('currentUser');
     
     
     // psuedo code and thoughts
     /* What could happen once the user logs in is automatically storing their values into a session
-    localStorage.setItem('currentUser', JSON.stringify(user));
+    
     However I would want to log the user with their credentials before storing anything in the session.
     
     potential logout function() would work by clearing the localStorage of the currentUser
