@@ -2,10 +2,10 @@
     background-color: gray;
     max-width: 500px;
     height: 100px;
-    margin: 1rem auto 1rem auto;
+    margin: 0 auto 1rem auto;
     text-align: center;
     align-items: center;
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     color: white;
 }
 
