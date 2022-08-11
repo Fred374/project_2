@@ -78,5 +78,27 @@ public class UserController {
 		
 		// how do we limit this information to not show password? and then what 
 	}
+	
+	//Method to take in User login credentials
+	@PostMapping(value = "/login") 
+	public ResponseEntity<User> login(@RequestBody User u){
+		
+		//calling the findByUserUsernameAndUserPassword method, using the given User's values
+		Optional<User> optionalUser = uDAO.findByUserUsernameAndUserPassword(u.getUserUsername(), u.getUserPassword());
+		
+		//empty user to get filled with the optional
+		User user;
+		
+		if(optionalUser.isPresent()) { //if login is successful...
+			user = optionalUser.get(); //making a user object from the optional
+			return ResponseEntity.accepted().body(user); //sending the user back into the response
+		
+	}
+	//if login failed...
+	return ResponseEntity.status(403).build();// send a forbidden status code
+	
+}
+	
+	
 	 
 }

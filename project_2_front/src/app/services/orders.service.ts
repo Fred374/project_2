@@ -43,4 +43,8 @@ export class OrdersService {
     return this.http.post<Order>("http://localhost:4009/food/order/" + standinValue + "/1", order, this.httpOptions);
   }
 
+  public addFood(foodItem: FoodItem): Observable<FoodItem> {
+    return this.http.post<FoodItem>("http://localhost:4009/food/food-item/", foodItem, this.httpOptions);
+  }
+
 }
