@@ -11,6 +11,7 @@ export class OrdersTableComponent implements OnInit {
   // Getting orders from RestaurantOrders parent component
   @Input() orders : Order[] = [];
   filteredOrders : Order[] = this.orders;
+  selectedOrder? : Order;
 
   // Getting selected view option (changed in RestSideNav component) from RestaurantOrders
   @Input() selectedViewOption : number = 1;

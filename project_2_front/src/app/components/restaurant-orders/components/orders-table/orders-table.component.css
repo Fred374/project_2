@@ -1,4 +1,5 @@
 .order-records-div {
+    cursor: pointer;
     background-color: gray;
     max-width: 500px;
     height: 100px;
@@ -16,7 +17,7 @@
 
 /* Order Details Modal */
 #orderDetailNameLabel {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 #orderDetailListHeader {
@@ -24,5 +25,5 @@
 }
 
 #orderDetailTotal {
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
