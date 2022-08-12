@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Order } from 'src/app/models/order';
+import { OrderStatus } from 'src/app/models/order-status';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-orders-table',
@@ -11,11 +13,15 @@ export class OrdersTableComponent implements OnInit {
   // Getting orders from RestaurantOrders parent component
   @Input() orders : Order[] = [];
   filteredOrders : Order[] = this.orders;
+  selectedOrder? : Order;
+
+  // UI variables
+  changeStatusButtonLabel = "Mark Ready"
 
   // Getting selected view option (changed in RestSideNav component) from RestaurantOrders
   @Input() selectedViewOption : number = 1;
 
-  constructor() { }
+  constructor(private orderService: OrdersService) { }
 
   ngOnInit(): void {
 
@@ -23,7 +29,8 @@ export class OrdersTableComponent implements OnInit {
 
   ngOnChanges() {
     // When selectedViewOption is changed calling the following
-    this.filterOrders()
+    this.filterOrders();
+    this.setUpUI();
   }
 
   filterOrders() {
@@ -38,6 +45,34 @@ export class OrdersTableComponent implements OnInit {
     }
 
     this.filteredOrders = newFilteredOrders
+  }
+
+  setUpUI() {
+
+    if (this.selectedViewOption == 1) {
+      this.changeStatusButtonLabel = "Ready"
+    } else {
+      this.changeStatusButtonLabel = "Not Ready"
+    }
+
+  }
+
+  updateOrderStatus() {
+
+    let orderStatus: OrderStatus;
+
+    if (this.selectedViewOption == 1) {
+      orderStatus = new OrderStatus(2,"Ready");
+    } else {
+      orderStatus = new OrderStatus(1,"Placed");
+    }
+
+    this.selectedOrder!.orderStatusId = orderStatus;
+
+    this.orderService.updateOrder(this.selectedOrder!).subscribe(data => {
+      this.filterOrders()
+    })
+
   }
 
 }

@@ -38,6 +38,11 @@ export class OrdersService {
     return orders;
   }
 
+  getOrdersByStatus(orderStatus: number): Observable<HttpResponse<Order[]>> {
+    let orders = this.http.get("http://localhost:4009/food/order/ready/" + orderStatus, { observe: "response" }) as Observable<HttpResponse<Order[]>>;
+    return orders;
+  }
+
   public sendOrder(order: Order): Observable<Order> {
     let standinValue = 1; // standinValue for user
     return this.http.post<Order>("http://localhost:4009/food/order/" + standinValue + "/1", order, this.httpOptions);
@@ -47,9 +52,8 @@ export class OrdersService {
     return this.http.post<FoodItem>("http://localhost:4009/food/food-item/", foodItem, this.httpOptions);
   }
 
-  getOrdersByStatus(orderStatus: number): Observable<HttpResponse<Order[]>> {
-    let orders = this.http.get("http://localhost:4009/food/order/ready/" + orderStatus, { observe: "response" }) as Observable<HttpResponse<Order[]>>;
-    return orders;
+  public updateOrder(updatedOrder: Order): Observable<Order> {
+    return this.http.put<Order>("http://localhost:4009/food/order/update", updatedOrder, this.httpOptions);
   }
 
 }

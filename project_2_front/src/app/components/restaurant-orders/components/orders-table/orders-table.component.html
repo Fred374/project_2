@@ -1,11 +1,53 @@
- <div id="ordersTableDiv d-flex">
-  <h1>{{selectedViewOption}}</h1>
-    <div class="row d-flex order-records-div" *ngFor="let o of filteredOrders">
-        <div class="row">
-          <div class="col">{{o.orderId}}</div>
-          <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
-          <div class="col"></div>
-          <div class="col">{{o.orderTimestamp | date : 'shortTime'}}</div>
+<div id="ordersTableDiv d-flex">
+  <!-- Order Detail Modal -->
+  <div class="modal fade" id="orderDetailModal" tabindex="-1" aria-labelledby="orderDetailModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderDetailNumberLabel">Order #{{selectedOrder?.orderId}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="d-flex">
+            <h5 class="modal-title" id="orderDetailNameLabel" class="me-auto">{{selectedOrder?.userId?.userFirstName}}
+              {{selectedOrder?.userId?.userLastName?.charAt(0)}}.
+            </h5>
+            <h5>
+              {{selectedOrder?.orderTimestamp  | date : 'shortTime'}}
+            </h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex" id="orderDetailListHeader">
+              <span class="me-auto">Item</span><span>Quantity</span>
+            </li>
+            <li class="list-group-item d-flex" *ngFor="let i of selectedOrder?.orderItems">
+              <span class="me-auto">{{i.foodItemId.foodItemName}}</span><span>{{i.orderItemNum}}</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Modal Footer -->
+        <div class="modal-footer d-flex" id="orderDetailTotal">
+          <h5 class="me-auto">Order Total</h5>
+          <h5>{{selectedOrder?.orderCost | currency}}</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateOrderStatus()">{{changeStatusButtonLabel}}</button>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!--  -->
+  <div class="row d-flex order-records-div" data-bs-toggle="modal" data-bs-target="#orderDetailModal" (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
+    <div class="row">
+      <div class="col">{{o.orderId}}</div>
+      <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
+      <div class="col"></div>
+      <div class="col">{{o.orderTimestamp | date : 'shortTime'}}</div>
+    </div>
+  </div>
+
+</div>
