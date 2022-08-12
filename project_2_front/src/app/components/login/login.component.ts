@@ -21,18 +21,36 @@ export class LoginComponent implements OnInit {
   //This is the login function
   login(){
 
-    this.us.loginUser(this.user).subscribe(data => this.user = data as User)
-    console.log(this.user)
+    this.us.loginUser(this.user).subscribe(data => {
+      this.user = data as User
+      this.us.user = data
+      console.log(this.user)
+      console.log(this.us.user)
+
+      //redirecting the page according to roleId{ userRoleId: 1, userRoleName: "customer" }
+      if(this.us.user.userRoleId?.userRoleId == 1){
+
+      }else if(this.us.user.userRoleId?.userRoleId == 2){
+
+      }else{
+
+      }
+
+
+
+    })
+
+    //localStorage.setItem('currentUser', JSON.stringify(user));
+
+    //localStorage.removeItem('currentUser');
+
+
 
     //this.user.userRoleId.
 
 
   }
-
-
   ngOnInit(): void {
   }
-
-
 
 }

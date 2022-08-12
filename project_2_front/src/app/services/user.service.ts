@@ -34,4 +34,17 @@ export class UserService {
     return this.http.post<User>(this.baseURL + "/login", user, this.httpOptions);
   }
 
-}
+  
+  //empty User object to get displayed on our components
+  //its default values will get filled when we get a new User
+  user:User = {    
+    userId: 0,
+         userUsername: "",
+        userPassword: "",
+        userFirstName: "",
+        userLastName: "",
+        userEmail: "",
+        userRoleId: {userRoleId: 0,
+         userRoleName: ""}
+      }
+    }
