@@ -10,12 +10,15 @@
 </head>
 <body>
 
-    <input routerLink="../orders" type="image" id="mcdonalds" class="restaurantbuttons" src="../../assets/McDonalds.jpg" style="width: 25%;">
+    <input (click)="setRestaurant(4966752)" type="image" id="mcdonalds" class="restaurantbuttons" src="../../assets/McDonalds.jpg" style="width: 25%;">
    
-    <input routerLink="../orders" type="image" id="wendys" class="restaurantbuttons" src="../../assets/Wendys.gif" style="width: 25%;">
-    <input routerLink="../orders" type="image" id="tacobell" class="restaurantbuttons" src="../../assets/TacoBell.jpg" style="width: 25%;">
+    <input (click)="setRestaurant(930580)" type="image" id="wendys" class="restaurantbuttons" src="../../assets/Wendys.gif" style="width: 25%;">
+    
+    <!--<input (click)="setRestaurant()" type="image" id="tacobell" class="restaurantbuttons" src="../../assets/TacoBell.jpg" style="width: 25%;">
  
-    <input routerLink="../orders" type="image" id="subway" class="restaurantbuttons" src="../../assets/Subway.jpg" style="width: 25%;">
+    <input (click)="setRestaurant()" type="image" id="subway" class="restaurantbuttons" src="../../assets/Subway.jpg" style="width: 25%;">
+
+    Couldn't find Taco Bell or Subway in the external api -->
 
 </body>
 </html>

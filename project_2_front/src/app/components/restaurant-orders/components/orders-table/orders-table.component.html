@@ -1,24 +1,20 @@
-<div id="ordersTableDiv d-flex">
+<div id="ordersTableDiv">
   <!--  -->
 
   <!--  -->
   <div id="ordersTableInnerDiv">
     <h1 id="orderTableHeader">{{orderTableHeader}}</h1>
-    <h2>Lorem ipsum dolor sit amet.</h2>
-    <h3>Lorem ipsum dolor sit amet.</h3>
-    <h4>Lorem ipsum dolor sit amet.</h4>
-    <h5>Lorem ipsum dolor sit amet.</h5>
-    <h6>Lorem ipsum dolor sit amet.</h6>
-    <button class="large-button">Click</button>
-    <button class="small-button">Click</button>
+    <!-- Snippet -->
     <div class="row d-flex order-records-div" data-bs-toggle="modal" data-bs-target="#orderDetailModal" (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
       <div class="row">
         <div class="col">{{o.orderId}}</div>
         <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
         <div class="col"></div>
-        <div class="col">{{o.orderTimestamp | date : 'shortTime'}}</div>
+        <div class="col"><span id="snippetTimeSpan">{{o.orderTimestamp | date : 'shortTime'}}</span></div>
+        <div class="col-2 d-flex"><span id="snippetColorCode" [ngStyle]="{'background-color':snippetTimeColor}"></span></div>
       </div>
     </div>
+    <!-- /Snippet -->
   </div>
 
   <!-- Order Detail Modal -->

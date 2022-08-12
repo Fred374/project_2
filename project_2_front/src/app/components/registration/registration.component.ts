@@ -36,7 +36,7 @@ export class RegistrationComponent implements OnInit {
       console.log(JSON.stringify(data));
       console.log(data.userRoleId?.userRoleId);
       console.log(JSON.stringify(data.userRoleId?.userRoleId));
-      localStorage.setItem('currentUserId', JSON.stringify(data.userId));
+      localStorage.setItem('currentUser', JSON.stringify(data));
       localStorage.setItem('currentUserRoleId', JSON.stringify(data.userRoleId?.userRoleId));
   
       // conditional routing

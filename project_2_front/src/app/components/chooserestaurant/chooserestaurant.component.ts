@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-chooserestaurant',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChooserestaurantComponent implements OnInit {
 
-  constructor() { }
+  constructor(private os: OrdersService, private router: Router) { }
+
+  setRestaurant(resId: number) {
+    this.os.resId = resId;
+    this.router.navigate(['/orders']);
+  }
 
   ngOnInit(): void {
   }

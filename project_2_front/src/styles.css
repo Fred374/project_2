@@ -45,7 +45,7 @@ button:active {
 }
 
 .large-button {
-    min-width: 150px;
+    width: 150px;
     height: 60px;
     background-color: var(--primary-color);
     border-radius: var(--large-button-border-radius);
@@ -53,7 +53,7 @@ button:active {
 }
 
 .small-button {
-    min-width: 100px;
+    width: 100px;
     height: 40px;
     background-color: var(--secondary-color);
     border-radius: var(--small-button-border-radius);
@@ -95,14 +95,16 @@ p {
 
 /* Links */
 a {
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
+
 }
 
 a:hover {
-    color:var(--primary-color);
+    color:var(--primary-color) !important;
 }
 
 a:active {
-    color:var(--primary-color);
-    filter: brightness(0.8);
+    color:var(--primary-color) !important;
+    filter: brightness(0.8) !important;
 }

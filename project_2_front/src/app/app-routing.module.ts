@@ -14,6 +14,7 @@ import { JuiceandsmoothieComponent } from './components/juiceandsmoothie/juicean
 import { SushiComponent } from './components/sushi/sushi.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: "orders", component: OrdersComponent },
   { path: "mood", component: MoodforwhatComponent },
   { path: "restaurant/orders", component: RestaurantOrdersComponent },
