@@ -1,5 +1,30 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+/*
+  To use this component, add its selector on top of your HTML as ususal:
+    <app-alert></app-alert>
+
+  In your component.ts file, include the following in your class:
+    @ViewChild(AlertComponent) alertComponent! : AlertComponent;
+
+  Now your component has access to displayAlert method of the alertComponent.
+  To call it we need to pass two parameters ("Message String", "styleString"), an example of a call:
+    this.alertComponent.displayAlert("Failed to log it.", "danger");
+
+  Styling string options:
+    primary
+    secondary
+    success
+    danger
+    warning
+    info
+    light
+    dark
+
+  The style string parameter options correspond with bootstrap styling. 
+  If you would like to see what styling string corresponds to which color, follow this link: https://getbootstrap.com/docs/5.0/components/alerts/
+*/
+
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
