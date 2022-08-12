@@ -73,11 +73,12 @@ export class OrdersComponent implements OnInit {
       restaurantIdFk: this.resId,
       orderItems: this.orderItem
     }
+    this.os.userId = this.user.userId || 0;
     //console.log(order);
     this.os.sendOrder(order).subscribe(
       (data: any) => {
         this.os.order = data;
-        //console.log(this.os.order);
+        console.log(this.os.order);
         alert("Your food has been ordered.");
         this.router.navigate(['ordersPt2'])
       }, () => {
