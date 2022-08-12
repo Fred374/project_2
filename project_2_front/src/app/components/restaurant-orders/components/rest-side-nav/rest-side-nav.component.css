@@ -12,7 +12,7 @@
     height: 130px;
     max-width: 130px;
     margin: 0 1rem 1rem -70px;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-radius: 0 var(--button-border-radius) var( --button-border-radius) 0;
     text-align: center;
     align-items: center;
     font-size: 2rem;

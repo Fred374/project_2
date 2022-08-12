@@ -3,7 +3,9 @@
 
   <!--  -->
   <div id="ordersTableInnerDiv">
-    <h4 id="orderTableHeader">{{orderTableHeader}}</h4>
+    <h1 id="orderTableHeader">{{orderTableHeader}}</h1>
+    <button class="large-button">Click</button>
+    <button class="small-button">Click</button>
     <div class="row d-flex order-records-div" data-bs-toggle="modal" data-bs-target="#orderDetailModal" (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
       <div class="row">
         <div class="col">{{o.orderId}}</div>

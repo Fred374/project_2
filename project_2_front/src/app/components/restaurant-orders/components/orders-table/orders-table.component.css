@@ -2,6 +2,10 @@
 
 }
 
+button {
+    margin: 1rem
+}
+
 #ordersTableInnerDiv{
     max-width: 500px;
     margin: 0 auto 1rem auto;
@@ -20,7 +24,7 @@
     margin: 0 auto 1rem auto;
     text-align: center;
     align-items: center;
-    border-radius: var(--border-radius);
+    border-radius: var(--misc-border-radius);
     color: white;
 }
 

@@ -1,4 +1,5 @@
 nav {
     margin-bottom: 1rem;
     height: var(--topNavbarHeight);
+    background-color: var(--primary-color);
 }
