@@ -33,7 +33,6 @@ button {
     border-radius: var(--misc-border-radius);
     box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 0.3);
     overflow: hidden;
-    /* color: var(--tex); */
 }
 
 .order-records-div .row {
@@ -46,7 +45,6 @@ button {
 
 #snippetTimeDiv {
     display: flex;
-    /* background-color: var(--secondary-color); */
     height: 100%;
     width: 100%;
     text-align: center;
@@ -60,13 +58,7 @@ button {
     background-color: #417a00;
     display: inline-block;
     border-radius: 100%;
-    /* margin-right: 20px; */
 }
-
-/* #snippetTimeDiv span{
-    margin: auto;
-} */
-
 
 /* Order Details Modal */
 #orderDetailNameLabel {

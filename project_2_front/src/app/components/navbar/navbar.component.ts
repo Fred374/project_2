@@ -8,7 +8,7 @@ import { User } from 'src/app/models/user';
 })
 export class NavbarComponent implements OnInit {
 
-  public user: User = new User();
+  public user: User = JSON.parse(localStorage.getItem("currentUser") || "");
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngDoCheck(): void {
-    // this.user = JSON.parse(localStorage.getItem("currentUser") || "");
+    this.user = JSON.parse(localStorage.getItem("currentUser") || "");
   }
 
 }

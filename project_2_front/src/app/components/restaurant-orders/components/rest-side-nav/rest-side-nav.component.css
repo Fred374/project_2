@@ -8,11 +8,13 @@
 
 #rest-side-nav-div div {
     cursor: pointer;
-    background-color: gray;
+    background-color: white; /*var(--primary-color);*/
+    color: var(--secondary-color);
     height: 130px;
     max-width: 130px;
     margin: 0 1rem 1rem -70px;
     border-radius: 0 var(--small-button-border-radius) var( --small-button-border-radius) 0;
+    box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 0.3);
     text-align: center;
     align-items: center;
     font-size: 2rem;
