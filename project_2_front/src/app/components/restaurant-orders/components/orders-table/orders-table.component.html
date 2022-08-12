@@ -1,4 +1,19 @@
 <div id="ordersTableDiv d-flex">
+  <!--  -->
+
+  <!--  -->
+  <div id="ordersTableInnerDiv">
+    <h4 id="orderTableHeader">{{orderTableHeader}}</h4>
+    <div class="row d-flex order-records-div" data-bs-toggle="modal" data-bs-target="#orderDetailModal" (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
+      <div class="row">
+        <div class="col">{{o.orderId}}</div>
+        <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
+        <div class="col"></div>
+        <div class="col">{{o.orderTimestamp | date : 'shortTime'}}</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Order Detail Modal -->
   <div class="modal fade" id="orderDetailModal" tabindex="-1" aria-labelledby="orderDetailModalLabel"
     aria-hidden="true">
@@ -32,21 +47,13 @@
           <h5 class="me-auto">Order Total</h5>
           <h5>{{selectedOrder?.orderCost | currency}}</h5>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer d-flex">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateOrderStatus()" *ngIf="isStatusButonNeeded">{{changeStatusButtonLabel}}</button>
+          <button type="button" class="btn btn-primary" id="statusButton" data-bs-dismiss="modal" (click)="updateOrderStatus()" *ngIf="isStatusButonNeeded">
+            {{changeStatusButtonLabel}}
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!--  -->
-  <div class="row d-flex order-records-div" data-bs-toggle="modal" data-bs-target="#orderDetailModal" (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
-    <div class="row">
-      <div class="col">{{o.orderId}}</div>
-      <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
-      <div class="col"></div>
-      <div class="col">{{o.orderTimestamp | date : 'shortTime'}}</div>
     </div>
   </div>
 

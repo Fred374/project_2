@@ -18,6 +18,7 @@ export class OrdersTableComponent implements OnInit {
   // UI variables
   changeStatusButtonLabel = "Mark Ready";
   isStatusButonNeeded = true;
+  orderTableHeader = "";
 
   // Getting selected view option (changed in RestSideNav component) from RestaurantOrders
   @Input() selectedViewOption : number = 1;
@@ -50,14 +51,25 @@ export class OrdersTableComponent implements OnInit {
 
   setUpUI() {
 
-    if (this.selectedViewOption == 1) {
-      this.changeStatusButtonLabel = "Ready";
-      this.isStatusButonNeeded = true;
-    } else if (this.selectedViewOption == 2) {
-      this.changeStatusButtonLabel = "Not Ready";
-      this.isStatusButonNeeded = true;
-    } else {
-      this.isStatusButonNeeded = false;
+    switch (this.selectedViewOption ) {
+      case 1:
+        this.orderTableHeader = "New"
+        this.changeStatusButtonLabel = "Ready";
+        this.isStatusButonNeeded = true;
+        break;
+      case 2:
+        this.orderTableHeader = "Ready for pickup"
+        this.changeStatusButtonLabel = "Not Ready";
+        this.isStatusButonNeeded = true;
+        break;
+      case 3:
+        this.orderTableHeader = "Picked up"
+        this.isStatusButonNeeded = false;
+        break;
+      case 4:
+        this.orderTableHeader = "Delivered"
+        this.isStatusButonNeeded = false;
+        break;
     }
 
   }
