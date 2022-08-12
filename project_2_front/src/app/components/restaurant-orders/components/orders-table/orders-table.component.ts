@@ -19,6 +19,7 @@ export class OrdersTableComponent implements OnInit {
   changeStatusButtonLabel = "Mark Ready";
   isStatusButonNeeded = true;
   orderTableHeader = "";
+  snippetTimeColor = "var(--order-placed-color)";
 
   // Getting selected view option (changed in RestSideNav component) from RestaurantOrders
   @Input() selectedViewOption : number = 1;
@@ -56,19 +57,23 @@ export class OrdersTableComponent implements OnInit {
         this.orderTableHeader = "New"
         this.changeStatusButtonLabel = "Ready";
         this.isStatusButonNeeded = true;
+        this.snippetTimeColor = "var(--order-placed-color)"
         break;
       case 2:
         this.orderTableHeader = "Ready for pickup"
         this.changeStatusButtonLabel = "Not Ready";
         this.isStatusButonNeeded = true;
+        this.snippetTimeColor = "var(--order-ready-color)"
         break;
       case 3:
         this.orderTableHeader = "Picked up"
         this.isStatusButonNeeded = false;
+        this.snippetTimeColor = "var(--order-complete-color)"
         break;
       case 4:
         this.orderTableHeader = "Delivered"
         this.isStatusButonNeeded = false;
+        this.snippetTimeColor = "var(--order-complete-color)"
         break;
     }
 

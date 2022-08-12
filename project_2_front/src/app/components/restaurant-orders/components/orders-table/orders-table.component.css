@@ -1,4 +1,10 @@
 #ordersTableDiv {
+    --order-placed-color: #ffdd00;
+    --order-ready-color: #417a00;
+    --order-picked-up-color: #8f8f8f;
+}
+
+#ordersTableDiv {
 
 }
 
@@ -18,19 +24,48 @@ button {
 
 .order-records-div {
     cursor: pointer;
-    background-color: gray;
+    background-color: white;
     max-width: 500px;
     height: 100px;
     margin: 0 auto 1rem auto;
     text-align: center;
     align-items: center;
     border-radius: var(--misc-border-radius);
-    color: white;
+    box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 0.3);
+    overflow: hidden;
+    /* color: var(--tex); */
 }
 
-.order-record .row {
+.order-records-div .row {
     width: 100%;
+    height: 100%;
+    align-items: center;
+    margin: 0;
+    padding-right: 0;
 }
+
+#snippetTimeDiv {
+    display: flex;
+    /* background-color: var(--secondary-color); */
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-right: 0;
+}
+
+#snippetColorCode {
+    height: 30px;
+    width: 30px;
+    background-color: #417a00;
+    display: inline-block;
+    border-radius: 100%;
+    /* margin-right: 20px; */
+}
+
+/* #snippetTimeDiv span{
+    margin: auto;
+} */
 
 
 /* Order Details Modal */
