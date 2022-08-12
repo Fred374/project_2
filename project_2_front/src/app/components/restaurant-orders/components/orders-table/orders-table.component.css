@@ -22,14 +22,6 @@ button {
 
 }
 
-#spinnerDiv {
-    justify-content: center;
-    color: var(--secondary-color);
-    width: 3rem;
-    height: 3rem;
-
-}
-
 .order-records-div {
     cursor: pointer;
     background-color: white;
@@ -92,8 +84,27 @@ button {
     width: 200px;
 }
 
-/* Misc */
+/* Alert */
+#alertDiv {
+    position: fixed;
+    z-index: 5;
+    top: 2rem;
+    left: 1rem;
+    right: 1rem;
+    width: 70%;
+    margin: auto;
+}
 
+/* Spinner */
+#spinnerDiv {
+    justify-content: center;
+    color: var(--secondary-color);
+    width: 3rem;
+    height: 3rem;
+
+}
+
+/* Misc */
 @keyframes pulse {
 	0% {
 		transform: scale(0.95);

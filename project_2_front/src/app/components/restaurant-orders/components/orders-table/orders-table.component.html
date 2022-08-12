@@ -1,6 +1,8 @@
 <div id="ordersTableDiv">
   <!--  -->
-
+  <div class="alert alert-primary" role="alert" id="alertDiv" *ngIf="isAlertActive">
+    A simple primary alert—check it out!
+  </div>
   <!--  -->
   <div id="ordersTableInnerDiv">
     <h1 id="orderTableHeader">{{orderTableHeader}}</h1>
