@@ -1,3 +1,17 @@
+#ordersTableDiv {
+
+}
+
+#ordersTableInnerDiv{
+    max-width: 500px;
+    margin: 0 auto 1rem auto;
+}
+
+#orderTableHeader {
+    margin-bottom: 2rem;
+
+}
+
 .order-records-div {
     cursor: pointer;
     background-color: gray;
@@ -26,4 +40,9 @@
 
 #orderDetailTotal {
     margin-top: 3rem;
+}
+
+#statusButton {
+    margin: 1rem auto 1rem auto;
+    width: 200px;
 }

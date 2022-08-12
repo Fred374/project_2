@@ -9,7 +9,7 @@
 #rest-side-nav-div div {
     cursor: pointer;
     background-color: gray;
-    height: 100px;
+    height: 130px;
     max-width: 130px;
     margin: 0 1rem 1rem -70px;
     border-radius: 0 var(--border-radius) var(--border-radius) 0;

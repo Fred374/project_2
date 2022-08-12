@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -122,6 +123,22 @@ public class OrderController {
 		}
 		
 		return ResponseEntity.badRequest().build(); 		
+	}
+	
+	// Deleting order
+	@DeleteMapping(value="/delete/{orderId}")
+	public ResponseEntity<String> deleteOrder(@PathVariable int orderId) {
+		
+		Optional<Order> orderToBeDeletedOptional = oDAO.findById(orderId);
+		
+		if (orderToBeDeletedOptional.isPresent()) {
+			
+			oDAO.deleteById(orderId);
+			
+			return ResponseEntity.accepted().body("Order with id: " + orderId + " successfully deleted.");
+		}
+		
+		return ResponseEntity.badRequest().build(); 	
 	}
 	
 	// Adding new Order - RETIRED, probably won't need it
