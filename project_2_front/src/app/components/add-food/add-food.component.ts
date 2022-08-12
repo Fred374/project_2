@@ -10,7 +10,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class AddFoodComponent implements OnInit {
 
-  resId = 4966752;
+  resId = JSON.parse(localStorage.getItem("currentUser") || "").userLastName;
 
   public foodItemArr: FoodItem[] = [];
 

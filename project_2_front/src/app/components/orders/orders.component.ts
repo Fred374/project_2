@@ -23,8 +23,8 @@ export class OrdersComponent implements OnInit {
     address: "",
     location_string: ""
   };
-  public user:User = {};
-  
+  public user: User = {};
+
 
   constructor(private os: OrdersService, private router: Router) { }
 
