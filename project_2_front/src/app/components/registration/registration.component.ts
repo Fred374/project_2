@@ -14,6 +14,10 @@ export class RegistrationComponent implements OnInit {
   public input: number = 0;
 
   user: User = new User();
+
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
   
   constructor(
     private us:UserService,
@@ -26,6 +30,9 @@ export class RegistrationComponent implements OnInit {
   createUser(){
     this.us.createUser(this.user, this.input).subscribe(data => {
       console.log(data);
+      this.isSuccessful = true;
+      this.isSignUpFailed = false;
+
       console.log(JSON.stringify(data));
       console.log(data.userRoleId?.userRoleId);
       console.log(JSON.stringify(data.userRoleId?.userRoleId));
@@ -46,7 +53,12 @@ export class RegistrationComponent implements OnInit {
         // send the restaurant to view their orders 
         this.router.navigate(['/restaurant/orders']); 
     }
-    });
+    },
+    err => {
+      this.errorMessage = "Pleasee enter any missed values and try again";
+      this.isSignUpFailed = true;
+    }
+    );
     // the easy thing to do is on successful login
     // simply transport the user to the login page
     // localStorage.setItem('currentUserId', JSON.stringify(this.user.userId));
