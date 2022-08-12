@@ -11,7 +11,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class AddFoodComponent implements OnInit {
 
-  user = JSON.parse(localStorage.getItem("currentUser") || "");
+  user = JSON.parse(localStorage.getItem("currentUser") || "{}");
   resId = this.user.userLastName;
 
   public foodItemArr: FoodItem[] = [];
