@@ -1,23 +1,30 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.ArrayList;
-
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.revature.daos.*;
+
+import com.revature.daos.FoodItemDAO;
+import com.revature.daos.OrderDAO;
+import com.revature.daos.OrderItemDAO;
+import com.revature.daos.OrderStatusDAO;
+import com.revature.daos.UserDAO;
 import com.revature.models.Order;
 import com.revature.models.OrderItem;
+import com.revature.models.OrderStatus;
 
 @RestController
+@Component	
 @RequestMapping(value = "/order")
 public class OrderController {
 	
@@ -103,6 +110,21 @@ public class OrderController {
 			return ResponseEntity.accepted().body(o);
 		}
 	}
+	
+	@GetMapping(value="/by-status/{statusId}")
+	public ResponseEntity<List<Order>> getOrdersByStatus(@PathVariable int statusId) {
+			OrderStatus os = new OrderStatus(statusId);
+			Optional<List<Order>> ordersOptional = oDAO.findByOrderStatusId(os);
+			
+			if (ordersOptional.isPresent()) {
+				List<Order> orders = ordersOptional.get();
+				return ResponseEntity.ok(orders);
+			}
+			
+			// If optional is not present then return no content status code and empty response body
+			return ResponseEntity.noContent().build();
+	}
+	
 	
 	// Adding new Order - RETIRED, probably won't need it
 //	@PostMapping(value = "/{userId}")
