@@ -22,7 +22,10 @@ export class RestaurantOrdersComponent implements OnInit {
   }
 
   getOrdersForRestaurant() {
-    this.orderService.getOrdersForRestaurant(4966752).subscribe(data => this.orders = data.body as Order[])
+    this.orderService.getOrdersForRestaurant(4966752).subscribe(data => {
+      this.orders = data.body as Order[];
+      console.log(this.orders);
+      })
     console.log("code ran")
   }
 

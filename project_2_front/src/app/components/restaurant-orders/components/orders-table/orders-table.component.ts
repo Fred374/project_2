@@ -27,7 +27,7 @@ export class OrdersTableComponent implements OnInit {
   constructor(private orderService: OrdersService) { }
 
   ngOnInit(): void {
-
+    
   }
 
   ngOnChanges() {
@@ -51,6 +51,7 @@ export class OrdersTableComponent implements OnInit {
   }
 
   setUpUI() {
+    console.log(this.orders)
 
     switch (this.selectedViewOption ) {
       case 1:
