@@ -11,6 +11,7 @@ import { AddFoodComponent } from './components/add-food/add-food.component';
 import { DriverOrdersComponent } from './components/driver-orders/driver-orders.component';
 import { BreakfastandbrunchComponent } from './components/breakfastandbrunch/breakfastandbrunch.component';
 import { JuiceandsmoothieComponent } from './components/juiceandsmoothie/juiceandsmoothie.component';
+import { SushiComponent } from './components/sushi/sushi.component';
 
 const routes: Routes = [
   { path: "orders", component: OrdersComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: "driver/orders", component: DriverOrdersComponent },
   {path: "/breakfast", component:BreakfastandbrunchComponent},
   {path: "/juiceandsmoothie", component:JuiceandsmoothieComponent},
-  {path: ""}
+  {path: "/sushi", component: SushiComponent}
 
 ];
 
