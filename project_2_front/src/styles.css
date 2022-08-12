@@ -32,32 +32,32 @@ html body {
 /* Buttons */
 button {
     border: none;
-    color: var(--background-color);
-    font-weight: 300;
+    color: var(--background-color) !important;
+    font-weight: 300 !important;
 }
 
 button:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.2) !important;
 }
 
 button:active {
-    filter: brightness(0.8);
+    filter: brightness(0.8) !important;
 }
 
 .large-button {
-    width: 150px;
-    height: 60px;
-    background-color: var(--primary-color);
-    border-radius: var(--large-button-border-radius);
-    font-size: 21px;
+    width: 150px !important;
+    height: 60px !important;
+    background-color: var(--primary-color) !important;
+    border-radius: var(--large-button-border-radius) !important;
+    font-size: 21px !important;
 }
 
 .small-button {
-    width: 100px;
-    height: 40px;
-    background-color: var(--secondary-color);
-    border-radius: var(--small-button-border-radius);
-    font-size: 16px;
+    max-width: 150px !important;
+    height: 40px !important;
+    background-color: var(--secondary-color) !important;
+    border-radius: var(--small-button-border-radius) !important;
+    font-size: 16px !important;
 }
 
 /* Headers and text */

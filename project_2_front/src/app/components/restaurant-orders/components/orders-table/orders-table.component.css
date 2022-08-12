@@ -61,6 +61,10 @@ button {
 }
 
 /* Order Details Modal */
+#orderDetailModal {
+    margin-top: 5rem;
+}
+
 #orderDetailNameLabel {
     margin-bottom: 2rem;
 }
