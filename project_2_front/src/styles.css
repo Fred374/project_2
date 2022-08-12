@@ -16,7 +16,8 @@
     --text-color: #171717;
 
     /* Border Radius */
-    --button-border-radius: 1rem;
+    --large-button-border-radius: 1rem;
+    --small-button-border-radius: 0.8rem;
     --misc-border-radius: 0.5rem;
 }
 
@@ -47,7 +48,7 @@ button:active {
     min-width: 150px;
     height: 60px;
     background-color: var(--primary-color);
-    border-radius: var(--button-border-radius);
+    border-radius: var(--large-button-border-radius);
     font-size: 21px;
 }
 
@@ -55,11 +56,15 @@ button:active {
     min-width: 100px;
     height: 40px;
     background-color: var(--secondary-color);
-    border-radius: var(--button-border-radius);
+    border-radius: var(--small-button-border-radius);
     font-size: 16px;
 }
 
 /* Headers and text */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
 h1 {
     font-size: 24px;
 }
