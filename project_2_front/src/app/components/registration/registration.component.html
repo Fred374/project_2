@@ -8,15 +8,17 @@
             <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && createUser()" #f="ngForm" novalidate>
                 
                 <div class="form-group">
-                    <label for="userTypeId" class="form-label">Will you be a customer or driver?</label>
+                    <label for="userTypeId" class="form-label">Will you be a customer, driver or restaurant?</label>
                     <select  name="userTypeId" [(ngModel)]="input" id="userTypeId" class="form-control">
                         <option value="1">Customer</option>
                         <option value="2">Driver</option>
+                        <option value="3">Restaurant</option>
                     </select><br>
                 </div>
 
                 <div class="form-group">
-                    <label for="firstName" class="form-label">Enter your First Name:</label><br>
+                    <label for="firstName" class="form-label" *ngIf="input != 3">Enter your First Name:</label>
+                    <label for="firstName" class="form-label" *ngIf="input == 3">Enter Restaurant Name:</label><br>
                     <input type="text" id="firstName" name="firstName" [(ngModel)]="user.userFirstName" class="form-control" required #firstname="ngModel"><br> 
                     <!-- Some validation -->
                     <div class="alert-danger" *ngIf="firstname.errors && f.submitted">
@@ -25,7 +27,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="lastName" class="form-label">Enter your Last Name:</label><br>
+                    <label for="lastName" class="form-label" *ngIf="input != 3">Enter your Last Name:</label>
+                    <label for="firstName" class="form-label" *ngIf="input == 3">Enter Location Id:</label><br>
                     <input type="text" id="lastName" name="lastName" [(ngModel)]="user.userLastName" class="form-control" required #lastname="ngModel"><br>
                     <!-- Some validation -->
                     <div class="alert-danger" *ngIf="lastname.errors && f.submitted">

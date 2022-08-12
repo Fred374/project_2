@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FoodItem } from 'src/app/models/food-item';
+import { User } from 'src/app/models/user';
 import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class AddFoodComponent implements OnInit {
 
-  resId = 4966752;
+  user = JSON.parse(localStorage.getItem("currentUser") || "");
+  resId = this.user.userLastName;
 
   public foodItemArr: FoodItem[] = [];
 
