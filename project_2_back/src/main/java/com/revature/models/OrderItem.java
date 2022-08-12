@@ -29,7 +29,7 @@ public class OrderItem {
 	private double orderItemTotalCost;
 	
 	// Referencing other tables
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne //(cascade=CascadeType.ALL)
 	@JoinColumn(name = "foodItemId")
 	private FoodItem foodItemId;
 

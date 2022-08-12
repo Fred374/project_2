@@ -34,11 +34,11 @@ public class Order {
 	private double orderCost;
 	
 	// Referencing columns of other tables
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne //(cascade=CascadeType.ALL)
 	@JoinColumn(name = "userId")
 	private User userId;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne //(cascade=CascadeType.ALL)
 	@JoinColumn(name = "orderStatusId")
 	private OrderStatus orderStatusId;
 	
