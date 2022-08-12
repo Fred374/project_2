@@ -16,6 +16,7 @@ export class OrdersTableComponent implements OnInit {
   selectedOrder? : Order;
 
   // UI variables
+  @Input() areOrdersLoaded = true;
   changeStatusButtonLabel = "Mark Ready";
   isStatusButonNeeded = true;
   orderTableHeader = "";
