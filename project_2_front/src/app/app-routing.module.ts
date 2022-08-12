@@ -11,7 +11,7 @@ import { AddFoodComponent } from './components/add-food/add-food.component';
 import { DriverOrdersComponent } from './components/driver-orders/driver-orders.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/mood', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: "orders", component: OrdersComponent },
   { path: "mood", component: MoodforwhatComponent },
   { path: "restaurant/orders", component: RestaurantOrdersComponent },
