@@ -9,6 +9,8 @@ import { RestaurantOrdersComponent } from './components/restaurant-orders/restau
 import { LoginComponent } from './components/login/login.component';
 import { AddFoodComponent } from './components/add-food/add-food.component';
 import { DriverOrdersComponent } from './components/driver-orders/driver-orders.component';
+import { BreakfastandbrunchComponent } from './components/breakfastandbrunch/breakfastandbrunch.component';
+import { JuiceandsmoothieComponent } from './components/juiceandsmoothie/juiceandsmoothie.component';
 
 const routes: Routes = [
   { path: "orders", component: OrdersComponent },
@@ -19,7 +21,11 @@ const routes: Routes = [
   { path: "ordersPt2", component: OrdersPt2Component },
   { path: "login", component: LoginComponent },
   { path: "restaurant/addFood", component: AddFoodComponent },
-  { path: "driver/orders", component: DriverOrdersComponent }
+  { path: "driver/orders", component: DriverOrdersComponent },
+  {path: "/breakfast", component:BreakfastandbrunchComponent},
+  {path: "/juiceandsmoothie", component:JuiceandsmoothieComponent},
+  {path: ""}
+
 ];
 
 @NgModule({

@@ -18,6 +18,9 @@ import { OrdersPt2Component } from './components/orders-pt2/orders-pt2.component
 import { LoginComponent } from './components/login/login.component';
 import { AddFoodComponent } from './components/add-food/add-food.component';
 import { DriverOrdersComponent } from './components/driver-orders/driver-orders.component';
+import { BreakfastandbrunchComponent } from './components/breakfastandbrunch/breakfastandbrunch.component';
+import { JuiceandsmoothieComponent } from './components/juiceandsmoothie/juiceandsmoothie.component';
+import { SushiComponent } from './components/sushi/sushi.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { DriverOrdersComponent } from './components/driver-orders/driver-orders.
     OrdersPt2Component,
     LoginComponent,
     AddFoodComponent,
-    DriverOrdersComponent
+    DriverOrdersComponent,
+    BreakfastandbrunchComponent,
+    JuiceandsmoothieComponent,
+    SushiComponent
   ],
   imports: [
     BrowserModule,
