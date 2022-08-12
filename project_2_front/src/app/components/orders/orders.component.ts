@@ -3,6 +3,8 @@ import { Router, RouterLink } from '@angular/router';
 import { FoodItem } from 'src/app/models/food-item';
 import { Order } from 'src/app/models/order';
 import { OrderItem } from 'src/app/models/order-item';
+import { Restaurant } from 'src/app/models/restaurant';
+import { User } from 'src/app/models/user';
 import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
@@ -12,12 +14,29 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class OrdersComponent implements OnInit {
 
-  resId = 4966752;
+  resId = this.os.resId;
 
   public orderItem: OrderItem[] = [];
   public foodItem: FoodItem[] = [];
+  public res: Restaurant = {
+    name: "",
+    address: "",
+    location_string: ""
+  };
+  //public user:User = localStorage.getItem("user") as User;
 
   constructor(private os: OrdersService, private router: Router) { }
+
+  getRes() {
+    this.os.getRes().subscribe(
+      (data: any) => {
+        console.log(data.results);
+        this.res.name = data.results.data[0].name;
+        this.res.address = data.results.data[0].address;
+        this.res.location_string = data.results.data[0].location_string;
+      }
+    )
+  }
 
   getFoods() {
     this.os.getFood(this.resId).subscribe(
@@ -68,6 +87,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFoods();
+    this.getRes();
   }
 
 }
