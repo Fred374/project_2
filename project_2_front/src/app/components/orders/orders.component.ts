@@ -90,7 +90,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.getFoods();
     this.getRes();
-    this.user = JSON.parse(localStorage.getItem("currentUser") || "")
+    this.user = JSON.parse(localStorage.getItem("currentUser") || "{}")
     console.log(this.user);
   }
 
