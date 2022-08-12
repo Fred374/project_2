@@ -1,0 +1,8 @@
+/* Spinner */
+#spinnerDiv {
+    justify-content: center;
+    color: var(--secondary-color);
+    width: 3rem;
+    height: 3rem;
+
+}
