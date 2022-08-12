@@ -1,7 +1,7 @@
 #ordersTableDiv {
-    --order-placed-color: #ffdd00;
+    --order-placed-color: #ffea00;
     --order-ready-color: #417a00;
-    --order-picked-up-color: #8f8f8f;
+    --order-complete-color: #8f8f8f;
 }
 
 #ordersTableDiv {
