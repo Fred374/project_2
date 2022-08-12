@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       console.log(this.user)
       console.log(this.us.user)
 
-    //localStorage.setItem('currentUser', JSON.stringify(user));
+      localStorage.setItem('currentUser', JSON.stringify(this.user));
 
     //localStorage.removeItem('currentUser');
       console.log(this.us.user.userUsername); //just trying to see what that gives! It prints in console of web

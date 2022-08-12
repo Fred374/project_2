@@ -23,7 +23,8 @@ export class OrdersComponent implements OnInit {
     address: "",
     location_string: ""
   };
-  //public user:User = localStorage.getItem("user") as User;
+  public user:User = {};
+  
 
   constructor(private os: OrdersService, private router: Router) { }
 
@@ -88,6 +89,8 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.getFoods();
     this.getRes();
+    this.user = JSON.parse(localStorage.getItem("currentUser") || "")
+    console.log(this.user);
   }
 
 }
