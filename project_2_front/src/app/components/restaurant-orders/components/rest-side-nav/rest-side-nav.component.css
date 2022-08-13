@@ -1,0 +1,30 @@
+#rest-side-nav-div {
+    color: white;
+    height: cacl (100% - var(--topNavbarHeight));
+    /* margin: 1rem 0 1rem 0; */
+    top: var(--topNavbarHeight);
+    bottom: 20px;
+}
+
+#rest-side-nav-div div {
+    cursor: pointer;
+    background-color: white; /*var(--primary-color);*/
+    color: var(--secondary-color);
+    height: 130px;
+    max-width: 130px;
+    margin: 0 1rem 1rem -70px;
+    border-radius: 0 var(--small-button-border-radius) var( --small-button-border-radius) 0;
+    box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 0.3);
+    text-align: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+#rest-side-nav-div div:hover {
+    transform:translate(10px);
+    /* filter: brightness(1.1); */
+}
+
+#rest-side-nav-div i {
+    padding-left: 40px;
+}

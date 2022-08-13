@@ -1,0 +1,34 @@
+<header class="m-4">
+    <table class="table table-dark">
+        <thead>
+            <th class="col-sm-9">
+                <h3>Orders</h3>
+            </th>
+            <th class="col-sm-3">
+                <h3>Driver</h3>
+            </th>
+        </thead>
+    </table>
+</header>
+
+<body class="mx-5 my-3">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Customer</th>
+                <th>Order Cost</th>
+                <th>Order Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let orderitem of orders">
+                <td>{{orderitem.orderId}}</td>
+                <td>{{orderitem?.userId?.userFirstName}} {{orderitem?.userId?.userLastName}}</td>
+                <td>${{orderitem.orderCost}}</td>
+                <td>{{orderitem?.orderStatusId?.orderStatusName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>

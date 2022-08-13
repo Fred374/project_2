@@ -17,8 +17,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @CrossOrigin
 @Entity
 @Table(name = "orders")
@@ -34,11 +32,11 @@ public class Order {
 	private double orderCost;
 	
 	// Referencing columns of other tables
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne //(cascade=CascadeType.ALL)
 	@JoinColumn(name = "userId")
 	private User userId;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne //(cascade=CascadeType.ALL)
 	@JoinColumn(name = "orderStatusId")
 	private OrderStatus orderStatusId;
 	

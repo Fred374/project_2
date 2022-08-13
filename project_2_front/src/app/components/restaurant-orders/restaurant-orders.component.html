@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <app-rest-side-nav (newViewOptionEvent)="changeViewOption($event)"></app-rest-side-nav>
+    </div>
+    <div class="col-10">
+      <app-orders-table [orders]="orders" [selectedViewOption]="selectedViewOption" [areOrdersLoaded]="areOrdersLoaded"></app-orders-table>
+    </div>
+  </div>
+</div>

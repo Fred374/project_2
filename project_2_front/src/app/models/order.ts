@@ -12,6 +12,5 @@ export class Order {
         public userId?: User,
         public orderStatusId?: OrderStatus,
         public orderTimestamp?: Date,
-        // Probably need ot add list of OrderItems
     ) { }
 }

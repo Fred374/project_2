@@ -5,26 +5,22 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.revature.daos.FoodItemDAO;
-import com.revature.daos.OrderDAO;
-import com.revature.daos.OrderItemDAO;
-import com.revature.daos.OrderStatusDAO;
-import com.revature.daos.UserDAO;
+import com.revature.daos.*;
 import com.revature.models.Order;
 import com.revature.models.OrderItem;
 import com.revature.models.OrderStatus;
 
 @RestController
-@Component	
 @RequestMapping(value = "/order")
 public class OrderController {
 	
@@ -67,7 +63,7 @@ public class OrderController {
 	// Getting Order by Restaurant ID
 	@GetMapping(value="/for-restaurant/{resId}")
 	public ResponseEntity<List<Order>> findOrdersByRestaurantId(@PathVariable int resId) {
-		Optional<List<Order>> ordersOptional = oDAO.findByRestaurantIdFk(resId);
+		Optional<List<Order>> ordersOptional = oDAO.findByRestaurantIdFkOrderByOrderIdDesc(resId);
 		
 		if (ordersOptional.isPresent()) {
 			List<Order> orders = ordersOptional.get();

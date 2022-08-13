@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+ /* Importing Google Fonts */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {    
+    /* 
+        These are variables that are available throughout all css files
+        It can save you a lot of time. 
+        To use them follow the syntax var(--var-number), example:
+        background-color: var(--primary-color);
+    */
+
+    /* Colors */
+    --primary-color: #fd8300;
+    --secondary-color: #dd3b59;
+    --background-color: #fff4ee;
+    --text-color: #171717;
+
+    /* Border Radius */
+    --large-button-border-radius: 1rem;
+    --small-button-border-radius: 0.8rem;
+    --misc-border-radius: 0.5rem;
+}
+
+html body {
+    background-color: var(--background-color);
+    color: var(--text-color) !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 200;
+
+}
+
+/* Buttons */
+button {
+    border: none;
+    color: var(--background-color) !important;
+    font-weight: 300 !important;
+}
+
+button:hover {
+    filter: brightness(1.2) !important;
+}
+
+button:active {
+    filter: brightness(0.8) !important;
+}
+
+.large-button {
+    width: 150px !important;
+    height: 60px !important;
+    background-color: var(--primary-color) !important;
+    border-radius: var(--large-button-border-radius) !important;
+    font-size: 21px !important;
+}
+
+.small-button {
+    max-width: 150px !important;
+    height: 40px !important;
+    background-color: var(--secondary-color) !important;
+    border-radius: var(--small-button-border-radius) !important;
+    font-size: 16px !important;
+}
+
+/* Headers and text */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 21px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+h4 {
+    font-size: 13px;
+}
+
+h5 {
+    font-size: 12px;
+}
+
+h6 {
+    font-size: 11px;
+}
+
+p {
+    font-size: 12px;
+}
+
+/* Links */
+a {
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
+
+}
+
+a:hover {
+    color:var(--primary-color) !important;
+}
+
+a:active {
+    color:var(--primary-color) !important;
+    filter: brightness(0.8) !important;
+}

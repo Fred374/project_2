@@ -1,0 +1,18 @@
+<div class="container-fluid" id="rest-side-nav-div">
+    <div class="row d-flex" (click)="sideButtonPressed(1)"
+        [ngStyle]="{'background-color': selectedViewOption == 1 ? 'var(--secondary-color)' : 'white', 'color': selectedViewOption == 1 ? 'white' : 'var(--secondary-color'}">
+        <i class="bi bi-receipt-cutoff"></i>
+    </div>
+    <div class="row d-flex" (click)="sideButtonPressed(2)"
+        [ngStyle]="{'background-color': selectedViewOption == 2 ? 'var(--secondary-color)' : 'white', 'color': selectedViewOption == 2 ? 'white' : 'var(--secondary-color'}">
+        <i class="bi bi-cup-hot"></i>
+    </div>
+    <div class="row d-flex" (click)="sideButtonPressed(3)"
+        [ngStyle]="{'background-color': selectedViewOption == 3 ? 'var(--secondary-color)' : 'white', 'color': selectedViewOption == 3 ? 'white' : 'var(--secondary-color'}">
+        <i class="bi bi-car-front"></i>
+    </div>
+    <div class="row d-flex" (click)="sideButtonPressed(4)"
+        [ngStyle]="{'background-color': selectedViewOption == 4 ? 'var(--secondary-color)' : 'white', 'color': selectedViewOption == 4 ? 'white' : 'var(--secondary-color'}">
+        <i class="bi bi-bag-check"></i>
+    </div>
+</div>

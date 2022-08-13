@@ -3,7 +3,6 @@ package com.revature.models;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +28,7 @@ public class OrderItem {
 	private double orderItemTotalCost;
 	
 	// Referencing other tables
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne //(cascade=CascadeType.ALL)
 	@JoinColumn(name = "foodItemId")
 	private FoodItem foodItemId;
 

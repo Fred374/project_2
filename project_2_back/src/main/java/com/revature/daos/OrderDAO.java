@@ -12,7 +12,7 @@ import com.revature.models.OrderStatus;
 @Repository
 public interface OrderDAO extends JpaRepository<Order,Integer> {
 	
-	public Optional<List<Order>> findByRestaurantIdFk(int resId);
+	public Optional<List<Order>> findByRestaurantIdFkOrderByOrderIdDesc(int resId);
 	
 	public Optional<List<Order>> findByOrderStatusId(OrderStatus statusId);
 }

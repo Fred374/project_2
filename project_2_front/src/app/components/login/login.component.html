@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <!-- Input box for login-->
+    <div class="row m-3"> <!-- Might remove class-->
+        <h2>Welcome to Food Hero</h2>
+        <br>
+        <!-- <p >{{user.userFirstName}}</p> -->
+        <h4>Executive summary:
+
+            Food hero is a one stop shop for food delivery. We pride ourselves on making good food available to everyone.
+            </h4>
+        <h4>Mission: 
+
+            Our mission is to promote good food and enable customers to have it delivered straight to their door.
+            </h4>
+            <br><br><br>
+            <h3>Login</h3>
+        <!-- [(Two way binding!!)] this input field will take user input and fill a variable in our TS-->
+        <input type="text" [(ngModel)] ="user.userUsername" placeholder="username">
+        <input type="text" [(ngModel)]="user.userPassword" placeholder="password">
+       <button (click)="login()">Login</button> 
+    </div>
+
+    <a routerLink="/registration" class="btn btn-link">Register</a>
+
+</div>
