@@ -35,9 +35,11 @@ public class User {
 	
 	@Column(nullable = false, columnDefinition = "TEXT")
 	private String userFirstName;
+	// Restaurant Name
 	
 	@Column(nullable = false, columnDefinition = "TEXT")
 	private String userLastName;
+	// Restaurant Location Id for External Database
 	
 	@Column(nullable = false, columnDefinition = "TEXT", unique = true)
 	private String userEmail;

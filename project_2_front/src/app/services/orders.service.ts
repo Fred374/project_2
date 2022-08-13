@@ -18,6 +18,7 @@ export class OrdersService {
   };
 
   public resId = 0;
+  userId = 0;
 
   httpOptions = {
 
@@ -47,8 +48,7 @@ export class OrdersService {
   }
 
   public sendOrder(order: Order): Observable<Order> {
-    let standinValue = 1; // standinValue for user
-    return this.http.post<Order>("http://localhost:4009/food/order/" + standinValue + "/1", order, this.httpOptions);
+    return this.http.post<Order>("http://localhost:4009/food/order/" + this.userId + "/1", order, this.httpOptions);
   }
 
   public addFood(foodItem: FoodItem): Observable<FoodItem> {

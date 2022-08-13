@@ -1,5 +1,6 @@
  /* Importing Google Fonts */
  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 :root {    
     /* 
@@ -12,7 +13,8 @@
     /* Colors */
     --primary-color: #fd8300;
     --secondary-color: #dd3b59;
-    --background-color: #fff4ee;
+    /* --background-color: #fff4ee; */
+    --background-color: #eff4ee;
     --text-color: #171717;
 
     /* Border Radius */
@@ -32,32 +34,32 @@ html body {
 /* Buttons */
 button {
     border: none;
-    color: var(--background-color);
-    font-weight: 300;
+    color: var(--background-color) !important;
+    font-weight: 300 !important;
 }
 
 button:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.2) !important;
 }
 
 button:active {
-    filter: brightness(0.8);
+    filter: brightness(0.8) !important;
 }
 
 .large-button {
-    min-width: 150px;
-    height: 60px;
-    background-color: var(--primary-color);
-    border-radius: var(--large-button-border-radius);
-    font-size: 21px;
+    width: 150px !important;
+    height: 60px !important;
+    background-color: var(--primary-color) !important;
+    border-radius: var(--large-button-border-radius) !important;
+    font-size: 21px !important;
 }
 
 .small-button {
-    min-width: 100px;
-    height: 40px;
-    background-color: var(--secondary-color);
-    border-radius: var(--small-button-border-radius);
-    font-size: 16px;
+    max-width: 150px !important;
+    height: 40px !important;
+    background-color: var(--secondary-color) !important;
+    border-radius: var(--small-button-border-radius) !important;
+    font-size: 16px !important;
 }
 
 /* Headers and text */
@@ -95,14 +97,16 @@ p {
 
 /* Links */
 a {
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
+
 }
 
 a:hover {
-    color:var(--primary-color);
+    color:var(--primary-color) !important;
 }
 
 a:active {
-    color:var(--primary-color);
-    filter: brightness(0.8);
+    color:var(--primary-color) !important;
+    filter: brightness(0.8) !important;
 }

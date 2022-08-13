@@ -23,7 +23,8 @@ export class OrdersComponent implements OnInit {
     address: "",
     location_string: ""
   };
-  //public user:User = localStorage.getItem("user") as User;
+  public user: User = {};
+
 
   constructor(private os: OrdersService, private router: Router) { }
 
@@ -72,11 +73,12 @@ export class OrdersComponent implements OnInit {
       restaurantIdFk: this.resId,
       orderItems: this.orderItem
     }
+    this.os.userId = this.user.userId || 0;
     //console.log(order);
     this.os.sendOrder(order).subscribe(
       (data: any) => {
         this.os.order = data;
-        //console.log(this.os.order);
+        console.log(this.os.order);
         alert("Your food has been ordered.");
         this.router.navigate(['ordersPt2'])
       }, () => {
@@ -88,6 +90,8 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.getFoods();
     this.getRes();
+    this.user = JSON.parse(localStorage.getItem("currentUser") || "{}")
+    console.log(this.user);
   }
 
 }

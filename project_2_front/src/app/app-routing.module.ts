@@ -9,9 +9,12 @@ import { RestaurantOrdersComponent } from './components/restaurant-orders/restau
 import { LoginComponent } from './components/login/login.component';
 import { AddFoodComponent } from './components/add-food/add-food.component';
 import { DriverOrdersComponent } from './components/driver-orders/driver-orders.component';
+import { BreakfastandbrunchComponent } from './components/breakfastandbrunch/breakfastandbrunch.component';
+import { JuiceandsmoothieComponent } from './components/juiceandsmoothie/juiceandsmoothie.component';
+import { SushiComponent } from './components/sushi/sushi.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/mood', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: "orders", component: OrdersComponent },
   { path: "mood", component: MoodforwhatComponent },
   { path: "restaurant/orders", component: RestaurantOrdersComponent },
@@ -20,7 +23,11 @@ const routes: Routes = [
   { path: "ordersPt2", component: OrdersPt2Component },
   { path: "login", component: LoginComponent },
   { path: "restaurant/addFood", component: AddFoodComponent },
-  { path: "driver/orders", component: DriverOrdersComponent }
+  { path: "driver/orders", component: DriverOrdersComponent },
+  { path: "breakfast", component: BreakfastandbrunchComponent },
+  { path: "juiceandsmoothie", component: JuiceandsmoothieComponent },
+  { path: "sushi", component: SushiComponent }
+
 ];
 
 @NgModule({

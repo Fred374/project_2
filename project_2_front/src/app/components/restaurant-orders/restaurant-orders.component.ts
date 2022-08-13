@@ -11,6 +11,8 @@ export class RestaurantOrdersComponent implements OnInit {
 
   orders : Order[] = [];
   selectedViewOption : number = 1;
+
+  areOrdersLoaded = false;
   
 
   constructor(private orderService:OrdersService) { }
@@ -22,7 +24,10 @@ export class RestaurantOrdersComponent implements OnInit {
   }
 
   getOrdersForRestaurant() {
-    this.orderService.getOrdersForRestaurant(4966752).subscribe(data => this.orders = data.body as Order[])
+    this.orderService.getOrdersForRestaurant(4966752).subscribe(data => {
+      this.orders = data.body as Order[];
+      this.areOrdersLoaded = true;
+      })
     console.log("code ran")
   }
 
