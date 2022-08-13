@@ -30,15 +30,39 @@
 
         <!-- Restaurant -->
         <li class="nav-item" >
-          <a class="nav-link active" aria-current="page" routerLink="/driver/orders"
+          <a class="nav-link active" aria-current="page" routerLink="/restaurant/orders"
             *ngSwitchCase="3">Orders</a>
         </li>
         <li class="nav-item" >
-          <a class="nav-link active" aria-current="page" routerLink="/driver/orders"
+          <a class="nav-link active" aria-current="page" routerLink="/restaurant/addFood"
             *ngSwitchCase="3">Menu</a>
         </li>
-
       </ul>
+      <div>
+        <li class="nav-item my-auto">
+          <a class="navbar-brand disabled" id="navbarUserName">Hi, {{userFirstName}}</a>
+        </li>
+      </div>
+      <div>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-person-fill"></i>
+            </a>
+            <ul class="dropdown-menu  dropdown-menu-end popout" aria-labelledby="navbarDropdown">
+              <!-- <li><a class="dropdown-item disabled" href="#">Profile</a></li>
+              <li><a class="dropdown-item disabled" href="#">Settings</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li> -->
+              <li>
+                <a class="dropdown-item" id="logoutButton" href="#">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

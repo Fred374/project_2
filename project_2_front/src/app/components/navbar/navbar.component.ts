@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
 
   public user: User = JSON.parse(localStorage.getItem("currentUser") || "{}");
   public userRoleId: number = 0;
+  public userFirstName: string = ""
 
   constructor() { }
 
@@ -21,7 +22,7 @@ export class NavbarComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
     this.userRoleId = this.user.userRoleId?.userRoleId!;
-    console.log(this.userRoleId);
+    this.userFirstName = this.user.userFirstName!;
   }
 
 }
