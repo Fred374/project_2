@@ -23,12 +23,22 @@
     --misc-border-radius: 0.5rem;
 }
 
-html body {
+html, body {
+    min-height: 100vh !important;
+    overflow: auto;
+}
+
+body {
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
     font-family: 'Poppins', sans-serif !important;
     font-weight: 200;
+    /* min-height: 800px; */
+}
 
+main {
+    min-height: 100vh;
+    margin-bottom: 6rem;
 }
 
 /* Buttons */

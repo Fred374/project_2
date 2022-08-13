@@ -29,8 +29,8 @@ h2 {
 }
 
 .form-control {
-    margin: 1rem;
-    width: auto;
+    margin: 1rem auto 1rem auto;
+    width: 90%;
 }
 
 #loginButton {
