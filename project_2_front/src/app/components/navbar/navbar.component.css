@@ -35,6 +35,16 @@ a:active {
     /* margin: auto; */
 }
 
+#loginLogo {
+        /* height: 80px; */
+    position: fixed;
+    z-index: 5;
+    top: 10px;
+    left: 1rem;
+    right: 1rem;
+    margin: auto;
+}
+
 .navbar-brand:hover {
     filter: brightness(1) !important;
 }

@@ -13,7 +13,7 @@
       (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
       <div class="row">
         <div class="col">{{o.orderId}}</div>
-        <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
+        <div class="col">{{o.userId?.userFirstName | titlecase}} {{o.userId?.userLastName?.charAt(0) | titlecase}}.</div>
         <div class="col"></div>
         <div class="col"><span id="snippetTimeSpan">{{o.orderTimestamp | date : 'shortTime'}}</span></div>
         <div class="col-2 d-flex"><span id="snippetColorCode" [ngStyle]="{'background-color':snippetTimeColor}"></span>
@@ -29,18 +29,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="orderDetailNumberLabel">Order #{{selectedOrder?.orderId}}</h5>
+          <h2 class="modal-title" id="orderDetailNumberLabel">Order #{{selectedOrder?.orderId}}</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- Modal Body -->
         <div class="modal-body">
           <div class="d-flex">
-            <h5 class="modal-title" id="orderDetailNameLabel" class="me-auto">{{selectedOrder?.userId?.userFirstName}}
-              {{selectedOrder?.userId?.userLastName?.charAt(0)}}.
-            </h5>
-            <h5>
+            <h2 class="modal-title" id="orderDetailNameLabel" class="me-auto">{{selectedOrder?.userId?.userFirstName | titlecase}}
+              {{selectedOrder?.userId?.userLastName?.charAt(0) | titlecase}}.
+            </h2>
+            <h2>
               {{selectedOrder?.orderTimestamp | date : 'shortTime'}}
-            </h5>
+            </h2>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex" id="orderDetailListHeader">
@@ -53,8 +53,8 @@
         </div>
         <!-- Modal Footer -->
         <div class="modal-footer d-flex" id="orderDetailTotal">
-          <h5 class="me-auto">Order Total</h5>
-          <h5>{{selectedOrder?.orderCost | currency}}</h5>
+          <h3 class="me-auto">Order Total</h3>
+          <h3>{{selectedOrder?.orderCost | currency}}</h3>
         </div>
         <div class="modal-footer d-flex">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
