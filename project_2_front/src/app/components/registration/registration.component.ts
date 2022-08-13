@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegistrationComponent implements OnInit {
   
+  //
   // user input for roleId
   public input: number = 0;
 
@@ -24,7 +25,9 @@ export class RegistrationComponent implements OnInit {
     private router: Router
     ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    localStorage.removeItem('currentUser');
+  }
 
   //
   createUser(){
@@ -33,40 +36,13 @@ export class RegistrationComponent implements OnInit {
       this.isSuccessful = true;
       this.isSignUpFailed = false;
 
-      // tests
-      //console.log(JSON.stringify(data));
-      //console.log(data.userRoleId?.userRoleId);
-      //console.log(JSON.stringify(data.userRoleId?.userRoleId));
-      localStorage.setItem('currentUser', JSON.stringify(data));
+      console.log(JSON.stringify(data));
+      console.log(data.userRoleId?.userRoleId);
+      console.log(JSON.stringify(data.userRoleId?.userRoleId));
+      localStorage.setItem('currentUserId', JSON.stringify(data.userId));
       localStorage.setItem('currentUserRoleId', JSON.stringify(data.userRoleId?.userRoleId));
-
-      // The following code sets the 
-      var user_id = data.userId;
-      localStorage.setItem("user_id", JSON.stringify(user_id));
-
-      var user_FN = data.userFirstName;
-      localStorage.setItem("user_FN", JSON.stringify(user_FN));
-
-      var user_LN = data.userLastName;
-      localStorage.setItem("user_LN", JSON.stringify(user_LN));
-
-      var user_RoleId = data.userRoleId?.userRoleId;
-      localStorage.setItem("user_RoleId", JSON.stringify(user_RoleId));
-
-      /* If the creds are desired in the implementation of your methods
-      Below is an example of how you would collect the creds from the browser storage in your component file
-    
-      export class AhmadtestComponent implements OnInit {
-
-        public U_Id = localStorage.getItem('user_id');
-
-        public U_FN = localStorage.getItem('user_FN');
-
-        public U_LN = localStorage.getItem('user_LN');
-
-        public U_Role_ID = localStorage.getItem('user_RoleId');
-  */
-      // conditional routing based on User inputs
+  
+      // conditional routing
       if(data.userRoleId?.userRoleId == 1) {
       // if user is a customer send them to choose Restaurant
         this.router.navigate(['/chooseRestaurant']);
@@ -86,9 +62,23 @@ export class RegistrationComponent implements OnInit {
       this.isSignUpFailed = true;
     }
     );
+    // the easy thing to do is on successful login
+    // simply transport the user to the login page
+    // localStorage.setItem('currentUserId', JSON.stringify(this.user.userId));
+    // let currentUserRoleId = localStorage.getItem('currentUserRoleId');
+    // let currentUserId = localStorage.getItem('currentUserId');
 
-     /*
-    -------------------------- logout function if desired
+    
+    // 
+    // localStorage.getItem('currentUser');
+    
+    
+    // psuedo code and thoughts
+    /* What could happen once the user logs in is automatically storing their values into a session
+    
+    However I would want to log the user with their credentials before storing anything in the session.
+    
+    potential logout function() would work by clearing the localStorage of the currentUser
     logout() {
       localStorage.removeItem('currentUser');
     }
