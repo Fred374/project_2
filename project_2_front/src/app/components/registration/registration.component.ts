@@ -37,8 +37,8 @@ export class RegistrationComponent implements OnInit {
       //console.log(JSON.stringify(data));
       //console.log(data.userRoleId?.userRoleId);
       //console.log(JSON.stringify(data.userRoleId?.userRoleId));
-      //localStorage.setItem('currentUser', JSON.stringify(data));
-      //localStorage.setItem('currentUserRoleId', JSON.stringify(data.userRoleId?.userRoleId));
+      localStorage.setItem('currentUser', JSON.stringify(data));
+      localStorage.setItem('currentUserRoleId', JSON.stringify(data.userRoleId?.userRoleId));
 
       // The following code sets the 
       var user_id = data.userId;
