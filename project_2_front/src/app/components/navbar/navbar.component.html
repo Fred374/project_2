@@ -37,7 +37,8 @@
       <!-- Right side -->
       <div *ngIf="userRoleId">
         <li class="nav-item my-auto">
-          <a class="navbar-brand disabled" id="navbarUserName">Hi, {{userFirstName}}</a>
+          <a class="navbar-brand disabled" id="navbarUserName"><span *ngIf="userRoleId != 3">Hi, {{userFirstName |
+              titlecase}}</span> <span *ngIf="userRoleId == 3">{{userFirstName}}</span></a>
         </li>
       </div>
 
