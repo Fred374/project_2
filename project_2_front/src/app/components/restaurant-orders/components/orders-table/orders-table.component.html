@@ -1,29 +1,26 @@
 <div id="ordersTableDiv">
-  <!--  -->
-  <div class="alert alert-primary" role="alert" id="alertDiv" *ngIf="isAlertActive">
-    A simple primary alert—check it out!
-  </div>
-  <!--  -->
+  <!-- Alert -->
+  <app-alert></app-alert>
+  
   <div id="ordersTableInnerDiv">
     <h1 id="orderTableHeader">{{orderTableHeader}}</h1>
+    
     <!-- Spinner -->
-    <div class="d-flex justify-content-center" *ngIf="!areOrdersLoaded">
-      <div class="spinner-border" id="spinnerDiv" role="status">
-        <span class="sr-only"></span>
-      </div>
-    </div>
-    <!-- /Spinner -->
+    <app-spinner [isSpinnerNeeded]="!areOrdersLoaded"></app-spinner>
+
     <!-- Snippet -->
-    <div class="row d-flex order-records-div" data-bs-toggle="modal" data-bs-target="#orderDetailModal" (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
+    <div class="row d-flex order-records-div" data-bs-toggle="modal" data-bs-target="#orderDetailModal"
+      (click)="selectedOrder = o" *ngFor="let o of filteredOrders">
       <div class="row">
         <div class="col">{{o.orderId}}</div>
         <div class="col">{{o.userId?.userFirstName}} {{o.userId?.userLastName?.charAt(0)}}.</div>
         <div class="col"></div>
         <div class="col"><span id="snippetTimeSpan">{{o.orderTimestamp | date : 'shortTime'}}</span></div>
-        <div class="col-2 d-flex"><span id="snippetColorCode" [ngStyle]="{'background-color':snippetTimeColor}"></span></div>
+        <div class="col-2 d-flex"><span id="snippetColorCode" [ngStyle]="{'background-color':snippetTimeColor}"></span>
+        </div>
       </div>
     </div>
-    <!-- /Snippet -->
+
   </div>
 
   <!-- Order Detail Modal -->
@@ -42,7 +39,7 @@
               {{selectedOrder?.userId?.userLastName?.charAt(0)}}.
             </h5>
             <h5>
-              {{selectedOrder?.orderTimestamp  | date : 'shortTime'}}
+              {{selectedOrder?.orderTimestamp | date : 'shortTime'}}
             </h5>
           </div>
           <ul class="list-group list-group-flush">
@@ -61,7 +58,8 @@
         </div>
         <div class="modal-footer d-flex">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-          <button type="button" class="btn small-button" id="statusButton" data-bs-dismiss="modal" (click)="updateOrderStatus()" *ngIf="isStatusButonNeeded">
+          <button type="button" class="btn small-button" id="statusButton" data-bs-dismiss="modal"
+            (click)="updateOrderStatus()" *ngIf="isStatusButonNeeded">
             {{changeStatusButtonLabel}}
           </button>
         </div>

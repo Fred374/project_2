@@ -4,10 +4,6 @@
     --order-complete-color: #8f8f8f;
 }
 
-#ordersTableDiv {
-
-}
-
 button {
     margin: 1rem
 }
@@ -82,26 +78,6 @@ button {
 #statusButton {
     margin: 1rem auto 1rem auto;
     width: 200px;
-}
-
-/* Alert */
-#alertDiv {
-    position: fixed;
-    z-index: 5;
-    top: 2rem;
-    left: 1rem;
-    right: 1rem;
-    width: 70%;
-    margin: auto;
-}
-
-/* Spinner */
-#spinnerDiv {
-    justify-content: center;
-    color: var(--secondary-color);
-    width: 3rem;
-    height: 3rem;
-
 }
 
 /* Misc */

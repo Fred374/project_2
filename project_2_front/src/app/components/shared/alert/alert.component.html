@@ -1,0 +1,5 @@
+<div class="alert"
+    [ngClass]="{'alert-primary': primary, 'alert-secondary': secondary, 'alert-success': success, 'alert-danger': danger, 'alert-warning': warning, 'alert-info': info, 'alert-light': light, 'alert-dark': dark}"
+    role="alert" id="alertDiv" *ngIf="isAlertActive">
+    {{message}}
+</div>
