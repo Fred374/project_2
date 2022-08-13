@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    // Logging any existing user out when visiting login page
+    localStorage.removeItem('currentUser');
   }
 
 }

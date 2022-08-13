@@ -1,30 +1,43 @@
-button{
-    width: 200px;
-    margin: 2rem auto 2rem auto;
-}
-
-input{
-    width:400px;
-    margin: 2rem auto 2rem auto;
+input {
+    margin: 2rem;
 }
 
 #loginDiv{
-    width: 700px;
+    max-width: 700px;
     margin: 0 auto 2rem auto;
+    display: flex;
+    justify-content: center;
 }
 
-#fieldDiv{
-    width: 300px;    
+#fieldsDiv{
+    width: 400px;
+    margin: 2rem auto 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    margin: 2rem auto 2rem auto;
+    text-align: center;
+    border-radius: var(--misc-border-radius);
+    box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 0.3);
 }
 
-h2{
-    text-align: center
-            
+#fieldsDiv h2 {
+    margin: 2rem auto 2rem auto;
 }
 
-#font-bold {
-    font-weight: bold;
-  }
+h2 {
+    text-align: center;
+}
 
+.form-control {
+    margin: 1rem;
+    width: auto;
+}
 
+#loginButton {
+    margin: 1rem;
+}
+
+#registerLink {
+    margin-bottom: 3rem;
+}
 
