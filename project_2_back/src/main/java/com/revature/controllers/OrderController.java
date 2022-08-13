@@ -106,7 +106,7 @@ public class OrderController {
 			return ResponseEntity.accepted().body(o);
 		}
 	}
-	
+	//get orders by tatus
 	@GetMapping(value="/by-status/{statusId}")
 	public ResponseEntity<List<Order>> getOrdersByStatus(@PathVariable int statusId) {
 			OrderStatus os = new OrderStatus(statusId);
