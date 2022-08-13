@@ -1,13 +1,14 @@
 package com.revature.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.daos.*;
 import com.revature.models.Order;
 import com.revature.models.OrderItem;
-import com.revature.models.OrderStatus;
 
 @RestController
 @RequestMapping(value = "/order")
@@ -106,21 +106,40 @@ public class OrderController {
 			return ResponseEntity.accepted().body(o);
 		}
 	}
-	//get orders by tatus
-	@GetMapping(value="/by-status/{statusId}")
-	public ResponseEntity<List<Order>> getOrdersByStatus(@PathVariable int statusId) {
-			OrderStatus os = new OrderStatus(statusId);
-			Optional<List<Order>> ordersOptional = oDAO.findByOrderStatusId(os);
+	
+	// Changing order status
+	@PutMapping(value="/update")
+	public ResponseEntity<Order> updateVehicle(@RequestBody Order passedOrder) {
+		
+		Optional<Order> orderToBeUpdatedOptional = oDAO.findById(passedOrder.getOrderId());
+		
+		if (orderToBeUpdatedOptional.isPresent()) {
 			
-			if (ordersOptional.isPresent()) {
-				List<Order> orders = ordersOptional.get();
-				return ResponseEntity.ok(orders);
+			Order updatedOrder = oDAO.save(passedOrder);
+			
+			if(updatedOrder != null) {
+				return ResponseEntity.accepted().body(updatedOrder);
 			}
-			
-			// If optional is not present then return no content status code and empty response body
-			return ResponseEntity.noContent().build();
+		}
+		
+		return ResponseEntity.badRequest().build(); 		
 	}
 	
+	// Deleting order
+	@DeleteMapping(value="/delete/{orderId}")
+	public ResponseEntity<String> deleteOrder(@PathVariable int orderId) {
+		
+		Optional<Order> orderToBeDeletedOptional = oDAO.findById(orderId);
+		
+		if (orderToBeDeletedOptional.isPresent()) {
+			
+			oDAO.deleteById(orderId);
+			
+			return ResponseEntity.accepted().body("Order with id: " + orderId + " successfully deleted.");
+		}
+		
+		return ResponseEntity.badRequest().build(); 	
+	}
 	
 	// Adding new Order - RETIRED, probably won't need it
 //	@PostMapping(value = "/{userId}")
