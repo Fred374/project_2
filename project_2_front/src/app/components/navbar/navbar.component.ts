@@ -25,4 +25,9 @@ export class NavbarComponent implements OnInit {
     this.userFirstName = this.user.userFirstName!;
   }
 
+  logoutPressed() {
+    localStorage.removeItem('currentUser');
+    this.userRoleId = 0;
+  }
+
 }

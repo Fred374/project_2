@@ -13,37 +13,35 @@
       <!-- Menu Options -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0" [ngSwitch]="userRoleId">
         <!-- Customer -->
-        <li class="nav-item" >
-          <a class="nav-link active" aria-current="page" routerLink="/mood"
-            *ngSwitchCase="1">New Order</a>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/mood" *ngSwitchCase="1">New Order</a>
         </li>
-        <li class="nav-item" >
-          <a class="nav-link active" aria-current="page" routerLink="/ordersPt2"
-            *ngSwitchCase="1">My Orders</a>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/ordersPt2" *ngSwitchCase="1">My Orders</a>
         </li>
 
         <!-- Driver -->
-        <li class="nav-item" >
-          <a class="nav-link active" aria-current="page" routerLink="/driver/orders"
-            *ngSwitchCase="2">Orders</a>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/driver/orders" *ngSwitchCase="2">Orders</a>
         </li>
 
         <!-- Restaurant -->
-        <li class="nav-item" >
-          <a class="nav-link active" aria-current="page" routerLink="/restaurant/orders"
-            *ngSwitchCase="3">Orders</a>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/restaurant/orders" *ngSwitchCase="3">Orders</a>
         </li>
-        <li class="nav-item" >
-          <a class="nav-link active" aria-current="page" routerLink="/restaurant/addFood"
-            *ngSwitchCase="3">Menu</a>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/restaurant/addFood" *ngSwitchCase="3">Menu</a>
         </li>
       </ul>
-      <div>
+
+      <!-- Right side -->
+      <div *ngIf="userRoleId">
         <li class="nav-item my-auto">
           <a class="navbar-brand disabled" id="navbarUserName">Hi, {{userFirstName}}</a>
         </li>
       </div>
-      <div>
+
+      <div *ngIf="userRoleId">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -51,18 +49,14 @@
               <i class="bi bi-person-fill"></i>
             </a>
             <ul class="dropdown-menu  dropdown-menu-end popout" aria-labelledby="navbarDropdown">
-              <!-- <li><a class="dropdown-item disabled" href="#">Profile</a></li>
-              <li><a class="dropdown-item disabled" href="#">Settings</a></li>
               <li>
-                <hr class="dropdown-divider" />
-              </li> -->
-              <li>
-                <a class="dropdown-item" id="logoutButton" href="#">Logout</a>
+                <a class="dropdown-item" id="logoutButton" href="#" (click)="logoutPressed()">Logout</a>
               </li>
             </ul>
           </li>
         </ul>
       </div>
+
     </div>
   </div>
 </nav>
