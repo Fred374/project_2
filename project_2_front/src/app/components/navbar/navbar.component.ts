@@ -9,14 +9,19 @@ import { User } from 'src/app/models/user';
 export class NavbarComponent implements OnInit {
 
   public user: User = JSON.parse(localStorage.getItem("currentUser") || "{}");
+  public userRoleId: number = 0;
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   ngDoCheck(): void {
     this.user = JSON.parse(localStorage.getItem("currentUser") || "{}");
+
+    this.userRoleId = this.user.userRoleId?.userRoleId!;
+    console.log(this.userRoleId);
   }
 
 }
