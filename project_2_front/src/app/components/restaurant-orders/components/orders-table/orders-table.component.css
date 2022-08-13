@@ -1,11 +1,7 @@
 #ordersTableDiv {
-    --order-placed-color: #ffdd00;
+    --order-placed-color: #ffea00;
     --order-ready-color: #417a00;
-    --order-picked-up-color: #8f8f8f;
-}
-
-#ordersTableDiv {
-
+    --order-complete-color: #8f8f8f;
 }
 
 button {
@@ -33,7 +29,6 @@ button {
     border-radius: var(--misc-border-radius);
     box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 0.3);
     overflow: hidden;
-    /* color: var(--tex); */
 }
 
 .order-records-div .row {
@@ -46,7 +41,6 @@ button {
 
 #snippetTimeDiv {
     display: flex;
-    /* background-color: var(--secondary-color); */
     height: 100%;
     width: 100%;
     text-align: center;
@@ -60,15 +54,15 @@ button {
     background-color: #417a00;
     display: inline-block;
     border-radius: 100%;
-    /* margin-right: 20px; */
+
+    animation: pulse 2s infinite;
 }
 
-/* #snippetTimeDiv span{
-    margin: auto;
-} */
-
-
 /* Order Details Modal */
+#orderDetailModal {
+    margin-top: 5rem;
+}
+
 #orderDetailNameLabel {
     margin-bottom: 2rem;
 }
@@ -84,4 +78,22 @@ button {
 #statusButton {
     margin: 1rem auto 1rem auto;
     width: 200px;
+}
+
+/* Misc */
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(75, 75, 75, 0.1);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 }

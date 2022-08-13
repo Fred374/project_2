@@ -1,0 +1,10 @@
+/* Alert */
+#alertDiv {
+    position: fixed;
+    z-index: 5;
+    top: 2rem;
+    left: 1rem;
+    right: 1rem;
+    width: 70%;
+    margin: auto;
+}
