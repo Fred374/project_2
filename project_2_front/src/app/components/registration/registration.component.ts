@@ -33,12 +33,28 @@ export class RegistrationComponent implements OnInit {
       this.isSuccessful = true;
       this.isSignUpFailed = false;
 
+      // name, userRoleId
       console.log(JSON.stringify(data));
-      console.log(data.userRoleId?.userRoleId);
-      console.log(JSON.stringify(data.userRoleId?.userRoleId));
-      localStorage.setItem('currentUserId', JSON.stringify(data.userId));
-      localStorage.setItem('currentUserRoleId', JSON.stringify(data.userRoleId?.userRoleId));
-  
+      // console.log(data.userRoleId?.userRoleId);
+      // console.log(JSON.stringify(data.userRoleId?.userRoleId));
+      // localStorage.setItem('currentUserId', JSON.stringify(data.userId));
+      // localStorage.setItem('currentUserRoleId', JSON.stringify(data.userRoleId?.userRoleId));
+      // sessionStorage.setItem('cuurentUser', data);
+      localStorage.setItem('currentUser', (JSON.stringify(data)));
+
+      var user_id = data.userId;
+      localStorage.setItem("user_id", JSON.stringify(user_id));
+
+      var user_FN = data.userFirstName;
+      localStorage.setItem("user_FN", JSON.stringify(user_FN));
+
+      var user_LN = data.userLastName;
+      localStorage.setItem("user_LN", JSON.stringify(user_LN));
+
+      var user_RoleId = data.userRoleId?.userRoleId;
+      localStorage.setItem("user_RoleId", JSON.stringify(user_RoleId));
+
+      let URole = localStorage.getItem('userRoleId')
       // conditional routing
       if(data.userRoleId?.userRoleId == 1) {
       // if user is a customer send them to choose Restaurant
@@ -67,7 +83,7 @@ export class RegistrationComponent implements OnInit {
 
     
     // 
-    // localStorage.getItem('currentUser');
+    // let user = localStorage.getItem('currentUser');
     
     
     // psuedo code and thoughts
