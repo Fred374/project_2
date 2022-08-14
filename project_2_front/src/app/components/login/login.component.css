@@ -31,7 +31,8 @@ h2 {
 
 #welcomeHeader {
     font-size: 30px;
-    font-family:Algerian;    
+    font-family:Algerian;   
+    color: var(--primary-color); 
 }
 
 h3 {
@@ -56,6 +57,6 @@ b {
     margin-bottom: 3rem;
 }
 blockquote{
-    text-emphasis-color: orange;
+    /* text-emphasis-color: var(--primary-color); */
 }
 
