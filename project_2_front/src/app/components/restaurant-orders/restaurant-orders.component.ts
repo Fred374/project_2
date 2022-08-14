@@ -28,10 +28,15 @@ export class RestaurantOrdersComponent implements OnInit {
   }
 
   getOrdersForRestaurant() {
-    this.orderService.getOrdersForRestaurant(this.restaurantId).subscribe(data => {
+    this.orderService.getOrdersForRestaurant(this.restaurantId).subscribe(
+      data => {
       this.orders = data.body as Order[];
       this.areOrdersLoaded = true;
-      })
+      },
+      error => {
+        console.log(error);
+      }
+      )
     console.log("code ran")
   }
 
