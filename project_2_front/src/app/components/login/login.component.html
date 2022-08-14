@@ -6,7 +6,7 @@
   <!-- Input box for login-->
   <div class="row">
     <div class="col">
-      <h2 id="welcomeHeader">Welcome to Food Hero</h2>
+      <h2 class="text-warning" id="welcomeHeader">Welcome to Food Hero</h2>
       <br />
       <!-- <p >{{user.userFirstName}}</p> -->
       <h3><b>
@@ -26,14 +26,20 @@
         <input class="form-control" type="text" [(ngModel)]="user.userUsername" placeholder="username" />
         <input class="form-control" type="password" [(ngModel)]="user.userPassword" placeholder="password" />
         <div>
-          <button type="button" class="large-button" id="loginButton" (click)="login()">
-            Login
+          <button type="button" class="large-button" id="loginButton" (click)="login()"><b>
+            Login</b>
           </button>
         </div>
         <div>
           <a id="registerLink" routerLink="/registration">Register</a>
         </div>
       </div>
+      <figure class="text-center"><blockquote class="blockquote"><p><b>“One cannot think well, love well, sleep well, if one has not dined well.”</b></p>
+      </blockquote>
+      <figcaption class="blockquote-footer">Virginia Woolf,
+        <cite title="Source title">A Room of One’s Own</cite>
+      </figcaption>
+    </figure>
 
     </div>
   </div>
