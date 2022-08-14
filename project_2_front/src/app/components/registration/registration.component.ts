@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegistrationComponent implements OnInit {
   
+  //
   // user input for roleId
   public input: number = 0;
 
@@ -24,7 +25,9 @@ export class RegistrationComponent implements OnInit {
     private router: Router
     ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    localStorage.removeItem('currentUser');
+  }
 
   //
   createUser(){
