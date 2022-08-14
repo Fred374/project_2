@@ -16,7 +16,7 @@
             <h3>Login</h3>
         <!-- [(Two way binding!!)] this input field will take user input and fill a variable in our TS-->
         <input type="text" [(ngModel)] ="user.userUsername" placeholder="username">
-        <input type="text" [(ngModel)]="user.userPassword" placeholder="password">
+        <input type="password" [(ngModel)]="user.userPassword" placeholder="password">
 
         <input (click)="login()" type="submit" value="Login">
        <button type="submit" (click)="login()">Login</button> 
