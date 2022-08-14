@@ -24,9 +24,10 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "restaurant/addFood", component: AddFoodComponent },
   { path: "driver/orders", component: DriverOrdersComponent },
-  { path: "breakfast", component: BreakfastandbrunchComponent },
-  { path: "juiceandsmoothie", component: JuiceandsmoothieComponent },
-  { path: "sushi", component: SushiComponent }
+  {path: "breakfast", component:BreakfastandbrunchComponent},
+  {path: "juiceandsmoothie", component:JuiceandsmoothieComponent},
+  {path: "sushi", component: SushiComponent},
+  {path:"addfood", component: AddFoodComponent}
 
 ];
 
