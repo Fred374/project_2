@@ -17,7 +17,9 @@
         <!-- [(Two way binding!!)] this input field will take user input and fill a variable in our TS-->
         <input type="text" [(ngModel)] ="user.userUsername" placeholder="username">
         <input type="text" [(ngModel)]="user.userPassword" placeholder="password">
-       <button (click)="login()">Login</button> 
+
+        <input (click)="login()" type="submit" value="Login">
+       <button type="submit" (click)="login()">Login</button> 
     </div>
 
     <a routerLink="/registration" class="btn btn-link">Register</a>
