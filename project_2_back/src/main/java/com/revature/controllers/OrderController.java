@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.daos.*;
 import com.revature.models.Order;
 import com.revature.models.OrderItem;
-import com.revature.models.OrderStatus;
 
 @RestController
 @RequestMapping(value = "/order")
@@ -63,7 +63,7 @@ public class OrderController {
 	// Getting Order by Restaurant ID
 	@GetMapping(value="/for-restaurant/{resId}")
 	public ResponseEntity<List<Order>> findOrdersByRestaurantId(@PathVariable int resId) {
-		Optional<List<Order>> ordersOptional = oDAO.findByRestaurantIdFk(resId);
+		Optional<List<Order>> ordersOptional = oDAO.findByRestaurantIdFkOrderByOrderIdDesc(resId);
 		
 		if (ordersOptional.isPresent()) {
 			List<Order> orders = ordersOptional.get();

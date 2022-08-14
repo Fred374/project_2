@@ -21,6 +21,8 @@ import { DriverOrdersComponent } from './components/driver-orders/driver-orders.
 import { BreakfastandbrunchComponent } from './components/breakfastandbrunch/breakfastandbrunch.component';
 import { JuiceandsmoothieComponent } from './components/juiceandsmoothie/juiceandsmoothie.component';
 import { SushiComponent } from './components/sushi/sushi.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { AlertComponent } from './components/shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { SushiComponent } from './components/sushi/sushi.component';
     DriverOrdersComponent,
     BreakfastandbrunchComponent,
     JuiceandsmoothieComponent,
-    SushiComponent
+    SushiComponent,
+    SpinnerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
