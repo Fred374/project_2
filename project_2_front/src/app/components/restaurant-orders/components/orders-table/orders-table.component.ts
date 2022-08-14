@@ -101,10 +101,16 @@ export class OrdersTableComponent implements OnInit {
 
     this.selectedOrder!.orderStatusId = orderStatus;
 
-    this.orderService.updateOrder(this.selectedOrder!).subscribe(data => {
+    this.orderService.updateOrder(this.selectedOrder!).subscribe(
+      data => {
       this.filterOrders()
       this.alertComponent.displayAlert(this.selectedOrder?.userId?.userFirstName + "'s order status updated!", "success");
-    })
+    },
+      error => {
+        this.alertComponent.displayAlert("Unable to update order status. Please try again.", "danger");
+        console.log(error);
+      }
+    )
 
   }
 

@@ -4,11 +4,65 @@ nav {
     background-color: var(--primary-color);
 }
 
+li {
+    list-style: none;
+}
+
 a {
     color: var(--background-color) !important;
 }
 
+a:active {
+    filter: brightness(1.3) !important;
+}
+
+/* 
 a:hover {
     filter: brightness(1.2);
     font-weight: 300;
+}
+
+a:active {
+    color: var(--background-color) !important;
+    filter: brightness(1.2);
+    font-weight: 300;
+} */
+
+#navBarLogo {
+    width: 80px;
+    /* height: 80px; */
+    /* position: fixed; */
+    /* z-index: 5;
+    top: 10px;
+    left: 1rem;
+    right: 1rem; */
+    /* margin: auto; */
+}
+
+#loginLogo {
+        /* height: 80px; */
+    position: fixed;
+    z-index: 5;
+    top: 10px;
+    left: 1rem;
+    right: 1rem;
+    margin: auto;
+}
+
+.navbar-brand:hover {
+    filter: brightness(1) !important;
+}
+
+#logoutButton {
+    color: var(--text-color) !important;
+}
+
+#logoutButton:hover {
+    background-color: var(--background-color);
+}
+
+#logoutButton:active {
+    background-color: var(--secondary-color);
+    color: white !important;
+    filter: brightness(1) !important;
 }

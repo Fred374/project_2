@@ -31,6 +31,10 @@ button {
     overflow: hidden;
 }
 
+.order-records-div:hover {
+    box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 1);
+}
+
 .order-records-div .row {
     width: 100%;
     height: 100%;

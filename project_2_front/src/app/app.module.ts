@@ -23,6 +23,7 @@ import { JuiceandsmoothieComponent } from './components/juiceandsmoothie/juicean
 import { SushiComponent } from './components/sushi/sushi.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { AlertComponent } from './components/shared/alert/alert.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AlertComponent } from './components/shared/alert/alert.component';
     JuiceandsmoothieComponent,
     SushiComponent,
     SpinnerComponent,
-    AlertComponent
+    AlertComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

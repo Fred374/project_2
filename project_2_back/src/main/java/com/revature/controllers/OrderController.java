@@ -1,12 +1,10 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +14,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.revature.daos.*;
+
+import com.revature.daos.FoodItemDAO;
+import com.revature.daos.OrderDAO;
+import com.revature.daos.OrderItemDAO;
+import com.revature.daos.OrderStatusDAO;
+import com.revature.daos.UserDAO;
 import com.revature.models.Order;
 import com.revature.models.OrderItem;
+import com.revature.models.OrderStatus;
 
 @RestController
 @RequestMapping(value = "/order")
@@ -123,6 +127,21 @@ public class OrderController {
 		}
 		
 		return ResponseEntity.badRequest().build(); 		
+	}
+	
+	// Get orders by statusId
+	
+	@GetMapping(value="/by-status/{statusId}")
+	ResponseEntity<Optional<List<Order>>> getByOrderStatusId(@PathVariable int statusId) {
+		OrderStatus os = new OrderStatus(statusId);
+		
+		Optional<List<Order>> orderList = oDAO.findByOrderStatusId(os);
+		
+		if (orderList.isPresent()) {
+			return ResponseEntity.ok(orderList);
+		}
+		
+		return ResponseEntity.badRequest().build();
 	}
 	
 	// Deleting order

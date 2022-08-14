@@ -1,27 +1,48 @@
-<div class="container-fluid">
-    <!-- Input box for login-->
-    <div class="row m-3"> <!-- Might remove class-->
-        <h2>Welcome to Food Hero</h2>
-        <br>
-        <!-- <p >{{user.userFirstName}}</p> -->
-        <h4>Executive summary:
+<!-- Alert -->
+<app-alert></app-alert>
 
-            Food hero is a one stop shop for food delivery. We pride ourselves on making good food available to everyone.
-            </h4>
-        <h4>Mission: 
+<div class="container-fluid" id="loginDiv">
 
-            Our mission is to promote good food and enable customers to have it delivered straight to their door.
-            </h4>
-            <br><br><br>
-            <h3>Login</h3>
+
+  <!-- Input box for login-->
+  <div class="row">
+    <div class="col">
+      <h2 id="welcomeHeader">Welcome to Food Hero</h2>
+      <br />
+      <!-- <p >{{user.userFirstName}}</p> -->
+      <h3><b>
+          Executive summary: </b>Food hero is a one stop shop for food delivery. We
+        pride ourselves on making good food available to everyone.
+      </h3>
+      <h3><b>
+          Mission:</b> Our mission is to promote good food and enable customers to have
+        it delivered straight to their door.
+      </h3>
+
+
+
+      <!-- Login Card -->
+      <div id="fieldsDiv">
+        <h2>Login</h2>
         <!-- [(Two way binding!!)] this input field will take user input and fill a variable in our TS-->
-        <input type="text" [(ngModel)] ="user.userUsername" placeholder="username">
-        <input type="password" [(ngModel)]="user.userPassword" placeholder="password">
+        <input class="form-control" type="text" [(ngModel)]="user.userUsername" placeholder="username" />
+        <input class="form-control" type="password" [(ngModel)]="user.userPassword" placeholder="password" />
+        <div>
+          <button type="button" class="large-button" id="loginButton" (click)="login()"><b>
+            Login</b>
+          </button>
+        </div>
+        <div>
+          <a id="registerLink" routerLink="/registration">Register</a>
+        </div>
+      </div>
+      <figure class="text-center"><blockquote class="blockquote"><p><b>“One cannot think well, love well, sleep well, if one has not dined well.”</b></p>
+      </blockquote>
+      <figcaption class="blockquote-footer">Virginia Woolf,
+        <cite title="Source title">A Room of One’s Own</cite>
+      </figcaption>
+    </figure>
 
-        <input (click)="login()" type="submit" value="Login">
-       <button type="submit" (click)="login()">Login</button> 
     </div>
-
-    <a routerLink="/registration" class="btn btn-link">Register</a>
-
-</div>
+  </div>
+  </div>

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { AlertComponent } from 'src/app/components/shared/alert/alert.component';
+
 
 @Component({
   selector: 'app-login',
@@ -9,6 +11,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  // Giving access to alert component's methods from here
+  @ViewChild(AlertComponent) alertComponent! : AlertComponent;
 
   //this variable gets filled by the user input in the login html
   public input:String="" 
@@ -22,7 +27,8 @@ export class LoginComponent implements OnInit {
   //This is the login function
   login(){
 
-    this.us.loginUser(this.user).subscribe(data => {
+    this.us.loginUser(this.user).subscribe(
+      data => {
       this.user = data as User
       this.us.user = data
       console.log(this.user)
@@ -44,11 +50,18 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/restaurant/orders'])
 
       }
-    });    
+    },
+    error => {
+      this.alertComponent.displayAlert("Incorrect username/password. Please check your credentials and try again.", "danger");
+    }
+    
+    );    
 
 
   }
   ngOnInit(): void {
+    // Logging any existing user out when visiting login page
+    localStorage.removeItem('currentUser');
   }
 
 }

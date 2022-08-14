@@ -32,6 +32,11 @@ public class OrderStatus {
 	@OneToMany(mappedBy = "orderStatusId")
 	private List<Order> orders;
 	
+	public OrderStatus(int orderStatusId) {
+		super();
+		this.orderStatusId = orderStatusId;
+	}
+
 	/* Constructors ---------------------------------------------------------------------------------------- */
 	public OrderStatus() {
 		super();
