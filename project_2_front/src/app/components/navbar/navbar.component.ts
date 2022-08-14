@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
     } else if (this.userRoleId == 3) {
       this.homePage = '/restaurant/orders';
     } else {
-      this.homePage = '/asdafasfs';
+      this.homePage = '/login';
     }
   }
 
