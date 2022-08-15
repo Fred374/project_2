@@ -1,6 +1,6 @@
-<h2>Create an Account</h2>
-<div class="container">
 
+<div class="container">
+    <h2 class="mb-4">Create an Account</h2>
     <div class="row">
 
         <div class="col-md-4">
@@ -67,7 +67,7 @@
                     <input type="text" name="password2" ngModel placeholder="Enter password here">
                     --> 
                 <div class="form-group">
-                    <button type="submit" (click)="createUser()">Submit</button>
+                    <button type="submit" class="small-button" (click)="createUser()">Submit</button>
                 </div>
                 <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
                     Signup failed!<br />{{errorMessage}}
