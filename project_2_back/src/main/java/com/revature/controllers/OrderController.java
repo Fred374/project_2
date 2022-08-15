@@ -130,7 +130,6 @@ public class OrderController {
 	}
 	
 	// Get orders by statusId
-	
 	@GetMapping(value="/by-status/{statusId}")
 	ResponseEntity<Optional<List<Order>>> getByOrderStatusId(@PathVariable int statusId) {
 		OrderStatus os = new OrderStatus(statusId);

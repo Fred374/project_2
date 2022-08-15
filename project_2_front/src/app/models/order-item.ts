@@ -6,6 +6,7 @@ export class OrderItem {
         public orderItemId: number,
         public foodItemId: FoodItem,
         public orderItemNum: number,
-        public orderItemTotalCost: number
+        public orderItemTotalCost: number,
+
     ) { }
 }

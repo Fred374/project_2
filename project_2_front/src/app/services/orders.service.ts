@@ -42,8 +42,8 @@ export class OrdersService {
     return orders;
   }
 
-  getOrdersByStatus(orderStatus: number): Observable<HttpResponse<Order[]>> {
-    let orders = this.http.get("http://localhost:4009/food/order/ready/" + orderStatus, { observe: "response" }) as Observable<HttpResponse<Order[]>>;
+  getByOrderStatus(orderStatus: number): Observable<HttpResponse<Order[]>> {
+    let orders = this.http.get("http://localhost:4009/food/order/by-status/" + orderStatus, { observe: "response" }) as Observable<HttpResponse<Order[]>>;
     return orders;
   }
 
