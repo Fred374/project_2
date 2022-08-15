@@ -30,7 +30,7 @@
                 <td>${{orderitem.orderCost}}</td>
                 <td>{{orderitem?.orderStatusId?.orderStatusName}}</td>
                 <div>
-                    <button type="submit" class="large-button" (click)="takeOrder()">Accept Order</button>
+                    <button type="submit" class="large-button" (click)="selectedOrder = orderitem; takeOrder()">Accept Order</button>
                 </div>
             </tr>
         </tbody>

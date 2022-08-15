@@ -28,7 +28,14 @@ export class DriverOrdersComponent implements OnInit {
       }
     
       takeOrder() {
-    let orderStatus: OrderStatus;
+        console.log(this.selectedOrder?.orderId);
+        let orderStatus = new OrderStatus(3, "Picked Up");
+        this.selectedOrder!.orderStatusId = orderStatus;
+        this.os.updateOrder(this.selectedOrder!).subscribe(
+          data => {
+            console.log(data);
+          }
+        )
 
 
     // I want to change the order status of a specific order ID
