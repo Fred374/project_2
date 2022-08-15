@@ -19,15 +19,19 @@
                 <th>Customer</th>
                 <th>Order Cost</th>
                 <th>Order Status</th>
+                <th>Choose Order</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr *ngFor="let orderitem of orders">
+            <tr *ngFor="let orderitem of readyOrders">
                 <td>{{orderitem.orderId}}</td>
                 <td>{{orderitem?.userId?.userFirstName}} {{orderitem?.userId?.userLastName}}</td>
                 <td>${{orderitem.orderCost}}</td>
                 <td>{{orderitem?.orderStatusId?.orderStatusName}}</td>
+                <div>
+                    <button type="submit" class="large-button" (click)="takeOrder()">Accept Order</button>
+                </div>
             </tr>
         </tbody>
     </table>
