@@ -1,0 +1,34 @@
+16:27:09.144 [restartedMain] INFO  com.revature.Project2BackApplication - Starting Project2BackApplication using Java 1.8.0_341 on macbook1hunnid.local with PID 16739 (/Users/vaheaslanyan/Documents/Revature/Projects/P2/project_2/project_2_back/bin/main started by vaheaslanyan in /Users/vaheaslanyan/Documents/Revature/Projects/P2/project_2/project_2_back)
+16:27:09.145 [restartedMain] INFO  com.revature.Project2BackApplication - No active profile set, falling back to 1 default profile: "default"
+16:27:09.355 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:27:09.369 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 7 JPA repository interfaces.
+16:27:09.450 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 4009 (http)
+16:27:09.450 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-4009"]
+16:27:09.451 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:27:09.451 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+16:27:09.457 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/food] - Initializing Spring embedded WebApplicationContext
+16:27:09.457 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 310 ms
+16:27:09.519 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:27:09.523 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+16:27:10.496 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+16:27:10.497 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+16:27:12.944 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:27:12.945 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:27:13.155 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:27:13.375 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:27:13.383 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 13 endpoint(s) beneath base path '/actuator'
+16:27:13.406 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-4009"]
+16:27:13.408 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 4009 (http) with context path '/food'
+16:27:13.427 [restartedMain] INFO  com.revature.Project2BackApplication - Started Project2BackApplication in 4.305 seconds (JVM running for 91.814)
+16:27:13.433 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+16:27:21.362 [http-nio-4009-exec-1] INFO  o.a.c.c.C.[.[localhost].[/food] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:27:21.363 [http-nio-4009-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:27:21.366 [http-nio-4009-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+16:27:21.530 [http-nio-4009-exec-2] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@743f32f7 invoked ResponseEntity com.revature.controllers.OrderController.updateVehicle(Order)
+16:27:43.888 [http-nio-4009-exec-3] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.FoodItemController@e4229db invoked ResponseEntity com.revature.controllers.FoodItemController.getFood(Integer)
+16:27:48.160 [http-nio-4009-exec-4] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@743f32f7 invoked ResponseEntity com.revature.controllers.OrderController.findOrdersByRestaurantId(int)
+16:27:56.303 [http-nio-4009-exec-5] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@743f32f7 invoked ResponseEntity com.revature.controllers.OrderController.updateVehicle(Order)
+16:28:00.467 [RMI TCP Connection(14)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+16:28:00.483 [RMI TCP Connection(14)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:28:00.484 [RMI TCP Connection(14)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+16:28:01.280 [RMI TCP Connection(14)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
