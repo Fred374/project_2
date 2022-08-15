@@ -32,3 +32,45 @@
 16:28:00.483 [RMI TCP Connection(14)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 16:28:00.484 [RMI TCP Connection(14)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
 16:28:01.280 [RMI TCP Connection(14)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+01:29:50.133 [restartedMain] INFO  com.revature.Project2BackApplication - Starting Project2BackApplication using Java 17.0.3.1 on DESKTOP-PC1Q6UI with PID 10060 (C:\Users\zakee\Documents\eclipse-workplaces\revature\P2_Group\project_2\project_2_back\bin\main started by zakee in C:\Users\zakee\Documents\eclipse-workplaces\revature\P2_Group\project_2\project_2_back)
+01:29:50.134 [restartedMain] INFO  com.revature.Project2BackApplication - No active profile set, falling back to 1 default profile: "default"
+01:29:50.347 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:29:50.364 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 7 JPA repository interfaces.
+01:29:50.434 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 4009 (http)
+01:29:50.434 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:29:50.434 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+01:29:50.451 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/food] - Initializing Spring embedded WebApplicationContext
+01:29:50.451 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 315 ms
+01:29:50.496 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:29:50.500 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+01:29:51.043 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+01:29:51.043 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+01:29:52.356 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01:29:52.357 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01:29:52.490 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01:29:52.628 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+01:29:52.630 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 13 endpoint(s) beneath base path '/actuator'
+01:29:52.644 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 4009 (http) with context path '/food'
+01:29:52.649 [restartedMain] INFO  com.revature.Project2BackApplication - Started Project2BackApplication in 2.575 seconds (JVM running for 4822.208)
+01:29:52.652 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+01:30:02.856 [http-nio-4009-exec-1] INFO  o.a.c.c.C.[.[localhost].[/food] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01:30:02.856 [http-nio-4009-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+01:30:02.857 [http-nio-4009-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+01:30:02.860 [http-nio-4009-exec-1] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.UserController@213b247d invoked ResponseEntity com.revature.controllers.UserController.login(User)
+01:31:04.597 [http-nio-4009-exec-3] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+01:31:09.553 [http-nio-4009-exec-4] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+01:32:17.730 [http-nio-4009-exec-6] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+01:32:21.124 [http-nio-4009-exec-7] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+01:33:33.566 [http-nio-4009-exec-9] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+01:34:29.467 [http-nio-4009-exec-10] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+01:58:10.964 [http-nio-4009-exec-2] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:06:02.379 [http-nio-4009-exec-5] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.UserController@213b247d invoked ResponseEntity com.revature.controllers.UserController.login(User)
+02:06:02.534 [http-nio-4009-exec-6] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:08:50.941 [http-nio-4009-exec-8] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:14:24.466 [http-nio-4009-exec-10] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:14:39.044 [http-nio-4009-exec-1] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:17:25.885 [http-nio-4009-exec-3] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:23:01.095 [http-nio-4009-exec-5] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:30:15.194 [http-nio-4009-exec-7] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:30:22.944 [http-nio-4009-exec-9] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.updateVehicle(Order)
+02:31:42.893 [http-nio-4009-exec-1] INFO  com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@28d3cb2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
