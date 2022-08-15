@@ -3811,3 +3811,91 @@ Caused by: java.lang.IllegalStateException: The existing value 'com.revature.con
 21:07:53.428 [http-nio-4009-exec-9] TRACE com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@6557f8af invoked ResponseEntity com.revature.controllers.OrderController.updateVehicle(Order)
 21:07:55.021 [http-nio-4009-exec-4] TRACE com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@6557f8af invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
 21:07:55.021 [http-nio-4009-exec-8] TRACE com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@6557f8af invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:43:54.014 [restartedMain] INFO  com.revature.Project2BackApplication - Starting Project2BackApplication using Java 17.0.3.1 on DESKTOP-PC1Q6UI with PID 1476 (C:\Users\zakee\Documents\eclipse-workplaces\revature\P2_Group\project_2\project_2_back\bin\main started by zakee in C:\Users\zakee\Documents\eclipse-workplaces\revature\P2_Group\project_2\project_2_back)
+02:43:54.017 [restartedMain] DEBUG com.revature.Project2BackApplication - Running with Spring Boot v2.7.2, Spring v5.3.22
+02:43:54.017 [restartedMain] INFO  com.revature.Project2BackApplication - No active profile set, falling back to 1 default profile: "default"
+02:43:54.048 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+02:43:54.048 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+02:43:54.625 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+02:43:54.672 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 7 JPA repository interfaces.
+02:43:55.163 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 4009 (http)
+02:43:55.169 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-4009"]
+02:43:55.169 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+02:43:55.169 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+02:43:55.223 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/food] - Initializing Spring embedded WebApplicationContext
+02:43:55.223 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1175 ms
+02:43:55.437 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+02:43:55.472 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+02:43:55.586 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+02:43:55.650 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+02:43:56.280 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+02:43:56.301 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+02:43:58.057 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+02:43:58.064 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+02:43:58.480 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+02:43:58.959 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+02:43:58.964 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 13 endpoint(s) beneath base path '/actuator'
+02:43:58.988 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-4009"]
+02:43:59.002 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 4009 (http) with context path '/food'
+02:43:59.013 [restartedMain] INFO  com.revature.Project2BackApplication - Started Project2BackApplication in 5.227 seconds (JVM running for 5.68)
+02:44:00.304 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[localhost].[/food] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:44:00.304 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+02:44:00.305 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+02:44:18.293 [http-nio-4009-exec-2] TRACE com.revature.aspects.LoggingAspect - com.revature.controllers.UserController@50a8c36c invoked ResponseEntity com.revature.controllers.UserController.login(User)
+02:44:18.536 [http-nio-4009-exec-3] TRACE com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@544b6b2a invoked ResponseEntity com.revature.controllers.OrderController.getByOrderStatusId(int)
+02:44:25.341 [http-nio-4009-exec-5] TRACE com.revature.aspects.LoggingAspect - com.revature.controllers.OrderController@544b6b2a invoked ResponseEntity com.revature.controllers.OrderController.updateVehicle(Order)
+03:46:13.996 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+03:46:14.000 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+03:46:14.462 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+03:46:14.535 [restartedMain] INFO  com.revature.Project2BackApplication - Starting Project2BackApplication using Java 17.0.3.1 on DESKTOP-PC1Q6UI with PID 1476 (C:\Users\zakee\Documents\eclipse-workplaces\revature\P2_Group\project_2\project_2_back\bin\main started by zakee in C:\Users\zakee\Documents\eclipse-workplaces\revature\P2_Group\project_2\project_2_back)
+03:46:14.535 [restartedMain] DEBUG com.revature.Project2BackApplication - Running with Spring Boot v2.7.2, Spring v5.3.22
+03:46:14.536 [restartedMain] INFO  com.revature.Project2BackApplication - No active profile set, falling back to 1 default profile: "default"
+03:46:14.738 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03:46:14.750 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 7 JPA repository interfaces.
+03:46:14.833 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 4009 (http)
+03:46:14.833 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-4009"]
+03:46:14.833 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+03:46:14.834 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+03:46:14.846 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/food] - Initializing Spring embedded WebApplicationContext
+03:46:14.846 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 309 ms
+03:46:14.916 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+03:46:14.921 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+03:46:15.408 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+03:46:15.408 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03:46:16.727 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03:46:16.728 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03:46:16.930 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03:46:17.156 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+03:46:17.159 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 13 endpoint(s) beneath base path '/actuator'
+03:46:17.172 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-4009"]
+03:46:17.174 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 4009 (http) with context path '/food'
+03:46:17.181 [restartedMain] INFO  com.revature.Project2BackApplication - Started Project2BackApplication in 2.667 seconds (JVM running for 3743.848)
+03:46:17.183 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+03:46:33.441 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.revature.Project2BackApplicationTests], using SpringBootContextLoader
+03:46:33.446 [main] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.revature.Project2BackApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+03:46:33.446 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.revature.Project2BackApplicationTests]: Project2BackApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03:46:33.536 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.revature.Project2BackApplication for test class com.revature.Project2BackApplicationTests
+03:46:33.607 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03:46:33.619 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@25bc0606, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5d1659ea, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@793138bd, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1951b871, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5c18016b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@33aeca0b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@43aaf813, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57ac5227, org.springframework.test.context.event.EventPublishingTestExecutionListener@4ba302e0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@e98770d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1ae67cad, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2f6e28bc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7c098bb3, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@31e4bb20, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@18cebaa5]
+03:46:33.853 [main] INFO  c.r.Project2BackApplicationTests - Starting Project2BackApplicationTests using Java 17.0.3.1 on DESKTOP-PC1Q6UI with PID 1864 (started by zakee in C:\Users\zakee\Documents\eclipse-workplaces\revature\P2_Group\project_2\project_2_back)
+03:46:33.853 [main] DEBUG c.r.Project2BackApplicationTests - Running with Spring Boot v2.7.2, Spring v5.3.22
+03:46:33.853 [main] INFO  c.r.Project2BackApplicationTests - No active profile set, falling back to 1 default profile: "default"
+03:46:34.497 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03:46:34.554 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 7 JPA repository interfaces.
+03:46:35.572 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+03:46:35.613 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+03:46:35.651 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+03:46:35.743 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+03:46:36.449 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+03:46:36.472 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+03:46:38.124 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+03:46:38.131 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03:46:38.646 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03:46:39.724 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 13 endpoint(s) beneath base path '/actuator'
+03:46:39.783 [main] INFO  c.r.Project2BackApplicationTests - Started Project2BackApplicationTests in 6.129 seconds (JVM running for 6.998)
+03:46:39.828 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static com.revature.controllers.UserController com.revature.Project2BackApplicationTests.userController
+03:46:39.828 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static com.revature.controllers.OrderController com.revature.Project2BackApplicationTests.orderController
+03:46:39.828 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static com.revature.controllers.FoodItemController com.revature.Project2BackApplicationTests.foodItemController
+03:46:39.901 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+03:46:39.902 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+03:46:40.338 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
