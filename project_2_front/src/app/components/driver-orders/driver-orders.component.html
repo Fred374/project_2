@@ -1,38 +1,41 @@
-<header class="m-4">
-    <table class="table table-dark">
-        <thead>
-            <th class="col-sm-9">
-                <h3>Orders</h3>
-            </th>
-            <th class="col-sm-3">
-                <h3>Driver</h3>
-            </th>
-        </thead>
-    </table>
-</header>
-
-<body class="mx-5 my-3">
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th>Order Id</th>
-                <th>Customer</th>
-                <th>Order Cost</th>
-                <th>Order Status</th>
-                <th>Choose Order</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr *ngFor="let orderitem of readyOrders">
-                <td>{{orderitem.orderId}}</td>
-                <td>{{orderitem?.userId?.userFirstName}} {{orderitem?.userId?.userLastName}}</td>
-                <td>${{orderitem.orderCost}}</td>
-                <td>{{orderitem?.orderStatusId?.orderStatusName}}</td>
-                <div>
-                    <button type="submit" class="large-button" (click)="selectedOrder = orderitem; takeOrder()">Accept Order</button>
-                </div>
-            </tr>
-        </tbody>
-    </table>
-</body>
+<div class="container" id="ordersDiv">
+    <div class="row">
+        <div class="col">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Customer</th>
+                    <th>Order Cost</th>
+                    <th>Order Status</th>
+                    <th>Choose Order</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="!hasActiveOrder">
+                <tr *ngFor="let orderitem of readyOrders">
+                    <td>{{orderitem.orderId}}</td>
+                    <td>{{orderitem?.userId?.userFirstName}} {{orderitem?.userId?.userLastName}}</td>
+                    <td>{{orderitem.orderCost | currency}}</td>
+                    <td>{{orderitem?.orderStatusId?.orderStatusName}}</td>
+                    <div class="d-flex">
+                        <button type="submit" class="large-button"
+                            (click)="selectedOrder = orderitem; takeOrder()">Accept Order</button>
+                    </div>
+                </tr>
+            </tbody>
+            <tbody *ngIf="hasActiveOrder">
+                <tr *ngFor="let orderitem of pikedUpOrders">
+                    <td>{{orderitem.orderId}}</td>
+                    <td>{{orderitem?.userId?.userFirstName}} {{orderitem?.userId?.userLastName}}</td>
+                    <td>{{orderitem.orderCost | currency}}</td>
+                    <td>{{orderitem?.orderStatusId?.orderStatusName}}</td>
+                    <div class="d-flex">
+                        <button type="submit" class="large-button"
+                            (click)="selectedOrder = orderitem; deliverOrder()">Delivered</button>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
