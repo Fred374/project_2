@@ -6,42 +6,70 @@ import { OrdersService } from 'src/app/services/orders.service';
 @Component({
   selector: 'app-driver-orders',
   templateUrl: './driver-orders.component.html',
-  styleUrls: ['./driver-orders.component.css']
+  styleUrls: ['./driver-orders.component.css'],
 })
 export class DriverOrdersComponent implements OnInit {
   selectedOrder?: Order;
 
+  public readyOrders: Order[] = [];
+  public pikedUpOrders: Order[] = [];
+
+  // public tableOrders: Order[] = [];
+
+  public hasActiveOrder = false;
+
   ngOnInit(): void {
-      this.getOrders();
+    this.getOrders();
   }
 
-  public readyOrders : Order[] = [];
-  constructor(private os : OrdersService) { }
+  ngOnChanges(): void {
+    this.getOrders()
+  }
+
+  constructor(private os: OrdersService) {}
 
   getOrders() {
     this.os.getOrdersByStatus(2).subscribe(
-      (data: any) => {
-        this.readyOrders = data.body;
-        console.log("data: " + data.body)
-          }
-        );
-      }
-    
-      takeOrder() {
-        console.log(this.selectedOrder?.orderId);
-        let orderStatus = new OrderStatus(3, "Picked Up");
-        this.selectedOrder!.orderStatusId = orderStatus;
-        this.os.updateOrder(this.selectedOrder!).subscribe(
-          data => {
-            console.log(data);
-          }
-        )
+    data => {
+      this.readyOrders = data.body as Order[];
+      console.log('data: ' + data.body);
+    });
 
-
-    // I want to change the order status of a specific order ID
-    // order.orderId
+    this.os.getOrdersByStatus(3).subscribe(
+      data => {
+      this.pikedUpOrders = data.body as Order[];
+      console.log('data: ' + data.body);
+    });
   }
 
+  takeOrder() {
+    console.log(this.selectedOrder?.orderId);
+
+    let orderStatus = new OrderStatus(3, 'Picked Up');
+    this.selectedOrder!.orderStatusId = orderStatus;
+
+    this.os.updateOrder(this.selectedOrder!).subscribe((data) => {
+      this.getOrders()
+      this.hasActiveOrder = true;
+    });
+
+
   }
 
-  
+
+  deliverOrder() {
+    console.log(this.selectedOrder?.orderId);
+
+    let orderStatus = new OrderStatus(4, 'Delivered');
+    this.selectedOrder!.orderStatusId = orderStatus;
+
+    this.os.updateOrder(this.selectedOrder!).subscribe((data) => {
+      this.getOrders()
+      this.hasActiveOrder = false;
+    });
+
+
+    // location.reload();
+  }
+
+}

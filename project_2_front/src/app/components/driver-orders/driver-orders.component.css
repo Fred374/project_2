@@ -1,0 +1,11 @@
+#ordersDiv {
+    display: flex;
+    justify-content: center;
+
+}
+
+.large-button {
+    width: 200px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
