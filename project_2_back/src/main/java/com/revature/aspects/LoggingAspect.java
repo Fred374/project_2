@@ -1,12 +1,16 @@
 package com.revature.aspects;
 
+import org.aspectj.bridge.AbortException;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 @Component 
 @Aspect
@@ -18,16 +22,24 @@ public class LoggingAspect {
 	@Before("within(com.revature.controllers.*)")
 	public void logModelMethods(JoinPoint jp) {
 		
-		log.info(jp.getTarget() + " invoked " + jp.getSignature());
+		log.trace(jp.getTarget() + " invoked " + jp.getSignature());
+	}
+	
+	@Around(value="execution(* com.revature.controllers.*.*(..))")
+	public Object taskHandler(ProceedingJoinPoint joinPoint) throws Throwable {
+		
+		try {
+			Object obj = joinPoint.proceed();
+			return obj;
+		} catch (Exception e) {
+			log.info("AbortException status code {}", e.getCause());
+			log.info("Message {}", e.getLocalizedMessage());
+		}
+		
+		return null;
 		
 	}
 	
-//	@AfterReturning(pointcut="within(com.revature.controllers.*)", returning="returnedObject")
-//	public void logSuccessfulFight(JoinPoint jp, Object returnedObject) {
-//		
-//		log.info(jp.getTarget() + " invoked " + jp.getSignature() + " and returned " + returnedObject);	
-//		
-//	}
 }
 
 
