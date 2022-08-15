@@ -56,7 +56,7 @@
 
                 <div class="form-group">
                     <label for="password" class="form-label">Enter a password:</label><br>
-                    <input type="text" id="password" name="password" [(ngModel)]="user.userPassword" class="form-control" required #password="ngModel"><br>
+                    <input type="password" id="password" name="password" [(ngModel)]="user.userPassword" class="form-control" required #password="ngModel"><br>
                     <!-- Some validation -->
                     <div class="alert-danger" *ngIf="password.errors && f.submitted">
                         <div *ngIf="password.errors.required">password is required</div>
@@ -67,7 +67,8 @@
                     <input type="text" name="password2" ngModel placeholder="Enter password here">
                     --> 
                 <div class="form-group">
-                    <button type="submit" (click)="createUser()">Submit</button>
+                    <input type="submit" (click)="createUser()" value="Register">
+                    <button type="submit" (click)="createUser()"><p>Register</p></button>
                 </div>
                 <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
                     Signup failed!<br />{{errorMessage}}

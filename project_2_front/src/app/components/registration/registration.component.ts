@@ -45,7 +45,7 @@ export class RegistrationComponent implements OnInit {
       // conditional routing
       if(data.userRoleId?.userRoleId == 1) {
       // if user is a customer send them to choose Restaurant
-        this.router.navigate(['/chooseRestaurant']);
+        this.router.navigate(['/mood']);
     
       } else if (data.userRoleId?.userRoleId == 2) {
         // if user is a driver send them to ... not sure yet
