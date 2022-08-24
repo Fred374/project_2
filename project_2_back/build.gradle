@@ -25,3 +25,15 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+plugins {
+  id "org.sonarqube" version "3.4.0.2513"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "vaheaslanyan_FoodHero"
+    property "sonar.organization", "vaheaslanyan"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
